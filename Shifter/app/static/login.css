@@ -1,3 +1,37 @@
 body {
-    background-color: red;
+    background-image: url('login1.jpg');
+    background-size:100%;
+    background-repeat:no-repeat;
+    margin:0;
+}
+form.login{
+    background:rgb(88, 66, 66);
+    height:200px;
+    width:400px;
+    position: absolute;
+    margin: -150px 0 -150px 0;
+    left:33%;
+    right:33%;
+    bottom:33%;
+    top:50%;
+    border-radius: 20px;
+
+}
+
+form.login input.username{
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    border-radius: 5px;
+    height:100px;
+    width: 100px;
+    position: absolute;
+    margin: -50px 0 0 -50px;
+    left:50%;
+    top:50%;
+}
+form.login input.password{
+    text-align: center;
+    border-radius: 5px;
+    padding:5%;
+    
 }
