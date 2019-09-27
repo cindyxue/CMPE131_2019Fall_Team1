@@ -18,3 +18,4 @@ class EmployeeForm(FlaskForm):
     last_name = StringField("Last name", validators=[DataRequired()])
     email = StringField("Email", validators=[DataRequired(), Email()])
     phone_number = IntegerField("Phone number", validators=[DataRequired()])
+    submit = SubmitField("Submit info")
