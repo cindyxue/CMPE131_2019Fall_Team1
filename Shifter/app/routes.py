@@ -14,14 +14,15 @@ def home():
 
 
 @Shifter.route("/addemployee")
-def addemployee():
+def addEmployee():
     title = "Add employee to Shifter"
     form = EmployeeForm()
     return render_template("addemployee.html", title=title, form=form)
 @Shifter.route("/choose")
 
-def choose():
-    title = "Edit "
+def chooseToDo():
+    title = "ChooseToDo"
+    formLogout = LougoutForm()
 
 if __name__ == '__main__':
     Shifter.run()
