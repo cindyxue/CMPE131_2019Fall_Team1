@@ -6,34 +6,34 @@
         <div>
             <form action = "" method = "POST">
                 <p>
-                    {{ form.first_name.label }} <br>
-                    {{ form.first_name(size=32) }} <br>
-                    {% for error in form.first_name.errors %}
+                    {{ formEmployee.first_name.label }}<br>
+                    {{ formEmployee.first_name(size=32) }}<br>
+                    {% for error in formEmployee.first_name.errors %}
                     <span style="color: red;">[{{ error }}]</span>
                     {% endfor %}
                 </p>
                 <p>
-                    {{ form.last_name.label }}<br>
-                    {{ form.last_name(size=32) }}<br>
-                    {% for error in form.last_name.errors %}
+                    {{ formEmployee.last_name.label }}<br>
+                    {{ formEmployee.last_name(size=32) }}<br>
+                    {% for error in formEmployee.last_name.errors %}
                     <span style="color: red;">[{{ error }}]</span>
                     {% endfor %}
                 </p>
                 <p>
-                    {{ form.email.label }}<br>
-                    {{ form.email(size=32) }}<br>
-                    {% for error in form.email.errors %}
+                    {{ formEmployee.email.label }}<br>
+                    {{ formEmployee.email(size=32) }}<br>
+                    {% for error in formEmployee.email.errors %}
                     <span style="color: red;">[{{ error }}]</span>
                     {% endfor %}
                 </p>
                 <p>
-                    {{ form.phone_number.label }}<br>
-                    {{ form.phone_number(size=32) }}<br>
-                    {% for error in form.phone_number.errors %}
+                    {{ formEmployee.phone_number.label }}<br>
+                    {{ formEmployee.phone_number(size=32) }}<br>
+                    {% for error in formEmployee.phone_number.errors %}
                     <span style="color: red;">[{{ error }}]</span>
                     {% endfor %}
                 </p>
-                <p>{{ form.submit() }}</p>
+                <p>{{ formEmployee.submit() }}</p>
                 <p>Users will login with their email. A user's default password will be their phone number.</p>
             </form>
         </div>
