@@ -1,5 +1,5 @@
 from app import Shifter 
-from app.forms import LoginForm, EmployeeForm, LogoutForm
+from app.forms import LoginForm, EmployeeForm, LogoutForm, EditViewForm
 from flask import render_template,flash, redirect, url_for
 
 Shifter.config['SECRET_KEY'] = 'some-key'
@@ -22,7 +22,9 @@ def addEmployee():
 
 def chooseToDo():
     title = "ChooseToDo"
-    formLogout = LougoutForm()
+    formLogout = LogoutForm()
+    formEditView = EditViewForm()
+    return render_template("choose.html", title = title, formLogout = formLogout, formEditView = formEditView)
 
 if __name__ == '__main__':
     Shifter.run()
