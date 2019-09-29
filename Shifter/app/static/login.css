@@ -2,36 +2,47 @@ body {
     background-image: url('login1.jpg');
     background-size:100%;
     background-repeat:no-repeat;
-    margin:0;
 }
 form.login{
-    background:rgb(88, 66, 66);
-    height:200px;
-    width:400px;
-    position: absolute;
-    margin: -150px 0 -150px 0;
-    left:33%;
-    right:33%;
-    bottom:33%;
-    top:50%;
+    background:rgb(131, 112, 112);
     border-radius: 20px;
-
+    margin-top:18%;
+    margin-left:33%;
+    margin-right:33%;
+    padding:80px;
 }
 
-form.login input.username{
+form.login input.username, input.password{
     text-align: center;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    border-radius: 5px;
-    height:100px;
-    width: 100px;
-    position: absolute;
-    margin: -50px 0 0 -50px;
-    left:50%;
-    top:50%;
+    font-size:2vw;
+    border-radius: 15px;
+    padding:20px 1px 20px 1px;
+    margin-top:-10%;
+    margin-bottom:10%;
+    margin-left:-2%;
 }
-form.login input.password{
+form.login input.Login{
+    background-color:rgb(61, 3, 3);
     text-align: center;
-    border-radius: 5px;
-    padding:5%;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size:2vw;
+    padding:20px;
+    border-radius: 15px;
+    margin-left :38%;
+    margin-top:-5%;
+    color:gold;
+    margin-bottom:5%;
+
+}
+.RememberMe{
+    Color:White;
+    font-size: 25px;
+    margin-left:30%;
+}
+.RememberMeButton{
+    width:25px;
+    height:25px;
     
 }
+

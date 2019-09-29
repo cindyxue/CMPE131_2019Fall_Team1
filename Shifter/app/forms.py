@@ -6,6 +6,8 @@ from wtforms.validators import ValidationError, DataRequired, Email
 class LoginForm(FlaskForm):
     Username = StringField("Username")
     Password = StringField("Password")
+    Login = SubmitField("Login")
+    RememberMe = BooleanField("Remember Me")
 
 
 class EditView(FlaskForm):

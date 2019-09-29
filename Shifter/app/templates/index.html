@@ -6,7 +6,10 @@
     <body>
         <form action = "" method = "post" class = "login">
                 {{formLogin.Username(value = "Username", class_="username")}}<br>
-                {{formLogin.Password(value = "Password", class_="password")}}
+                {{formLogin.Password(value = "Password", class_="password")}}<br>
+                {{formLogin.Login(class_ = "Login")}}<br>
+                {{formLogin.RememberMe.label(class_ = "RememberMe")}}
+                {{formLogin.RememberMe(class_ = "RememberMeButton")}}
         </form>
     </body>
 {% endblock %}
