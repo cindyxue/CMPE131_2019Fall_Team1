@@ -2,8 +2,9 @@
 {% extends "base.html" %}
 
 {% block content %}
+    <link href = "../static/addemployee.css" rel = "stylesheet" type = "text/css">
     <body>
-        <div>
+        <div class="container">
             <form action = "" method = "POST">
                 <p>
                     {{ formEmployee.first_name.label }}<br>
