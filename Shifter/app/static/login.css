@@ -19,8 +19,10 @@ form.login input.username, input.password{
     border-radius: 15px;
     padding:20px 1px 20px 1px;
     margin-top:-10%;
+    width:84%;
     margin-bottom:10%;
-    margin-left:-4%;
+    margin-left:8%;
+    margin-right:8%;
     
 }
 form.login input.Login{
@@ -30,7 +32,9 @@ form.login input.Login{
     font-size:2vw;
     padding:20px;
     border-radius: 15px;
-    margin-left :38%;
+    width :64%;
+    margin-left :18%;
+    margin-right:18%;
     margin-top:-5%;
     color:gold;
     margin-bottom:5%;
@@ -39,12 +43,15 @@ form.login input.Login{
 }
 .RememberMe{
     Color:White;
-    font-size: 25px;
-    margin-left:32%;
+    font-size: 1.2vw;
+    width :50%;
+    margin-right:25%;
+    margin-left:25%;
 }
 .RememberMeButton{
     width:25px;
     height:25px;
+    margin-left:-20%;
     
 }
 .Links , .links a{

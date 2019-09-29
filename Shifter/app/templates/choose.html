@@ -2,9 +2,12 @@
 {% extends "base.html" %}
 
 {% block content %}
+    <link href = "../static/choose.css" rel = "stylesheet" type = "text/css">
     <body>
-        {{formEditView.View}}
-        {{formEditView.AddEmpl}}
+        <form action = "" method = "POST">
+        {{formEditView.View(class_="View") }}<br>
+        {{formEditView.AddEmpl(class_ = "AddEmpl")}}
+    </form>
     </body>
 
 
