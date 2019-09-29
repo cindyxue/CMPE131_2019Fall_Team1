@@ -5,9 +5,16 @@
         <title>{{title}}</title>
         {% else %}
         <title>Shifter</title>
-        {% endif %}
-        
+        {% endif %}    
     </head>
+    
     {% block content %}
     {% endblock %}
+    <footer class = "Links">
+            <a href = "">Contact</a>
+            <a href = "">About</a>
+            {% if title != "Shifter Scheduling Application" %}
+            {{formLogout.Logout(class_ = "Logout")}}
+            {% endif %}
+        </footer>
 </html>

@@ -8,7 +8,8 @@ class LoginForm(FlaskForm):
     Password = StringField("Password")
     Login = SubmitField("Login")
     RememberMe = BooleanField("Remember Me")
-
+class LogoutForm(FlaskForm):
+    Logout = SubmitField("Logout")
 
 class EditView(FlaskForm):
     View = SubmitField("Edit/View Schedule")

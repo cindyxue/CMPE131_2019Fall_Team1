@@ -20,7 +20,8 @@ form.login input.username, input.password{
     padding:20px 1px 20px 1px;
     margin-top:-10%;
     margin-bottom:10%;
-    margin-left:-2%;
+    margin-left:-4%;
+    
 }
 form.login input.Login{
     background-color:rgb(61, 3, 3);
@@ -34,15 +35,26 @@ form.login input.Login{
     color:gold;
     margin-bottom:5%;
 
+
 }
 .RememberMe{
     Color:White;
     font-size: 25px;
-    margin-left:30%;
+    margin-left:32%;
 }
 .RememberMeButton{
     width:25px;
     height:25px;
     
+}
+.Links , .links a{
+    text-align: center;
+    margin-top: 5%;
+    margin-left:0%;
+    margin-bottom:0;
+    font-size: 1.5vw;
+    background-color: rgba(255, 30, 0, 0.041);
+    margin-right:0;
+    border-radius: 20px;
 }
 

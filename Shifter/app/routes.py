@@ -1,5 +1,5 @@
 from app import Shifter 
-from app.forms import LoginForm, EmployeeForm
+from app.forms import LoginForm, EmployeeForm, LogoutForm
 from flask import render_template,flash, redirect, url_for
 
 Shifter.config['SECRET_KEY'] = 'some-key'
@@ -9,7 +9,8 @@ Shifter.config['SECRET_KEY'] = 'some-key'
 def home():
     title = "Shifter Scheduling Application"
     formLogin = LoginForm()
-    return render_template('index.html', title=title, formLogin=formLogin)
+    formLogout = LogoutForm()
+    return render_template('index.html', title=title, formLogin=formLogin, formLogout=formLogout)
 
 
 @Shifter.route("/addemployee")
