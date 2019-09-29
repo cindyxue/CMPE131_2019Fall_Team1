@@ -2,8 +2,9 @@
 {% extends "base.html" %}
 
 {% block content %}
+    <body>
         <div>
-            <form>
+            <form action = "" method = "POST">
                 <p>
                     {{ form.first_name.label }} <br>
                     {{ form.first_name(size=32) }} <br>

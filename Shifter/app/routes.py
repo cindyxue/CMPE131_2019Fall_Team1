@@ -18,7 +18,10 @@ def addemployee():
     title = "Add employee to Shifter"
     form = EmployeeForm()
     return render_template("addemployee.html", title=title, form=form)
+@Shifter.route("/choose")
 
+def choose():
+    title = "Edit "
 
 if __name__ == '__main__':
     Shifter.run()
