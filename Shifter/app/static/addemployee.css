@@ -1,23 +1,19 @@
-* {
-    box-sizing: border-box;
-}
 
 body {
-    background-color: #b8b79c;
-    background-size:cover;
+    background-image:url("login3.jpg");
+    background-size:100%;
+    background-repeat: no-repeat;
+    margin:0;
 }
 
 .container {
-    width:50%;
-    margin-left:25%;
-    margin-right:25%;
-    margin-top:25%;
-    margin-bottom:25%;
+    width:97.3%;
+    height:100%;
+    
     padding:25px;
     border-radius:20px;
-    height:50%;
     text-align: center;
-    background: rgb(131, 112, 112);
+    background: rgba(131, 112, 112, 0.219);
 }
 
 input[type=text] {
@@ -31,6 +27,13 @@ input[type=text]:focus {
     background-color: #ebe6c0;
 }
 
-footer {
+.Links , .links a{
     text-align: center;
+    margin-top: 1%;
+    margin-left:0%;
+    margin-bottom:0;
+    font-size: 1.5vw;
+    background-color: rgba(255, 30, 0, 0.041);
+    margin-right:0;
+    border-radius: 20px;
 }
