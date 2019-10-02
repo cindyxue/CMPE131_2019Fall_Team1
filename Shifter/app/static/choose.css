@@ -4,7 +4,7 @@ body {
     background-size:100%;
     margin:0;
     background-repeat: no-repeat;
-    background-position: 0px 129px;
+    background-position: 0px 133px;
 }
 form{
     background:rgb(131, 112, 112);
@@ -25,7 +25,7 @@ form input.View, input.AddEmpl{
     width:80%;
     margin-left:10%;
     margin-right:10%;
-    border-color:gold;
+    border-color:White;
     color:gold;
     margin-bottom:2%;
     margin-top:2%;

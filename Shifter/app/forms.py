@@ -7,6 +7,7 @@ class LoginForm(FlaskForm):
     Username = StringField("Username")
     Password = StringField("Password")
     Login = SubmitField("Login")
+    ResetPassword = SubmitField("ResetPassword")
     RememberMe = BooleanField("Remember Me")
 class LogoutForm(FlaskForm):
     Logout = SubmitField("Logout")

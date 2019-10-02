@@ -11,10 +11,11 @@
             <h1>Shifter</h1>
             <ul>
                 <li><a href="#">Home</a></li>
-                <li><a href="#">Blog</a></li>
+                {% if title != "Shifter Scheduling Application" %}
+                <li><a href="#">My Account</a></li>
+                {% endif %}
                 <li><a href="#">About</a></li>
                 <li><a href="#">Contact</a></li>
-                <li><a href="#">Links</a></li>
                 {% if title != "Shifter Scheduling Application" %}
                 <li class = "logout">{{formLogout.Logout(class_ = "Logoutbutton")}}</li>
                 {% endif %}
