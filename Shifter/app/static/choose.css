@@ -1,15 +1,18 @@
+
 body {
     background-image: url('login1.jpg');
     background-size:100%;
-    background-repeat:no-repeat;
+    margin:0;
+    background-repeat: no-repeat;
+    background-position: 0px 129px;
 }
 form{
     background:rgb(131, 112, 112);
     border-radius: 20px;
-    margin-top:18%;
-    margin-left:33%;
-    margin-right:33%;
-    padding:50px;
+    margin-top:13%;
+    margin-left:11%;
+    margin-right:56%;
+    padding:30px;
 }
 form input.View, input.AddEmpl{
     background-color:rgb(61, 3, 3);
@@ -27,25 +30,4 @@ form input.View, input.AddEmpl{
     margin-bottom:2%;
     margin-top:2%;
     
-}
-
-.Links , .links a{
-    text-align: center;
-    margin-top: 11%;
-    width:33%;
-    margin-left:33%;
-    margin-bottom:0;
-    font-size: 1.5vw;
-    background-color: rgba(255, 30, 0, 0.041);
-    margin-right:0;
-    border-radius: 20px;
-    position:bottom;
-}
-.Links input{
-    background-color:rgba(102, 102, 102, 0.315);
-    color:rgb(61, 3, 3);
-    padding:0px 25px 0 25px;
-    height:40px;
-    font-family: cursive; 
-    font-weight:bold; 
 }

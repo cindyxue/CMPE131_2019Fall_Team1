@@ -1,15 +1,19 @@
+
 body {
     background-image: url('login1.jpg');
     background-size:100%;
-    background-repeat:no-repeat;
+    background-color:rgba(83, 83, 83, 0.116);
+    margin:0;
+    background-repeat: no-repeat;
+    background-position: 0px 129px; /* This makes the image appear 50px from top */
 }
 form.login{
     background:rgb(131, 112, 112);
     border-radius: 20px;
-    margin-top:18%;
-    margin-left:33%;
-    margin-right:33%;
-    padding:80px;
+    margin-top:8%;
+    margin-left:9%;
+    margin-right:56%;
+    padding:80px 40px;
 }
 
 form.login input.username, input.password{
@@ -53,15 +57,5 @@ form.login input.Login{
     height:25px;
     margin-left:-20%;
     
-}
-.Links , .links a{
-    text-align: center;
-    margin-top: 5%;
-    margin-left:0%;
-    margin-bottom:0;
-    font-size: 1.5vw;
-    background-color: rgba(255, 30, 0, 0.041);
-    margin-right:0;
-    border-radius: 20px;
 }
 

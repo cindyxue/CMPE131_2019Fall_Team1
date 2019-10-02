@@ -1,20 +1,27 @@
 <!DOCTYPE html>
 <html>
-    <head>
+    <link href = "../static/base.css" rel = "stylesheet" type = "text/css">
+    <header>
         {% if title %}
         <title>{{title}}</title>
         {% else %}
         <title>Shifter</title>
-        {% endif %}    
-    </head>
+        {% endif %}   
+        <nav>
+            <h1>Shifter</h1>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Links</a></li>
+                {% if title != "Shifter Scheduling Application" %}
+                <li class = "logout">{{formLogout.Logout(class_ = "Logoutbutton")}}</li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
     
     {% block content %}
     {% endblock %}
-    <footer class = "Links">
-            <a href = "">Contact</a>
-            <a href = "">About</a>
-            {% if title != "Shifter Scheduling Application" %}
-            {{formLogout.Logout(class_ = "Logout")}}
-            {% endif %}
-        </footer>
 </html>

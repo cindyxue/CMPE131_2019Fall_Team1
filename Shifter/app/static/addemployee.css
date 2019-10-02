@@ -13,7 +13,7 @@ body {
     padding:25px;
     border-radius:20px;
     text-align: center;
-    background: rgba(131, 112, 112, 0.219);
+    background: rgba(131, 112, 112, 0.144);
 }
 
 input[type=text] {
@@ -25,15 +25,4 @@ input[type=text] {
 
 input[type=text]:focus {
     background-color: #ebe6c0;
-}
-
-.Links , .links a{
-    text-align: center;
-    margin-top: 1%;
-    margin-left:0%;
-    margin-bottom:0;
-    font-size: 1.5vw;
-    background-color: rgba(255, 30, 0, 0.041);
-    margin-right:0;
-    border-radius: 20px;
 }

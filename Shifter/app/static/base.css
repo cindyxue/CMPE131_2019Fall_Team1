@@ -1,0 +1,46 @@
+
+header{
+    background-color:rgba(0, 0, 0, 0.212);
+    padding:30px;
+    border-radius: 0 5px 5px 0;
+    margin-bottom:1px;
+    color:black;
+}
+nav h1{
+    font-family:'Times New Roman', Times, serif;
+    display:inline;
+    font-size: 60px;
+}
+nav ul{
+    display:inline;
+    margin:0;
+    
+    
+}
+nav ul li{
+    list-style-type: none;
+    display:inline-block;
+    background:rgb(61, 3, 3);
+    border-radius: 12px;
+    border-color: white;
+    padding:7px 20px;
+}
+.logout{
+    padding:0;
+    margin-left:30px;
+    margin-right:1%;
+}
+.Logoutbutton{
+    font-family:'Times New Roman', Times, serif;
+    padding:2px 20px;
+    text-align:center;
+    font-size:25px;
+    background-color: white;
+    color:black;
+    border-color:gold;;
+
+}
+nav a{
+    color:gold;
+    font-size:20px;
+}
