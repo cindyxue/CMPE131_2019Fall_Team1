@@ -74,4 +74,7 @@ form.login input.username, input.password{
     margin-left:-20%;
     
 }
+input[type=text]:focus {
+    background-color: #ebe6c0;
+}
 

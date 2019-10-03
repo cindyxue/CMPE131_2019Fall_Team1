@@ -4,8 +4,8 @@ from wtforms.validators import ValidationError, DataRequired, Email
 
 
 class LoginForm(FlaskForm):
-    Username = StringField("Username")
-    Password = StringField("Password")
+    Username = StringField("Username",validators=[DataRequired()])
+    Password = StringField("Password",validators=[DataRequired()])
     Login = SubmitField("Login")
     ResetPassword = SubmitField("ResetPassword")
     RememberMe = BooleanField("Remember Me")
