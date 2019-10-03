@@ -1,13 +1,16 @@
 
 body {
+    transition:background 0.5s ease;
     background-image: url('login1.jpg');
     background-size:100%;
     background-color:rgba(83, 83, 83, 0.116);
     margin:0;
     background-repeat: no-repeat;
     background-position: 0px 129px; /* This makes the image appear 50px from top */
+
 }
 form.login{
+    transition: all 0.5s ease-in;
     background:rgb(131, 112, 112);
     border-radius: 20px;
     margin-top:8%;
