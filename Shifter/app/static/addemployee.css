@@ -22,12 +22,13 @@ label{
 }
 
 input[type=text] {
+    outline:none;
     transition:all 0.5s ease;
     border: 2px solid gray;
     border-radius: 10px;
     width:30%;
     padding:10px 0 10px 0 ;
-    align-content: center;    
+    align-content: center;  
 }
 .firstnamebox, .lastnamebox{
     margin-left:3%;
@@ -40,12 +41,14 @@ input[type=text] {
 
 input[type=text]:focus {
     background-color: #ebe6c0;
+    text-align: center;
 }
 input[type = submit]{
     font-family:'Times New Roman', Times, serif;
     padding:10px;
     font-size:2vw;
     margin-right:0;
+    cursor:pointer;
 }
 .note{
     font-size:1.5vw;
