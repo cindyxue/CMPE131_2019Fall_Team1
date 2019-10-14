@@ -15,6 +15,7 @@ class LogoutForm(FlaskForm):
 class EditViewForm(FlaskForm):
     View = SubmitField("Edit/View Schedule")
     AddEmpl = SubmitField("Add Employee")
+    EditEmpl = SubmitField("Edit Employee")
 
 
 class EmployeeForm(FlaskForm):

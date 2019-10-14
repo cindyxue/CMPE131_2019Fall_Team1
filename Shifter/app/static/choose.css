@@ -14,7 +14,7 @@ form{
     margin-right:56%;
     padding:30px;
 }
-form input.View, input.AddEmpl{
+.Buttons{
     background-color:rgb(61, 3, 3);
 
     text-align: center;

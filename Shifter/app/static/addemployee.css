@@ -43,7 +43,7 @@ input[type=text]:focus {
     background-color: #ebe6c0;
     text-align: center;
 }
-input[type = submit]{
+.submitinfo{
     font-family:'Times New Roman', Times, serif;
     padding:10px;
     font-size:2vw;
