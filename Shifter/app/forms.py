@@ -1,5 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import BooleanField, SubmitField, StringField, PasswordField, IntegerField
+from wtforms.fields import SelectField
 from wtforms.validators import ValidationError, DataRequired, Email
 
 
@@ -9,6 +10,8 @@ class LoginForm(FlaskForm):
     Login = SubmitField("Login")
     ResetPassword = SubmitField("ResetPassword")
     RememberMe = BooleanField("Remember Me")
+    ManagerEmployee = SelectField("You are:", choices=[(None, 'Select'), ('Manager', 'Manager'), ('Employee', 'Employee')])
+
 class LogoutForm(FlaskForm):
     Logout = SubmitField("Logout")
 

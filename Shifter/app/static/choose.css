@@ -6,7 +6,7 @@ body {
     background-repeat: no-repeat;
     background-position: 0px 133px;
 }
-form{
+div.forms{
     background:rgb(131, 112, 112);
     border-radius: 20px;
     margin-top:13%;
@@ -31,3 +31,4 @@ form{
     margin-top:2%;
     
 }
+

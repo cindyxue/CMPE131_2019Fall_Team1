@@ -9,7 +9,7 @@ body {
     background-position: 0px 129px; /* This makes the image appear 50px from top */
 
 }
-form.login{
+div{
     transition: all 0.5s ease-in;
     background:rgb(131, 112, 112);
     border-radius: 20px;
@@ -19,7 +19,7 @@ form.login{
     padding:80px 40px;
 }
 
-form.login input.username, input.password{
+input.username, input.password{
     text-align: center;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size:2vw;
@@ -36,15 +36,15 @@ form.login input.username, input.password{
     background-color:rgb(61, 3, 3);
     text-align: center;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size:1.7vw;
+    font-size:1.5vw;
     padding:20px;
     border-radius: 15px;
     width :54%;
     margin-left :23%;
     margin-right:23%;
-    margin-top:-5%;
+    margin-top:0;
     color:gold;
-    margin-bottom:5%;
+    margin-bottom:0;
 }
 .Login{
     background-color:rgb(61, 3, 3);
@@ -61,18 +61,35 @@ form.login input.username, input.password{
     margin-bottom:6%;
 
 }
+.selecterlabel{
+    Color:white;
+    font-size: 1.3vw;
+    margin-left:5%;
+
+
+}
+.selecter{
+    margin-left:3%;
+    width:4.2vw;
+    height:2.1vw;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 1vw;
+    border-radius: 5px;
+}
 .RememberMe{
     Color:White;
-    font-size: 1.2vw;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 1.3vw;
     width :50%;
-    margin-right:25%;
-    margin-left:25%;
+    margin-top:0;
+    margin-left:12%;
 }
 .RememberMeButton{
-    width:25px;
-    height:25px;
-    margin-left:-20%;
-    
+    width:1.5vw;
+    height:1.5vw;
+    margin-top:0;
+    margin-bottom: 10%;
+
 }
 input[type=text]:focus {
     background-color: #ebe6c0;
