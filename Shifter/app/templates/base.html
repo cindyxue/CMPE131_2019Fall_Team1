@@ -6,7 +6,8 @@
         <title>{{title}}</title>
         {% else %}
         <title>Shifter</title>
-        {% endif %}   
+        {% endif %}
+        
         <nav>
             <h1>Shifter</h1>
             <ul>
@@ -22,6 +23,16 @@
             </ul>
         </nav>
     </header>
+    <hr>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
     
     {% block content %}
     {% endblock %}

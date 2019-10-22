@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import BooleanField, SubmitField, StringField, PasswordField, IntegerField
 from wtforms.fields import SelectField
-from wtforms.validators import ValidationError, DataRequired, Email
+from wtforms.validators import ValidationError, DataRequired, Email, EqualTo
 
 
 class LoginForm(FlaskForm):
@@ -9,6 +9,7 @@ class LoginForm(FlaskForm):
     Password = StringField("Password",validators=[DataRequired()])
     Login = SubmitField("Login")
     ResetPassword = SubmitField("ResetPassword")
+    Register = SubmitField("Register")
     RememberMe = BooleanField("Remember Me")
     ManagerEmployee = SelectField("You are:", choices=[(None, 'Select'), ('Manager', 'Manager'), ('Employee', 'Employee')])
 
@@ -20,7 +21,11 @@ class EditViewForm(FlaskForm):
     AddEmpl = SubmitField("Add Employee")
     EditEmpl = SubmitField("Edit Employee")
 
-
+class RegistrationForm(FlaskForm):
+    username = StringField("Email", validators=[DataRequired, Email()])
+    password = PasswordField("Password", validators = [DataRequired])
+    password2 = PasswordField("Repeat Password", validators = [DataRequired(), EqualTo('password')])
+    submit = SubmitField("Register")
 class EmployeeForm(FlaskForm):
     first_name = StringField("First name", validators=[DataRequired()])
     last_name = StringField("Last name", validators=[DataRequired()])

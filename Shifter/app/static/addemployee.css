@@ -15,13 +15,15 @@ body {
     border-radius:20px;
     text-align: left;
 }
-label{
+p{
     font-size:1.8vw;
     margin-left: 0;
     transition:all 0.5s ease;
 }
 
 input[type=text] {
+    
+    font-size:20px;
     outline:none;
     transition:all 0.5s ease;
     border: 2px solid gray;

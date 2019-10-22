@@ -13,9 +13,10 @@ div{
     transition: all 0.5s ease-in;
     background:rgb(131, 112, 112);
     border-radius: 20px;
-    margin-top:9%;
+    margin-top:5%;
     margin-left:10%;
     margin-right:56%;
+    
     
     padding:80px 40px;
 }
@@ -59,7 +60,7 @@ input.username, input.password{
     margin-right:23%;
     margin-top:-5%;
     color:gold;
-    margin-bottom:6%;
+    margin-bottom:5%;
 
 }
 .selecterlabel{
@@ -89,7 +90,24 @@ input.username, input.password{
     width:1.5vw;
     height:1.5vw;
     margin-top:0;
-    margin-bottom: 10%;
+    margin-bottom: 5%;
+
+}
+.RegisterLabel{
+    margin-left:5%;
+    color:white;
+    display: inline;
+    font-size:1.2vw;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.Register{
+    margin-top: 2.5%;
+    margin-left:3%;
+    font-size:1vw;
+    padding:5px 20px;
+    color:maroon;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bolder;
 
 }
 input[type=text]:focus {
