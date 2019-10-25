@@ -7,6 +7,6 @@ Shifter = Flask(__name__)
 Shifter.config.from_object(Config)
 db = SQLAlchemy(Shifter)
 login = LoginManager(Shifter)
-login.login_view = 'login'
+login.login_view = 'Login'
 
-from app import routes
+from app import routes,models

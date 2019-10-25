@@ -12,13 +12,13 @@ class Organization(db.Model):
     typeofbusiness = db.Column(db.String(128))
     Address = db.Column(db.String(256), index = True, unique = True)
     PhoneNumber = db.Column(db.Integer, index = True, unique = True)
-    employees = db.relationship('Employee', backref = "organization")
+    employees = db.relationship('Employee', backref = "Organization")
     
 class Employee(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key = True)
     email = db.Column(db.String(128), index = True, unique = True)
     password_hash = db.Column(db.String(128))
-    Organizationi_id = db.Column(db.String(128), db.ForeignKey('Organization.id'))
+    Organization_id = db.Column(db.String(128), db.ForeignKey('organization.id'))
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
     def check_password(self, password):
