@@ -20,7 +20,7 @@ class EditViewForm(FlaskForm):
     EditEmpl = SubmitField("Edit Employee")
 
 class RegistrationForm(FlaskForm):
-    username = StringField("Email", validators=[DataRequired, Email()])
+    Email = StringField("Email", validators=[DataRequired, Email()])
     password = PasswordField("Password", validators = [DataRequired])
     password2 = PasswordField("Repeat Password", validators = [DataRequired(), EqualTo('password')])
     submit = SubmitField("Register")
