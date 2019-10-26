@@ -7,6 +7,8 @@ from flask import request
 from flask_login import current_user, login_user, login_required, logout_user
 from werkzeug.urls import url_parse
 
+from Shifterapp.app.forms import RegisterForm
+
 Shifter.config['SECRET_KEY'] = 'some-key'
 
 @Shifter.route('/')
@@ -38,7 +40,12 @@ def chooseToDo():
     formLogout = LogoutForm()
     formEditView = EditViewForm()
     return render_template("choose.html", title = title, formLogout = formLogout, formEditView = formEditView)
-
+@Shifter.route("/register")
+def register():
+    title = "Register Organization"
+    formRegister = RegisterForm()
+    formLogout = LogoutForm()
+    return render_template("register.html", title=title, formRegister=formRegister, formLogout=formLogout)
 
 if __name__ == '__main__':
     Shifter.run()

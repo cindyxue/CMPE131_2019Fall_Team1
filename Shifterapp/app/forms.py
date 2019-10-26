@@ -19,11 +19,16 @@ class EditViewForm(FlaskForm):
     AddEmpl = SubmitField("Add Employee")
     EditEmpl = SubmitField("Edit Employee")
 
-class RegistrationForm(FlaskForm):
-    Email = StringField("Email", validators=[DataRequired, Email()])
-    password = PasswordField("Password", validators = [DataRequired])
-    password2 = PasswordField("Repeat Password", validators = [DataRequired(), EqualTo('password')])
-    submit = SubmitField("Register")
+class RegisterForm(FlaskForm):
+    name_company = StringField("Organization name", validators=[DataRequired()])
+    manager_namef = StringField("First name", validators=[DataRequired()])
+    manager_namel = StringField("Last name", validators=[DataRequired()])
+    email = StringField("Email", validators=[DataRequired(), Email()])
+    enter_password = StringField("Password",validators=[DataRequired()])
+    re_password = StringField("Confirm Password",validators=[DataRequired()])
+    phone_number = IntegerField("Phone number", validators=[DataRequired()])
+    submit = SubmitField("Submit info")
+
 class EmployeeForm(FlaskForm):
     first_name = StringField("First name", validators=[DataRequired()])
     last_name = StringField("Last name", validators=[DataRequired()])
