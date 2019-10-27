@@ -52,5 +52,11 @@ def register():
     formLogout = LogoutForm()
     return render_template("register.html", title=title, formRegister=formRegister, formLogout=formLogout)
 
+@Shifter.route("/schedule")
+def schedule():
+    title = "Employee Schedule"
+    formRegister = RegisterForm()
+    formLogout = LogoutForm()
+    return render_template("schedule.html", title=title, formRegister=formRegister, formLogout=formLogout)
 if __name__ == '__main__':
     Shifter.run()
