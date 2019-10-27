@@ -2,8 +2,14 @@
 {% extends "base.html" %}
 
 {% block content %}
+        <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href = "../static/login.css" rel = "stylesheet" type = "text/css"> 
-    
+
     <body>
         <div class = forms>
         <form class = "login" method = 'Post' action = "">
@@ -17,10 +23,17 @@
         <form action = "" method = "post" class = "Reset">
             {{formLogin.ResetPassword(class_="Resetbutton", value = "Reset Password")}}<br>
         </form>
-        <form action = "" method = "post" class = "Registeration">
-            <p class = "RegisterLabel">New company?</p>
-            {{formLogin.Register(class_="Register", value = "Register Your Organization")}}
+        <form action = " " method = "post" class = "Registeration" >
+
+            <p class = "d-flex flex-row  bd-highlight mb-3">New company?
+            <span class="align-text-bottom" ><a class="" href="../register" role="button">Register Your Organization</a></span>
+            </p>
         </form>
+            <script>
+            function myFunction() {
+             location.replace("../register")
+}
+</script>
 
     </div>
     </body>

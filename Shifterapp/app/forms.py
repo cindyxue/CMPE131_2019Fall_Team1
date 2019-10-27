@@ -21,13 +21,15 @@ class EditViewForm(FlaskForm):
 
 class RegisterForm(FlaskForm):
     name_company = StringField("Organization name", validators=[DataRequired()])
+    type_company = StringField("Organization type", validators=[DataRequired()])
+    address = StringField("Address", validators=[DataRequired()])
     manager_namef = StringField("First name", validators=[DataRequired()])
     manager_namel = StringField("Last name", validators=[DataRequired()])
     email = StringField("Email", validators=[DataRequired(), Email()])
     enter_password = StringField("Password",validators=[DataRequired()])
     re_password = StringField("Confirm Password",validators=[DataRequired()])
     phone_number = IntegerField("Phone number", validators=[DataRequired()])
-    submit = SubmitField("Submit info")
+    submit = SubmitField("Submit")
 
 class EmployeeForm(FlaskForm):
     first_name = StringField("First name", validators=[DataRequired()])

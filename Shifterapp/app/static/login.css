@@ -63,7 +63,7 @@ input.username, input.password{
 }
 
 .RememberMe{
-    Color:White;
+    Color: #fff8fd;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 1.3vw;
     margin-top:0;
@@ -76,29 +76,26 @@ input.username, input.password{
     margin-bottom: 5%;
 
 }
-.RegisterLabel{
-    margin-left:8%;
-    color:white;
-    display: inline;
-    font-size:1.2vw;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-weight: bolder;
+form a.link {
+    color: #af4763;
 
 }
-.Register{
-    margin-top: 5%;
-    margin-left:3%;
-    font-size:1vw;
-    padding:5px 20px;
-    color:maroon;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-weight: bolder;
+form p {
+    color: maroon;
+    text-align: center;
+    height: 500px;
+    width: 600px;
+}
+
+.btn:hover {
+    cursor: pointer;
+    text-decoration-line: underline;
 
 }
-input[type=text]:focus {
-    background-color: #ebe6c0;
-}
-.Resetbutton:hover, .Login:hover, .Register:hover{
+
+
+
+.Resetbutton:hover, .Login:hover, .Register:hover, .link:hover{
     cursor: pointer;
     text-decoration-line: underline;
 }

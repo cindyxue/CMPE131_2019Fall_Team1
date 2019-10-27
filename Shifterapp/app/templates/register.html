@@ -2,7 +2,14 @@
 {% extends "base.html" %}
 
 {% block content %}
+        <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href = "../static/registration.css" rel = "stylesheet" type = "text/css">
+
 
     <body>
         <div class="container">
@@ -12,6 +19,22 @@
                     {{ formRegister.name_company.label}}:
                     {{ formRegister.name_company(class_="companyname", placeholder= "Company") }}<br>
                     {% for error in formRegister.name_company.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}
+
+                </p>
+                <p>
+                    {{ formRegister.type_company.label}}:
+                    {{ formRegister.type_company(class_="companytype", placeholder= "Buisness type") }}<br>
+                    {% for error in formRegister.type_company.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}
+
+                </p>
+                <p>
+                    {{ formRegister.address.label}}:
+                    {{ formRegister.address(class_="address", placeholder= "ex. 555 Saint James Crt, 95432") }}<br>
+                    {% for error in formRegister.address.errors %}
                     <span style="color: red;">[{{ error }}]</span>
                     {% endfor %}
 
@@ -60,7 +83,9 @@
                     <span style="color: red;">[{{ error }}]</span>
                     {% endfor %}
                 </p>
+            <li class="d-flex justify-content-end">
                 <p>{{ formRegister.submit(class_ = "submitinfo")}}</p>
+            </li>
             </form>
         </div>
     </body>

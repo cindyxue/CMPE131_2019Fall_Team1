@@ -45,11 +45,20 @@ input[type=text]:focus {
     text-align: center;
 }
 .submitinfo{
-    font-family:'Times New Roman', Times, serif;
-    padding:10px;
-    font-size:2vw;
-    margin-right:0;
-    cursor:pointer;
+    background-color:rgb(61, 3, 3);
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size:1.5vw;
+    padding:20px;
+    border-radius: 15px;
+    width :54%;
+    margin-left :23%;
+    margin-right:23%;
+    margin-top:0;
+    color:gold;
+    margin-bottom:-2%;
+    cursor: pointer;
+    text-decoration-line: underline;
 }
 .note{
     font-size:1.5vw;
