@@ -9,7 +9,7 @@ body {
     background-position: 0px 129px; /* This makes the image appear 50px from top */
 
 }
-div{
+.forms{
     transition: all 0.5s ease-in;
     background:rgb(131, 112, 112);
     border-radius: 20px;
@@ -21,7 +21,7 @@ div{
 
 input.username, input.password{
     text-align: center;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: 'Times New Roman', Times, serif;
     font-size:2vw;
     border-radius: 15px;
     padding:20px 1px 20px 1px;
@@ -46,6 +46,10 @@ input.username, input.password{
     color:gold;
     margin-bottom:-2%;
 }
+.Resetbutton:hover {
+    background-color: rgb(158, 157, 157);
+    transition :  .9s;
+}
 .Login{
     background-color:rgb(61, 3, 3);
     text-align: center;
@@ -59,9 +63,11 @@ input.username, input.password{
     margin-top:-5%;
     color:gold;
     margin-bottom:5%;
-
 }
-
+.Login:hover{
+    background-color: rgb(158, 157, 157);
+    transition :  .9s;
+}
 .RememberMe{
     Color: #fff8fd;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
@@ -77,6 +83,7 @@ input.username, input.password{
 
 }
 form a.link {
+    margin-bottom:10%;
     color: #af4763;
 
 }
@@ -95,16 +102,10 @@ form p {
 
 
 
-.Login:hover, .Register:hover, .link:hover{
+.Register:hover, .link:hover{
     cursor: pointer;
     text-decoration-line: underline;
 }
 
-.Resetbutton:hover {
-    background-color: rgb(158, 157, 157);
-    color: gold;
-    font-size: 20px;
-    transition :  .9s;
-    padding: .7% 1.4%;
-    border-radius: 12px;
-}
+
+

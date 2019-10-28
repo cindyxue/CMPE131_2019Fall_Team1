@@ -45,23 +45,21 @@ nav ul li{
     border-radius: 10px;
     font-weight: bold;
     cursor: pointer;
-
-
 }
+
 nav a{
     color:gold;
     font-size:20px;
 }
 
-nav a:hover{
-    
+ul li:hover{
     background-color: rgb(158, 157, 157);
-    color: gold;
-    font-size: 20px;
     transition :  .9s;
-    padding: .7% 1.4%;
-    border-radius: 12px;
-    
+}
+
+.Logoutbutton:hover{
+    background-color: rgb(158, 157, 157);
+    transition :  .9s;
 }
 hr{
     border:none;

@@ -29,7 +29,7 @@ class RegisterForm(FlaskForm):
     enter_password = StringField("Password",validators=[DataRequired()])
     re_password = StringField("Confirm Password",validators=[DataRequired()])
     phone_number = IntegerField("Phone number", validators=[DataRequired()])
-    submit = SubmitField("Submit")
+    submitB = SubmitField("Submit")
 
 class EmployeeForm(FlaskForm):
     first_name = StringField("First name", validators=[DataRequired()])
