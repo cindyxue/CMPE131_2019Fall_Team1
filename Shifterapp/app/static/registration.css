@@ -60,6 +60,14 @@ input[type=text]:focus {
     cursor: pointer;
     text-decoration-line: underline;
 }
+.submitinfo:hover{
+    background-color: rgb(158, 157, 157);
+    color: gold;
+    font-size: 1.5vw;
+    transition :  .9s;
+    padding: 20px;
+    border-radius: 15px;
+}
 .note{
     font-size:1.5vw;
     font-weight: bolder;

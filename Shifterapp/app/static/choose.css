@@ -32,3 +32,11 @@ div.forms{
     
 }
 
+.Buttons:hover{
+    background-color: rgb(158, 157, 157);
+    color: gold;
+    font-size: 1.3vw;
+    transition :  .9s;
+    padding: 30px;
+    border-radius: 15px;
+}
