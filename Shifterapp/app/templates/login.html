@@ -12,7 +12,7 @@
 
     <body>
         <div class = forms>
-        <form class = "login" method = 'Post' action = "">
+        <form class = "login" method = 'Post' action = "" >
                 
                 {{formLogin.Username(placeholder= "Username", class_="username", type = "email")}}<br>
                 {{formLogin.Password(placeholder = "Password", class_="password", type = "Password")}}<br>
@@ -20,7 +20,7 @@
                 {{formLogin.RememberMe.label(class_ = "RememberMe")}}
                 {{formLogin.RememberMe(class_ = "RememberMeButton")}}
         </form>
-        <form action = "" method = "post" class = "Reset">
+        <form action = "" method = "post" class = "Reset" id="ForHover">
             {{formLogin.ResetPassword(class_="Resetbutton", value = "Reset Password")}}<br>
         </form>
         <form action = " " method = "post" class = "Registeration" >

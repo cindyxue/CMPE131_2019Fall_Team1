@@ -87,15 +87,24 @@ form p {
     width: 600px;
 }
 
-.btn:hover {
+/*.btn:hover {
     cursor: pointer;
     text-decoration-line: underline;
 
+}*/
+
+
+
+.Login:hover, .Register:hover, .link:hover{
+    cursor: pointer;
+    text-decoration-line: underline;
 }
 
-
-
-.Resetbutton:hover, .Login:hover, .Register:hover, .link:hover{
-    cursor: pointer;
-    text-decoration-line: underline;
+.Resetbutton:hover {
+    background-color: rgb(158, 157, 157);
+    color: gold;
+    font-size: 20px;
+    transition :  .9s;
+    padding: .7% 1.4%;
+    border-radius: 12px;
 }

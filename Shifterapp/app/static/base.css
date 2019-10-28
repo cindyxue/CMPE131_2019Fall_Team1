@@ -24,9 +24,9 @@ nav ul li{
     list-style-type: none;
     display:inline-block;
     background:rgb(61, 3, 3);
-    border-radius: 12px;
+    border-radius: 15px;
     border-color: white;
-    padding:.7% 1.4%;
+    padding: .7% 1.4%;
     font-style: normal;
     font-weight: 800;
 }
@@ -54,11 +54,16 @@ nav a{
 }
 
 nav a:hover{
-    text-decoration: none;
-    background-color: rgb(75, 18, 18);
-    color: #ffffff;
-    transition :  .3s;
+    
+    background-color: rgb(158, 157, 157);
+    color: gold;
+    font-size: 20px;
+    transition :  .9s;
+    padding: .7% 1.4%;
+    border-radius: 12px;
+    
 }
 hr{
     border:none;
 }
+
