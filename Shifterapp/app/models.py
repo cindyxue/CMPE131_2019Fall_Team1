@@ -18,6 +18,9 @@ class Employee(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key = True)
     email = db.Column(db.String(128), index = True, unique = True)
     password_hash = db.Column(db.String(128))
+    phone_number = db.Column(db.String(128) ,index = True, unique = True)
+    
+
     Organization_id = db.Column(db.String(128), db.ForeignKey('organization.id'))
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
