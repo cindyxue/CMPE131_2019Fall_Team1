@@ -52,6 +52,13 @@ nav a{
     color:gold;
     font-size:20px;
 }
+
+nav a:hover{
+    text-decoration: none;
+    background-color: rgb(75, 18, 18);
+    color: #ffffff;
+    transition :  .3s;
+}
 hr{
     border:none;
 }
