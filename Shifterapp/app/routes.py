@@ -6,21 +6,14 @@ from flask import render_template, flash, redirect, url_for
 from flask import request
 from flask_login import current_user, login_user, login_required, logout_user
 from werkzeug.urls import url_parse
-
-
-Shifter.config['SECRET_KEY'] = 'some-key'
-
-@Shifter.route('/')
-@Shifter.route("/login", methods = ["GET", "POST"])
+@Shifter.route('/', methods = ['GET', 'POST'])
 def login():
     formLogin = LoginForm()
-    if formLogin.Register.data and formLogin.validate_on_submit():
-        return redirect(url_for('register'))
-    #if formLogin.Login.data and formLogin.validate_on_submit():
-     #   user = Employee.query.filter_by(Email=formLogin.Username.data).first()
-      #  if user is None or not user.check_password(formLogin.Password.data):
-       #     flash('Invalid username or password')
-        #    return redirect(url_for('login'))
+    if formLogin.validate_on_submit():
+        user = Employee.query.filter_by(Email=formLogin.Username.data).first()
+        if user is None or not user.check_password(formLogin.Password.data):
+            flash('Invalid username or password')
+            return redirect(url_for('login'))
         #login_user(user, remember=formLogin.RememberMe.data)
         # return to page before user got asked to login
         #next_page = request.args.get('next')
@@ -30,8 +23,7 @@ def login():
         #return redirect(next_page)
     
     title = "Shifter Scheduling Application"
-    formLogout = LogoutForm()
-    return render_template('login.html', title=title, formLogin=formLogin, formLogout=formLogout)
+    return render_template('login.html', title=title, formLogin=formLogin)
 
 
 @Shifter.route("/addemployee")

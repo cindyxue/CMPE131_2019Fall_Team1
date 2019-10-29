@@ -6,19 +6,18 @@
     
     <body>
         <div class = forms>
-        <form class = "login" method = 'POST' >
+            <form action='' method='POST' novalidate class = "login" >
                 
                 {{formLogin.Username(placeholder= "Username", class_="username", type = "email")}}<br>
                 {{formLogin.Password(placeholder = "Password", class_="password", type = "Password")}}<br>
                 {{formLogin.Login(class_ = "Login")}}
                 {{formLogin.RememberMe.label(class_ = "RememberMe")}}
                 {{formLogin.RememberMe(class_ = "RememberMeButton")}}
-        </form>
-            {{formLogin.ResetPassword(class_="Resetbutton", value = "Reset Password")}}<br>
-            <p class = 'RegisterLabel'>New Comapny?</p>
-            {{formLogin.Register(class_="Register", value = "Register Your Organization")}}
-        </form>
-
-    </div>
+        
+                {{formLogin.ResetPassword(class_="Resetbutton", value = "Reset Password")}}<br>
+                <p class = 'RegisterLabel'>New Comapny?</p>
+                {{formLogin.Register(class_="Register", value = "Register Your Organization")}}
+            </form>
+        </div>
     </body>
 {% endblock %}
