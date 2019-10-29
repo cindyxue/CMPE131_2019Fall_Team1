@@ -17,7 +17,7 @@ p{
 
 }
 
-input[type=text] {
+input[type=text], .confirmpassword {
     font-size:1.7vw;
     outline:none;
     transition:all 1s ease;
