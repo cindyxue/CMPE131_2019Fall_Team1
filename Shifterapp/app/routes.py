@@ -15,10 +15,10 @@ Shifter.config['SECRET_KEY'] = 'some-key'
 def login():
     formLogin = LoginForm()
     if formLogin.validate_on_submit():
-        user = Employee.query.filter_by(username=formLogin.Username.data).first()
-        if user is None or not user.check_password(formLogin.Password.data):
-            flash('Invalid username or password')
-            return redirect(url_for('login'))
+        #user = Employee.query.filter_by(username=formLogin.Username.data).first()
+        #if user is None or not user.check_password(formLogin.Password.data):
+        flash('Invalid username or password')
+         #   return redirect(url_for('login'))
         
     title = "Shifter Scheduling Application"
     formLogout = LogoutForm()
