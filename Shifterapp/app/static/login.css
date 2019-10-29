@@ -92,7 +92,25 @@ form p {
     text-decoration-line: underline;
 
 }
+.RegisterLabel{
+    margin-left:8%;
+    color:white;
+    display: inline;
+    font-size:1.2vw;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bolder;
 
+}
+.Register{
+    margin-top: 5%;
+    margin-left:3%;
+    font-size:1vw;
+    padding:5px 20px;
+    color:maroon;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bolder;
+
+}
 
 
 .Resetbutton:hover, .Login:hover, .Register:hover, .link:hover{
