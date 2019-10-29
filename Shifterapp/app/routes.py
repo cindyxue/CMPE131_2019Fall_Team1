@@ -14,18 +14,21 @@ Shifter.config['SECRET_KEY'] = 'some-key'
 @Shifter.route("/login", methods = ["GET", "POST"])
 def login():
     formLogin = LoginForm()
-    if formLogin.validate_on_submit():
-        user = Employee.query.filter_by(Email=formLogin.Username.data).first()
-        if user is None or not user.check_password(formLogin.Password.data):
-            flash('Invalid username or password')
-            return redirect(url_for('login'))
-        login_user(user, remember=formLogin.RememberMe.data)
+    if formLogin.Register.data and formLogin.validate_on_submit():
+        return redirect(url_for('register'))
+    #if formLogin.Login.data and formLogin.validate_on_submit():
+     #   user = Employee.query.filter_by(Email=formLogin.Username.data).first()
+      #  if user is None or not user.check_password(formLogin.Password.data):
+       #     flash('Invalid username or password')
+        #    return redirect(url_for('login'))
+        #login_user(user, remember=formLogin.RememberMe.data)
         # return to page before user got asked to login
-        next_page = request.args.get('next')
-        if not next_page or url_parse(next_page).netloc != '':
-            next_page = url_for('choose')
+        #next_page = request.args.get('next')
+        #if not next_page or url_parse(next_page).netloc != '':
+        #    next_page = url_for('choose')
 
-        return redirect(next_page)
+        #return redirect(next_page)
+    
     title = "Shifter Scheduling Application"
     formLogout = LogoutForm()
     return render_template('login.html', title=title, formLogin=formLogin, formLogout=formLogout)
