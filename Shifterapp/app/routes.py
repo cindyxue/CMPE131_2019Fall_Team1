@@ -6,11 +6,15 @@ from flask import render_template, flash, redirect, url_for
 from flask import request
 from flask_login import current_user, login_user, login_required, logout_user
 from werkzeug.urls import url_parse
+
 @Shifter.route('/', methods = ['GET', 'POST'])
 def login():
     formLogin = LoginForm()
-    if formLogin.validate_on_submit():
-        user = Employee.query.filter_by(Email=formLogin.Username.data).first()
+    if formLogin.Register.data and formLogin.is_submitted():
+        return redirect(url_for('register'))
+
+    elif formLogin.is_submitted():
+        user = Employee.query.filter_by(email=formLogin.Username.data).first()
         if user is None or not user.check_password(formLogin.Password.data):
             flash('Invalid username or password')
             return redirect(url_for('login'))
@@ -21,7 +25,6 @@ def login():
         #    next_page = url_for('choose')
 
         #return redirect(next_page)
-    
     title = "Shifter Scheduling Application"
     return render_template('login.html', title=title, formLogin=formLogin)
 

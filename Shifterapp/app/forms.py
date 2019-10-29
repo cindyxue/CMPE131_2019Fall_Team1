@@ -5,12 +5,13 @@ from wtforms.validators import ValidationError, DataRequired, Email, EqualTo
 
 
 class LoginForm(FlaskForm):
-    Username = StringField("Username",validators=[DataRequired()])
-    Password = StringField("Password",validators=[DataRequired()])
+    Username = StringField("Username")
+    Password = PasswordField("Password")
     Login = SubmitField("Login")
     ResetPassword = SubmitField("ResetPassword")
     Register = SubmitField("Register")
     RememberMe = BooleanField("Remember Me")
+
 class LogoutForm(FlaskForm):
     Logout = SubmitField("Logout")
 
