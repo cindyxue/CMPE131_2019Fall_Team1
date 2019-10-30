@@ -8,6 +8,8 @@
     <body>
         <div class="container">
             <form action = "" method = "POST">
+                {{ formRegister.hidden_tag() }}
+
                 <h3 class = 'registartion'>Registeration</h3>
                 <p>
                     {{ formRegister.name_company.label}}:
@@ -31,7 +33,10 @@
                     {% for error in formRegister.address.errors %}
                     <span style="color: red;">[{{ error }}]</span>
                     {% endfor %}
-
+                <p>
+                    {{formRegister.Business_phone_number.label}}:
+                    {{formRegister.Business_phone_number(class_="Buisness_phone_number", placeholder = "ex. 222-333-3344")}}
+                </p>    
                 </p>
                 <p class = 'note'>Note: By filling the information below, you create your first employee as a manager.</p>
                 <p>
@@ -72,9 +77,9 @@
                     {% endfor %}
                 </p>
                 <p>
-                    {{ formRegister.phone_number.label}}:
-                    {{ formRegister.phone_number(class_="phone", placeholder= "ex. 222-333-3344") }}<br>
-                    {% for error in formRegister.phone_number.errors %}
+                    {{ formRegister.Manager_phone_number.label}}:
+                    {{ formRegister.Manager_phone_number(class_="phone", placeholder= "ex. 222-333-3344") }}<br>
+                    {% for error in formRegister.Manager_phone_number.errors %}
                     <span style="color: red;">[{{ error }}]</span>
                     {% endfor %}
                 </p>

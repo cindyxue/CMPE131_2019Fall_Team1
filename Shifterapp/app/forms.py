@@ -29,7 +29,8 @@ class RegisterForm(FlaskForm):
     email = StringField("Email", validators=[DataRequired(), Email()])
     enter_password = StringField("Password",validators=[DataRequired()])
     re_password = PasswordField("Confirm Password",validators=[DataRequired()])
-    phone_number = IntegerField("Phone number", validators=[DataRequired()])
+    Business_phone_number = IntegerField("Business Phone number")
+    Manager_phone_number = IntegerField("Manager Phone Number", validators=[DataRequired()])
     submit = SubmitField("Submit")
 
 class EmployeeForm(FlaskForm):

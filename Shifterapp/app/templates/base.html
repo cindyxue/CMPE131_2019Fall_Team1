@@ -17,7 +17,8 @@
                 {% endif %}
                 <li><a href="#">About</a></li>
                 <li><a href="#">Contact</a></li>
-                {% if title != "Shifter Scheduling Application" %}
+    <ul>
+                {% if title != "Shifter Scheduling Application" and title != "Register Organization" %}
                 <li class = "logout">{{formLogout.Logout(class_ = "Logoutbutton")}}</li>
                 {% endif %}
             </ul>

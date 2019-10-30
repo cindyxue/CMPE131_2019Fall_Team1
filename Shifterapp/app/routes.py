@@ -43,12 +43,25 @@ def chooseToDo():
     formLogout = LogoutForm()
     formEditView = EditViewForm()
     return render_template("choose.html", title = title, formLogout = formLogout, formEditView = formEditView)
-@Shifter.route("/register")
+@Shifter.route("/register", methods = ['GET', 'POST'])
 def register():
     title = "Register Organization"
     formRegister = RegisterForm()
-    formLogout = LogoutForm()
-    return render_template("register.html", title=title, formRegister=formRegister, formLogout=formLogout)
+    if formRegister.validate_on_submit():
+        Organization = Organization(Name=formRegister.name_company.data, 
+                                    email=formRegister.email.data,
+                                    typeofbusiness=formRegister.type_company.data,
+                                    address=formRegister.address.data,
+                                    Phonenumber=formRegister.Business_phone_number.data)
+
+        Employee = Employee(fname = formRegister.manager_namef.data,
+                            lname = formRegister.manager_namel.data,
+                            email = formRegister.email.data,
+                            phone_number=formRegister.Manager_phone_number.data)
+                            #FIX ME! How to add employee into organization as the key
+
+
+    return render_template("register.html", title=title, formRegister=formRegister)
 
 if __name__ == '__main__':
     Shifter.run()
