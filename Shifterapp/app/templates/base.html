@@ -19,7 +19,9 @@
                 <li><a href="#">Contact</a></li>
     <ul>
                 {% if title != "Shifter Scheduling Application" and title != "Register Organization" %}
-                <li class = "logout">{{formLogout.Logout(class_ = "Logoutbutton")}}</li>
+                <li class = "logout"><form action = "", method = 'POST'>
+                    {{formLogout.Logout(class_ = "Logoutbutton")}}</form>
+                </li>
                 {% endif %}
             </ul>
         </nav>

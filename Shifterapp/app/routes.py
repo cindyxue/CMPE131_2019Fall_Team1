@@ -12,12 +12,17 @@ def login():
     formLogin = LoginForm()
     if formLogin.Register.data and formLogin.is_submitted():
         return redirect(url_for('register'))
+    elif formLogin.ResetPassword.data and formLogin.is_submitted():
+        return redirect(url_for('reset'))
 
     elif formLogin.is_submitted():
         user = Employee.query.filter_by(email=formLogin.Username.data).first()
+        print(user)
         if user is None or not user.check_password(formLogin.Password.data):
             flash('Invalid username or password')
             return redirect(url_for('login'))
+        elif user.Manager == True:
+            return redirect(url_for('chooseToDo'))
         #login_user(user, remember=formLogin.RememberMe.data)
         # return to page before user got asked to login
         #next_page = request.args.get('next')
@@ -27,7 +32,9 @@ def login():
         #return redirect(next_page)
     title = "Shifter Scheduling Application"
     return render_template('login.html', title=title, formLogin=formLogin)
-
+@Shifter.route('/resetpassword', methods = ['POST', 'GET'])
+def reset():
+    return redirect(url_for('login'))
 
 @Shifter.route("/addemployee")
 def addemployee():
@@ -37,30 +44,44 @@ def addemployee():
     return render_template("addemployee.html", title=title, formEmployee=formEmployee, formLogout=formLogout)
 
 
-@Shifter.route("/choose")
+@Shifter.route("/choose", methods = ['POST', 'GET'])
 def chooseToDo():
     title = "ChooseToDo"
     formLogout = LogoutForm()
+    if formLogout.is_submitted():
+        flash('Logged out')
+        return redirect(url_for('login'))
     formEditView = EditViewForm()
+
     return render_template("choose.html", title = title, formLogout = formLogout, formEditView = formEditView)
 @Shifter.route("/register", methods = ['GET', 'POST'])
 def register():
     title = "Register Organization"
     formRegister = RegisterForm()
     if formRegister.validate_on_submit():
-        Organization = Organization(Name=formRegister.name_company.data, 
+        organization = Organization(Name=formRegister.name_company.data, 
                                     email=formRegister.email.data,
                                     typeofbusiness=formRegister.type_company.data,
-                                    address=formRegister.address.data,
-                                    Phonenumber=formRegister.Business_phone_number.data)
-
-        Employee = Employee(fname = formRegister.manager_namef.data,
+                                    Address=formRegister.address.data,
+                                    PhoneNumber=formRegister.Business_phone_number.data
+                                    )
+        db.session.add(organization)
+        db.session.commit()
+        
+        employee = Employee(fname = formRegister.manager_namef.data,
                             lname = formRegister.manager_namel.data,
                             email = formRegister.email.data,
-                            phone_number=formRegister.Manager_phone_number.data)
-                            #FIX ME! How to add employee into organization as the key
+                            phone_number=formRegister.Manager_phone_number.data
+                            )
+        employee.set_manager(True)
+        employee.set_password(formRegister.enter_password.data)
+        employee.set_orgid(Organization.query.filter_by(email = formRegister.email.data).first().id)
 
-
+        db.session.add(employee)
+        db.session.commit()
+        flash('New Organization has been added')
+        return redirect(url_for('login'))
+        
     return render_template("register.html", title=title, formRegister=formRegister)
 
 if __name__ == '__main__':
