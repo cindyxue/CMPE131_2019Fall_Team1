@@ -139,7 +139,7 @@ thehive4py==1.6.0
 tornado==4.5.3
 traitlets==4.3.2
 twilio==6.0.0
-Twisted==17.5.0
+Twisted==19.7.0
 tzlocal==1.5.1
 urllib3==1.25.3
 virtualenv==15.1.0
