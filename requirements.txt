@@ -101,7 +101,7 @@ PyDispatcher==2.0.5
 pygexf==0.2.2
 Pygments==2.2.0
 PyJWT==1.7.1
-pyOpenSSL==17.0.0
+pyOpenSSL==17.5.0
 pyparsing==2.4.2
 pyserial==3.4
 PyStaticConfiguration==0.10.4
