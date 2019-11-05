@@ -5,7 +5,7 @@ class DayAsHalfHours:
     def __init__(self):
         self.daily_half_hours = []
         for i in range(48):
-            self.daily_half_hours.append(False)
+            self.daily_half_hours.append({False}) # boolean wrapped in dictionary to allow mutability 
 
 class Schedule():
     """
@@ -98,13 +98,13 @@ class Schedule():
         shift_days_index = []
         shift_month_years = []
         
-        start_of_shift_index.append((start_of_shift[0] / 30) - 1) # index 0
+        start_of_shift_index.append((int)(start_of_shift[0] / 30) - 1) # index 0
         shift_days_index.append(start_of_shift[1] - 1) # index 0
         shift_month_years.append(month_year_list[0]) # index 0
         
         if month_year_match_found:
             # schedule starts and ends on the same day
-            end_of_shift_index.append((end_of_shift[0] / 30) - 1) # index 0
+            end_of_shift_index.append((int)(end_of_shift[0] / 30) - 1) # index 0
         else:
             """
             different start and end days, meaning shift goes past midnight
@@ -116,14 +116,14 @@ class Schedule():
             shift_month_years.append(end_of_shift[1]) # index 1
             end_of_shift_index.append(47) # 11:30 PM - 12:00 AM, index 0
             start_of_shift_index.append(0) # 12:00 AM - 12:30 AM, index 1
-            end_of_shift_index.append((end_of_shift[0] / 30) - 1) # index 1
+            end_of_shift_index.append((int)(end_of_shift[0] / 30) - 1) # index 1
         
         # range(start, stop, step), stop value is not included
         # range(3, 7, 1) = 3, 4, 5, 6 and not 7
         for i in range(len(shift_days_index)):
             schedule_index = self.get_schedule_index(shift_month_years[i])
-            for j in range(start_of_shift_index, end_of_shift_index):
-                self.full_schedule[schedule_index]['work_schedule'][shift_days_index[i]][j] = True
+            for j in range(start_of_shift_index[i], end_of_shift_index[i]):
+                self.full_schedule[schedule_index]['work_schedule'][shift_days_index[i]][j] = {True}
 
         return 1 # Method did not run into errors
  
@@ -178,7 +178,7 @@ class Schedule():
         for i in range(len(shift_days_index)):
             schedule_index = self.get_schedule_index(shift_month_years[i], shift_days_index[i])
             for j in range(start_of_shift_index, end_of_shift_index):
-                self.full_schedule[schedule_index]['work_schedule'][shift_days_index[i]][j] = False
+                self.full_schedule[schedule_index]['work_schedule'][shift_days_index[i]][j] = {False}
 
         return 1 # Method did not run into errors    
 
