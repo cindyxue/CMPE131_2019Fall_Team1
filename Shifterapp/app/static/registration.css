@@ -33,7 +33,7 @@ input[type=text]:focus {
     background-color: #ebe6c0;
     text-align: center;
 }
-/*.submitinfo{
+.submitinfo{
     background-color:rgb(61, 3, 3);
     text-align: center;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
@@ -46,7 +46,6 @@ input[type=text]:focus {
 }
 .submitinfo:hover{
     text-decoration-line: underline;
-<<<<<<< HEAD
     font-weight: bolder;
 }
 .note{
@@ -54,23 +53,5 @@ input[type=text]:focus {
     font-weight: bolder;
     text-align: right;
     margin-right:35%;
-=======
-}*/
-
-.submitinfoB{
-    font-family:'Times New Roman', Times, serif;
-    padding:10px;
-    font-size:2vw;
-    margin-right:0;
-    cursor:pointer;
-}
-.submitinfoB:hover{
-    background-color: rgb(158, 157, 157);
-    color: gold;
-    font-size: 20px;
-    transition :  .9s;
-    padding: .7% 1.4%;
-    border-radius: 12px;
->>>>>>> e6df8634323b94b719510eea08c75a14cbc9b11d
 }
 
