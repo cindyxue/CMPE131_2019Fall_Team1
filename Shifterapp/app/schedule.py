@@ -1,12 +1,6 @@
 import calendar
 from calendar import Calendar
 
-class DayAsHalfHours:
-    def __init__(self):
-        self.daily_half_hours = []
-        for i in range(48):
-            self.daily_half_hours.append({False}) # boolean wrapped in dictionary to allow mutability 
-
 class Schedule():
     """
     Holds daily schedules
@@ -47,6 +41,25 @@ class Schedule():
         name_of_weekday is a list containing the weekday (ex: 'Monday') associated with each day of the month
         """
 
+    @staticmethod
+    def make_bool_list(size: int, true_or_false: bool):
+        bool_list = []
+        for i in range(size):
+            bool_list.append(true_or_false)
+        
+        return bool_list
+    
+    
+    @staticmethod
+    def make_list_of_bool_lists(size: int, inner_list_size: int, true_or_false: bool):
+        list_of_bool_lists = []
+        for i in range(size):
+            bool_list = Schedule.make_bool_list(inner_list_size, true_or_false)
+            list_of_bool_lists.append(bool_list)
+            
+        return list_of_bool_lists
+               
+
 
     def parse_time(self, time_string):
         """Parses a String of the form 'MM/DD/YYYY HH:mm AM' or 'MM/DD/YYYY HH:mm PM'
@@ -60,7 +73,7 @@ class Schedule():
 
         if hour == 12:
             hour = 0 # 12 AM is the zero point. 
-        if [list1[2] == "PM"]:
+        if list1[2] == "PM":
             hour += 12
 
         minutesIntoDay = (hour * 60) + minutes
@@ -120,10 +133,11 @@ class Schedule():
         
         # range(start, stop, step), stop value is not included
         # range(3, 7, 1) = 3, 4, 5, 6 and not 7
+        
         for i in range(len(shift_days_index)):
             schedule_index = self.get_schedule_index(shift_month_years[i])
             for j in range(start_of_shift_index[i], end_of_shift_index[i]):
-                self.full_schedule[schedule_index]['work_schedule'][shift_days_index[i]][j] = {True}
+                self.full_schedule[schedule_index]['work_schedule'][shift_days_index[i]][j] = True
 
         return 1 # Method did not run into errors
  
@@ -136,11 +150,12 @@ class Schedule():
 
         
         start_of_shift = self.parse_time(start_time) # [minutesIntoDay, 'day', 'MM/YYYY'(month/year)]
+        start_of_shift[1] = int(start_of_shift[1]) # converted 'day' into int for use later
         end_of_shift = self.parse_time(end_time)
         month_year_match_found = True
         month_year_list = []
 
-        month_year_list[0] = start_of_shift[2]
+        month_year_list.append(start_of_shift[2])
         if start_of_shift[2] != end_of_shift[2]: # if shift starts and ends on diffierent months
             month_year_list.append(end_of_shift[2])
             month_year_match_found = False
@@ -153,13 +168,13 @@ class Schedule():
         shift_days_index = []
         shift_month_years = []
         
-        start_of_shift_index[0] = (start_of_shift[0] / 30) - 1
-        shift_days_index[0] = start_of_shift[1] - 1
-        shift_month_years[0] = month_year_list[0]
+        start_of_shift_index.append((int)(start_of_shift[0] / 30) - 1) # index 0
+        shift_days_index.append(start_of_shift[1] - 1) # index 0
+        shift_month_years.append(month_year_list[0]) # index 0
         
         if month_year_match_found:
             # schedule starts and ends on the same day
-            end_of_shift_index[0] = (end_of_shift[0] / 30) - 1
+            end_of_shift_index.append((int)(end_of_shift[0] / 30) - 1) # index 0
         else:
             """
             different start and end days, meaning shift goes past midnight
@@ -167,20 +182,21 @@ class Schedule():
                 1) starts at original start time, ends at midnight
                 2) starts at midnight, ends at original end time
             """
-            shift_days_index[1] = end_of_shift[1] - 1
-            shift_month_years[1] = end_of_shift[1]
-            end_of_shift_index[0] = 47 # 11:30 PM - 12:00 AM
-            start_of_shift_index[1] = 0 # 12:00 AM - 12:30 AM
-            end_of_shift_index[1] = (end_of_shift[0] / 30) - 1
+            shift_days_index.append(end_of_shift[1] - 1) # index 1
+            shift_month_years.append(end_of_shift[1]) # index 1
+            end_of_shift_index.append(47) # 11:30 PM - 12:00 AM, index 0
+            start_of_shift_index.append(0) # 12:00 AM - 12:30 AM, index 1
+            end_of_shift_index.append((int)(end_of_shift[0] / 30) - 1) # index 1
         
         # range(start, stop, step), stop value is not included
         # range(3, 7, 1) = 3, 4, 5, 6 and not 7
+        
         for i in range(len(shift_days_index)):
-            schedule_index = self.get_schedule_index(shift_month_years[i], shift_days_index[i])
-            for j in range(start_of_shift_index, end_of_shift_index):
-                self.full_schedule[schedule_index]['work_schedule'][shift_days_index[i]][j] = {False}
+            schedule_index = self.get_schedule_index(shift_month_years[i])
+            for j in range(start_of_shift_index[i], end_of_shift_index[i]):
+                self.full_schedule[schedule_index]['work_schedule'][shift_days_index[i]][j] = False
 
-        return 1 # Method did not run into errors    
+        return 1 # Method did not run into errors
 
     def add_to_calendar(self, month_year: str):
         month_year_in_schedule = True
@@ -206,11 +222,10 @@ class Schedule():
         days_in_month = calendar.monthrange(int(year), int(month))[1]
         weekday = calendar.monthrange(int(year), int(month))[0]
         
-        work_schedule = []
+        work_schedule = Schedule.make_list_of_bool_lists(days_in_month, 48, False)
         name_of_weekday = []
         
         for i in range(days_in_month):
-            work_schedule.append(DayAsHalfHours())
             weekday_name = self.get_name_of_weekday(weekday)
             name_of_weekday.append(weekday_name)
             weekday = self.increment_weekday(weekday)
@@ -258,5 +273,3 @@ class Schedule():
         for i in range(len(self.full_schedule)):
             if self.full_schedule[i].get('month_year') == month_year:
                 return i
-        
-        return -1 # should never be reached if class is working properly
