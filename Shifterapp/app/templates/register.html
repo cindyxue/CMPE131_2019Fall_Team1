@@ -31,11 +31,14 @@
                     {% for error in formRegister.address.errors %}
                     <span style="color: red;">[{{ error }}]</span>
                     {% endfor %}
+                </p>
                 <p>
                     {{formRegister.Business_phone_number.label}}:
-                    {{formRegister.Business_phone_number(class_="Buisness_phone_number", placeholder = "ex. 222-333-3344")}}
+                    {{formRegister.Business_phone_number(class_="Buisness_phone_number", placeholder = "ex. 222-333-3344")}}<br>
+                    {% for error in formRegister.address.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}
                 </p>    
-                </p>
                 <p class = 'note'>Note: By filling the information below, you create your first employee as a manager.</p>
                 <p>
 

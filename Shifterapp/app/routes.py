@@ -9,6 +9,8 @@ from werkzeug.urls import url_parse
 
 @Shifter.route('/', methods = ['GET', 'POST'])
 def login():
+    if current_user.is_authenticated and current_user.manager==True:
+        return redirect(url_for('chooseToDo'))
     formLogin = LoginForm()
     if formLogin.Register.data and formLogin.is_submitted():
         return redirect(url_for('register'))
@@ -17,13 +19,11 @@ def login():
 
     elif formLogin.is_submitted():
         user = Employee.query.filter_by(email=formLogin.Username.data).first()
-        print(user)
         if user is None or not user.check_password(formLogin.Password.data):
             flash('Invalid username or password')
             return redirect(url_for('login'))
         elif user.Manager == True:
-            return redirect(url_for('chooseToDo'))
-        #login_user(user, remember=formLogin.RememberMe.data)
+            login_user(user, remember=formLogin.RememberMe.data)
         # return to page before user got asked to login
         #next_page = request.args.get('next')
         #if not next_page or url_parse(next_page).netloc != '':
@@ -37,6 +37,7 @@ def login():
  #   return redirect(url_for('login'))
 
 @Shifter.route("/addemployee")
+@login_required
 def addemployee():
     title = "Add employee to Shifter"
     formEmployee = EmployeeForm()
