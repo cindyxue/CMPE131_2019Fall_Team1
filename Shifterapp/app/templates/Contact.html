@@ -1,10 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block content %}
+    <link href = "../static/Contact.css?v=3.3" rel = "stylesheet" type = "text/css">
+    <body>
+        <div class="container">
+            <form action = "" method = "POST">
+                {{ formContact.hidden_tag() }}
+                <H1 class = 'contact'><u>Contact Shifter</u></H1>
+                <!--<h3 class = 'contact'>Contact Us!</h3> --!>
+                <p class ='info'>Customer support is our top priority.Contact us if you have any questions. We are here to help.
+                </p>
+                <p class = 'info'>.</p>
+                <p class = 'info'>If the links don't answer your question, give us a call at 1-800-555-5555 during our hours of operation: Monday–Friday, 7am–6pm Pacific time.</p>
+
+                <p>
+                    {{ formContact.name.label}}:
+                    {{ formContact.name(class_="namebox") }}<br>
+                    {% for error in formContact.name.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}
+                </p>
+
+                <p>
+                    {{ formContact.email.label }}:
+                    {{ formContact.email(class_="emailbox") }}<br>
+                    {% for error in formContact.email.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}
+                </p>
+                <p>
+                    {{ formContact.phone_number.label }}:
+                    {{ formContact.phone_number() }}<br>
+                    {% for error in formContact.phone_number.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}
+                </p>
+              <p>
+                    {{ formContact.subject.label }}:
+                    {{ formContact.subject(class_="subjectbox") }}<br>
+                    {% for error in formContact.subject.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}
+                </p>
+              <p>
+                    {{ formContact.message.label }}:
+                    {{ formContact.message(class_="messagebox") }}<br>
+                    {% for error in formContact.message.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}
+                </p>
+                <p>{{ formContact.submit(class_ = "submitinfo")}}</p>
+            </form>
+        </div>
+    </body>
+{% endblock %}
