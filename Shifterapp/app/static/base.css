@@ -20,38 +20,43 @@ nav ul{
     
     
 }
-nav ul li{
+nav ul li {
     list-style-type: none;
     display:inline-block;
     background:rgb(61, 3, 3);
-    border-radius: 12px;
+    border-radius: 10px;
     border-color: white;
-    padding:.7% 1.4%;
+    padding:10px 15px;
     font-style: normal;
-    font-weight: 800;
 }
 .logout{
     padding:0;
-    margin-left:30px;
+    margin-left:0.5%;
 }
+
 .Logoutbutton{
     font-family:'Times New Roman', Times, serif;
     text-align:center;
-    font-size:25px;
-    background-color: black;
-    color:rgb(207, 206, 206);
-    border-color:white;
-    padding: 15%;
-    border-radius: 10px;
+    font-size:1.2em;
+    padding: 25%;
+    border-color:gray;
+    border-radius: 5px;
     font-weight: bold;
     cursor: pointer;
+    background-color:rgb(17, 49, 2);
+    color:gold;
 
 
 }
 nav a{
     color:gold;
-    font-size:20px;
+    font-size:18px;
+    text-decoration: none;
 }
 hr{
     border:none;
+}
+.flash{
+    font-size:25px;
+    margin-bottom: -40px;
 }

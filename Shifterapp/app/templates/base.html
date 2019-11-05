@@ -17,18 +17,18 @@
                 {% endif %}
                 <li><a href="#">About</a></li>
                 <li><a href="#">Contact</a></li>
-    <ul>
                 {% if title != "Shifter Scheduling Application" and title != "Register Organization" %}
-                <li class = "logout"><form action = "", method = 'POST'>
-                    {{formLogout.Logout(class_ = "Logoutbutton")}}</form>
+                <li class = 'logout'><form action = "", method = 'POST'>
+                    {{formLogout.Logout(class_ = 'Logoutbutton')}}</form>
                 </li>
                 {% endif %}
+
             </ul>
         </nav>
     </header>
     {% with messages = get_flashed_messages() %}
     {% if messages %}
-    <ul>
+    <ul class = flash>
         {% for message in messages %}
         <li>{{ message }}</li>
         {% endfor %}
