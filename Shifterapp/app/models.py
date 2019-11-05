@@ -33,13 +33,12 @@ class Employee(UserMixin, db.Model):
         self.password_hash = generate_password_hash(password)
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
-    def set_orgid(self, id):
-        self.Organization_id = id
-    #def managerornot(self, manager):
-      #  if self.Manager == manager:
-       #     return True
-        #else:
-         #   return False
+
+class Question(UserMixin, db.Model):
+    id = db.Column(db.Integer, primary_key = True)
+    question = db.Column(db.String(128))
+    answer = db.Column(db.String(128))
+    employee_id = db.Column(db.String(128), db.ForeignKey('Employee.id'))
     
 
 

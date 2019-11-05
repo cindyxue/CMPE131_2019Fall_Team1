@@ -6,18 +6,42 @@
     
     <body>
         <div class = forms>
+<<<<<<< HEAD
             <form action='' method='POST' class = "login" >
+=======
+        <form class = "login" method = 'Post' action = "" >
+>>>>>>> e6df8634323b94b719510eea08c75a14cbc9b11d
                 
                 {{formLogin.Username(placeholder= "Username", class_="username")}}<br>
                 {{formLogin.Password(placeholder = "Password", class_="password")}}<br>
                 {{formLogin.Login(class_ = "Login")}}
                 {{formLogin.RememberMe.label(class_ = "RememberMe")}}
                 {{formLogin.RememberMe(class_ = "RememberMeButton")}}
+<<<<<<< HEAD
         
                 {{formLogin.ResetPassword(class_="Resetbutton", value = "Reset Password")}}<br>
                 <p class = 'RegisterLabel'>New Comapny?</p>
                 {{formLogin.Register(class_="Register", value = "Register Your Organization")}} 
             </form>
         </div>
+=======
+        </form>
+        <form action = "" method = "post" class = "Reset" id="ForHover">
+            {{formLogin.ResetPassword(class_="Resetbutton", value = "Reset Password")}}<br>
+        </form>
+        <form action = " " method = "post" class = "Registeration" >
+
+            <p class = "d-flex flex-row  bd-highlight mb-3">New company?
+            <span class="align-text-bottom" ><a class="" href="../register" role="button">Register Your Organization</a></span>
+            </p>
+        </form>
+            <script>
+            function myFunction() {
+             location.replace("../register")
+}
+</script>
+
+    </div>
+>>>>>>> e6df8634323b94b719510eea08c75a14cbc9b11d
     </body>
 {% endblock %}

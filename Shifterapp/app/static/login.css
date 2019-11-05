@@ -1,3 +1,4 @@
+
 body {
     transition: 0.5s ease;
     background-image: url('login1.jpg');
@@ -45,6 +46,7 @@ div{
     color:gold;
     margin-bottom:-2%;
 }
+
 .Login{
     background-color:rgb(61, 3, 3);
     text-align: center;
@@ -107,7 +109,6 @@ form p {
     color:maroon;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-weight: bolder;
-
 }
 
 
