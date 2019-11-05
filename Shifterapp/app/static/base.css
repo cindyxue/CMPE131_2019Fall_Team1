@@ -48,10 +48,12 @@ nav ul li{
 
 
 }
-nav a{
+nav a:hover{
     color:gold;
     font-size:20px;
+    background-color: burlywood;
 }
 hr{
     border:none;
 }
+
