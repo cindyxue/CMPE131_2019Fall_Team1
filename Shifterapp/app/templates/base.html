@@ -18,11 +18,12 @@
                 <li><a href="#">About</a></li>
                 <li><a href="#">Contact</a></li>
                 {% if title != "Shifter Scheduling Application" %}
-                <li class = "logout">{{formLogout.Logout(class_ = "Logoutbutton")}}</li>
+                <li class="logout">{{formLogout.Logout(class_ = "Logoutbutton")}}</li>
                 {% endif %}
             </ul>
         </nav>
     </header>
+<<<<<<< HEAD
     {% with messages = get_flashed_messages() %}
     {% if messages %}
     <ul>
@@ -37,3 +38,19 @@
 {% block content %}
 {% endblock %}
    </html>
+=======
+    <hr>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+
+    {% block content %}
+    {% endblock %}
+</html>
+>>>>>>> e6df8634323b94b719510eea08c75a14cbc9b11d

@@ -24,9 +24,9 @@ nav ul li{
     list-style-type: none;
     display:inline-block;
     background:rgb(61, 3, 3);
-    border-radius: 12px;
+    border-radius: 15px;
     border-color: white;
-    padding:.7% 1.4%;
+    padding: .7% 1.4%;
     font-style: normal;
     font-weight: 800;
 }
@@ -45,13 +45,26 @@ nav ul li{
     border-radius: 10px;
     font-weight: bold;
     cursor: pointer;
-
-
 }
+<<<<<<< HEAD
 nav a:hover{
+=======
+
+nav a{
+>>>>>>> e6df8634323b94b719510eea08c75a14cbc9b11d
     color:gold;
     font-size:20px;
     background-color: burlywood;
+}
+
+ul li:hover{
+    background-color: rgb(158, 157, 157);
+    transition :  .9s;
+}
+
+.Logoutbutton:hover{
+    background-color: rgb(158, 157, 157);
+    transition :  .9s;
 }
 hr{
     border:none;
