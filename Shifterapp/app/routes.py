@@ -1,6 +1,6 @@
 from app import Shifter 
 from app import db
-from app.forms import LoginForm, EmployeeForm, LogoutForm, EditViewForm, RegisterForm
+from app.forms import LoginForm, EmployeeForm, LogoutForm, EditViewForm, RegisterForm, ResetPasswordForm
 from app.models import Organization, Employee
 from flask import render_template, flash, redirect, url_for
 from flask import request
@@ -32,9 +32,9 @@ def login():
         #return redirect(next_page)
     title = "Shifter Scheduling Application"
     return render_template('login.html', title=title, formLogin=formLogin)
-@Shifter.route('/resetpassword', methods = ['POST', 'GET'])
-def reset():
-    return redirect(url_for('login'))
+#@Shifter.route('/resetpassword', methods = ['POST', 'GET'])
+#def reset():
+ #   return redirect(url_for('login'))
 
 @Shifter.route("/addemployee")
 def addemployee():
@@ -84,5 +84,10 @@ def register():
         
     return render_template("register.html", title=title, formRegister=formRegister)
 
+@Shifter.route('/resetpassword', methods = ['GET', 'POST'])
+def reset():
+    resetform = ResetPasswordForm()
+    title = 'Reset Your Password'
+    render_template('reset.html', title = title, resetform = resetform)
 if __name__ == '__main__':
     Shifter.run()

@@ -39,3 +39,8 @@ class EmployeeForm(FlaskForm):
     email = StringField("Email", validators=[DataRequired(), Email()])
     phone_number = IntegerField("Phone number", validators=[DataRequired()])
     submit = SubmitField("Submit info")
+
+class ResetPasswordForm(FlaskForm):
+    Question1 = SelectField('Question1'
+    , choices = [('whichcity', 'Which city was your father born in?')], validators=[DataRequired()])
+    answer1 = StringField('answer1', validators =[DataRequired()])
