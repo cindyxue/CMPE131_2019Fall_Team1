@@ -27,11 +27,8 @@ input[type=text], .confirmpassword {
     padding:10px 10px 10px 10px ;
     margin-right:45%;
 }
-<<<<<<< HEAD
 
 
-=======
->>>>>>> e6df8634323b94b719510eea08c75a14cbc9b11d
 input[type=text]:focus {
     background-color: #ebe6c0;
     text-align: center;
