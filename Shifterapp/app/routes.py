@@ -1,7 +1,7 @@
 from app import Shifter 
 from app import db
 from app.forms import LoginForm, EmployeeForm, LogoutForm, EditViewForm, RegisterForm, ResetPasswordForm
-from app.models import Organization, Employee
+from app.models import Organization, Employee, Question
 from flask import render_template, flash, redirect, url_for
 from flask import request
 from flask_login import current_user, login_user, login_required, logout_user
@@ -60,11 +60,11 @@ def register():
     title = "Register Organization"
     formRegister = RegisterForm()
     if formRegister.validate_on_submit():
-        organization = Organization(Name=formRegister.name_company.data, 
+        organization = Organization(name=formRegister.name_company.data, 
                                     email=formRegister.email.data,
                                     typeofbusiness=formRegister.type_company.data,
-                                    Address=formRegister.address.data,
-                                    PhoneNumber=formRegister.Business_phone_number.data
+                                    address=formRegister.address.data,
+                                    phone_number=formRegister.business_phone_number.data
                                     )
         db.session.add(organization)
         db.session.commit()
@@ -72,12 +72,11 @@ def register():
         employee = Employee(fname = formRegister.manager_namef.data,
                             lname = formRegister.manager_namel.data,
                             email = formRegister.email.data,
-                            phone_number=formRegister.Manager_phone_number.data
+                            phone_number=formRegister.manager_phone_number.data,
+                            manager = True,
+                            organization_id = organization.id
                             )
-        employee.set_manager(True)
         employee.set_password(formRegister.enter_password.data)
-        employee.set_orgid(Organization.query.filter_by(email = formRegister.email.data).first().id)
-
         db.session.add(employee)
         db.session.commit()
         flash('New Organization has been added')
