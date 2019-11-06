@@ -8,7 +8,7 @@
             <form action="" method = "POST">
                 <p>
                     Question 1: 
-                    {{ resetform.question1}} <br>
+                    {{ resetform.question1(class_ = "question")}} <br>
                 </p>
                 <p>    
                     {{ resetform.answer1.label}}:
@@ -19,7 +19,7 @@
                 </p>
                 <p>
                     Question 2: 
-                    {{ resetform.question2}} <br>
+                    {{ resetform.question2 (class_ = "question")}} <br>
                 </p>
                 <p>
                     {{ resetform.answer2.label}}:
