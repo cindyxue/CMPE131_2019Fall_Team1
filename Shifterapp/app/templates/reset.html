@@ -2,33 +2,30 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <link href = "../static/reset.css" rel = "stylesheet" type = "text/css">
+    <link href = "../static/resetpassword.css" rel = "stylesheet" type = "text/css">
     <body>
         <div class="container">
             <form action="" method = "POST">
                 <p>
-                    {{ resetform.question1}}:
-                    <input type="submit">
+                    {{ resetform.question1}} <br>
                 </p>
-
-                <p>
+                <p>    
                     {{ resetform.answer1.label}}:
-                    {{ resetform.answer1(class_="answer1box") }}<br>
+                    {{ resetform.answer1(class_="answer1box") }}<br><br>
                     {% for error in resetform.answer1.errors %}
                     <span style="color: red;">[{{ error }}]</span>
                     {% endfor %}
                 </p>
                 <p>
-                    {{ resetform.question2}}:
-                    <input type="submit">
+                    {{ resetform.question2}} <br>
                 </p>
-
                 <p>
                     {{ resetform.answer2.label}}:
-                    {{ resetform.answer2(class_="answer2box") }}<br>
+                    {{ resetform.answer2(class_="answer2box") }}<br><br>
                     {% for error in resetform.answer2.errors %}
                     <span style="color: red;">[{{ error }}]</span>
                     {% endfor %}
+                    <input type="submit">
                 </p>
             </form>
         </div>

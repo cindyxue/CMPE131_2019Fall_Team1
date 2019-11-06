@@ -41,15 +41,17 @@ class EmployeeForm(FlaskForm):
     submit = SubmitField("Submit info")
 
 class ResetPasswordForm(FlaskForm):
-    question1 = SelectField('--Question 1 Select One--'
-    , choices = [('Whichcity', 'Which city was your father born in?')
+    question1 = SelectField('Question 1: '
+    , choices = [ ('Select1', '--Question 1 Select One--')
+    , ('Whichcity', 'Which city was your father born in?')
     , ('Whatname', 'What is the first name of your best friend in high school?')
     , ('Whatstreet', 'What street did you grow up on?')
     , ('Whatcook', 'What was the first thing you learned to cook?')
     , ('Wherefly', 'Where did you go the first time you flew on a plane?')], validators=[DataRequired()])
     answer1 = StringField('Answer1', validators =[DataRequired()])
-    question2 = SelectField('--Question 2 Select One--'
-    , choices = [('Whichcity', 'Which city was your father born in?')
+    question2 = SelectField('Question 2: '
+    , choices = [ ('Select2', '--Question 2 Select One--')
+    , ('Whichcity', 'Which city was your father born in?')
     , ('Whatname', 'What is the first name of your best friend in high school?')
     , ('Whatstreet', 'What street did you grow up on?')
     , ('Whatcook', 'What was the first thing you learned to cook?')

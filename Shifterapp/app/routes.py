@@ -88,9 +88,6 @@ def register():
 def reset():
     title = 'Reset Your Password'
     formLogout = LogoutForm()
-    if formLogout.is_submitted():
-        flash('Logged out')
-        return redirect(url_for('login'))
     resetform = ResetPasswordForm()
     #resetform.question1.choices = [(Employee.id) for question1 in question1.query.filter_by(question1='Whichcity').all()]
     return render_template('reset.html', title = title, resetform = resetform, formLogout = formLogout)
