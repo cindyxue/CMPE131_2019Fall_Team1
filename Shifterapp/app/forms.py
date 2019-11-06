@@ -39,6 +39,7 @@ class EmployeeForm(FlaskForm):
     email = StringField("Email", validators=[DataRequired(), Email()])
     phone_number = IntegerField("Phone number", validators=[DataRequired()])
     submit = SubmitField("Submit info")
+<<<<<<< HEAD
 
 class ContactForm(FlaskForm):
     name = StringField("Name", validators=[DataRequired()])
@@ -47,3 +48,5 @@ class ContactForm(FlaskForm):
     subject = StringField("Subject", validators=[DataRequired()])
     message = StringField("Message", validators=[DataRequired()])
     submit = SubmitField("Submit info")
+=======
+>>>>>>> master
