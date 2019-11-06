@@ -8,10 +8,29 @@
         <form action="" method = "POST">
             {{ resetform.hidden_tag() }}
 
-            <h3 class = 'reset'>Reset Password</h3>
             <p>
-                {{ resetform.question1.label}}:
-                
+                {{ resetform.question1}}:
+                <input type="submit">
+            </p>
+
+            <p>
+                {{ resetform.answer1.label}}:
+                {{ resetform.answer1(class_="answer1box") }}<br>
+                {% for error in resetform.answer1.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p>
+                {{ resetform.question2}}:
+                <input type="submit">
+            </p>
+
+            <p>
+                {{ resetform.answer2.label}}:
+                {{ resetform.answer2(class_="answer2box") }}<br>
+                {% for error in resetform.answer2.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
             </p>
         </form>
 
