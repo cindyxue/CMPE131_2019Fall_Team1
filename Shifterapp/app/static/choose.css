@@ -34,5 +34,10 @@ div.forms{
     margin-top:2%;
     
 }
+.Buttons:hover{
+    text-decoration: underline;
+    font-weight: 800;
+    cursor: pointer;
+}
 
 

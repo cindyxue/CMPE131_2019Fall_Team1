@@ -30,6 +30,10 @@ nav ul li {
     font-style: normal;
 
 }
+li:hover{
+    text-decoration: underline;
+    font-weight:800;
+}
 .logout{
     padding:0;
     margin-left:0.5%;
