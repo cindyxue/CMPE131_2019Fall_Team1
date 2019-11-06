@@ -15,14 +15,9 @@
                 <li><a href="{{url_for('chooseToDo')}}">Home</a></li>
                 <li><a href="#">Edit Profile</a></li>
                 {% endif %}
-<<<<<<< HEAD
                 <li><a href="about">About</a></li>
-                <li class = "contact"><a href="contact">Contact</a></li>
-    <ul>
-=======
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
->>>>>>> master
+                <li><a href="{{url_for('contact')}}">Contact</a></li>
+             <ul>
                 {% if title != "Shifter Scheduling Application" and title != "Register Organization" %}
                 <li class = 'logout'><form action = "", method = 'POST'>
                     {{formLogout.Logout(class_ = 'Logoutbutton')}}</form>

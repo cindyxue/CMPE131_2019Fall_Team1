@@ -1,6 +1,6 @@
 from app import Shifter 
 from app import db
-from app.forms import LoginForm, EmployeeForm, LogoutForm, EditViewForm, RegisterForm, ResetPasswordForm
+from app.forms import LoginForm, EmployeeForm, LogoutForm, EditViewForm, RegisterForm, ResetPasswordForm, ContactForm
 from app.models import Organization, Employee, Question
 from flask import render_template, flash, redirect, url_for
 from flask import request
