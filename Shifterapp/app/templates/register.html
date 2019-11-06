@@ -2,7 +2,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <link href = "../static/registration.css?v1.1" rel = "stylesheet" type = "text/css">
+    <link href = "../static/registration.css?v1.2" rel = "stylesheet" type = "text/css">
 
 
     <body>
@@ -83,7 +83,8 @@
                     <span style="color: red;">[{{ error }}]</span>
                     {% endfor %}
                 </p>
-                    {{ formRegister.submit(class_ = "submitinfo")}}</p>
+                    {{ formRegister.submit(class_ = "submitinfo")}}
+                </p>
             </form>
         </div>
     </body>

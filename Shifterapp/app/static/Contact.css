@@ -5,7 +5,8 @@ body {
     margin:0;
     background-color:rgba(194, 194, 194, 0.274);
 }
-div{
+div
+{
     transition: all 0.1s ease-in;
     background:rgb(131, 112, 112);
     border-radius: 20px;
@@ -14,7 +15,10 @@ div{
     padding:2.5% 2%;
     margin-left:13%;
     margin-top:4%;
+
+
 }
+
 
 .contact{
     font-size:2.5vw;
@@ -38,7 +42,7 @@ p{
 }
 
 input[type=text] {
-     font-size:1.7vw;
+    font-size:1.7vw;
     outline:none;
     transition:all 1s ease;
     border: 2px solid gray;
@@ -68,3 +72,6 @@ input[type=text]:focus {
     font-weight: bolder;
 }
 
+div .messagebox{
+    vertical-align: top;
+}
