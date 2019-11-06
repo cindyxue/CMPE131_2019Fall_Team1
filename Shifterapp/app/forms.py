@@ -41,6 +41,17 @@ class EmployeeForm(FlaskForm):
     submit = SubmitField("Submit info")
 
 class ResetPasswordForm(FlaskForm):
-    Question1 = SelectField('Question1'
-    , choices = [('whichcity', 'Which city was your father born in?')], validators=[DataRequired()])
-    answer1 = StringField('answer1', validators =[DataRequired()])
+    question1 = SelectField('Question1'
+    , choices = [('whichcity', 'Which city was your father born in?')
+    , ('Whatname', 'What is the first name of your best friend in high school?')
+    , ('Whatstreet', 'What street did you grow up on?')
+    , ('Whatcook', 'What was the first thing you learned to cook?')
+    , ('Wherefly', 'Where did you go the first time you flew on a plane?')], validators=[DataRequired()])
+    answer1 = StringField('Answer1', validators =[DataRequired()])
+    question2 = SelectField('Question2'
+    , choices = [('whichcity', 'Which city was your father born in?')
+    , ('Whatname', 'What is the first name of your best friend in high school?')
+    , ('Whatstreet', 'What street did you grow up on?')
+    , ('Whatcook', 'What was the first thing you learned to cook?')
+    , ('Wherefly', 'Where did you go the first time you flew on a plane?')], validators=[DataRequired()])
+    answer2 = StringField('Answer2', validators =[DataRequired()])
