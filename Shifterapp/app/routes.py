@@ -87,8 +87,9 @@ def register():
 @Shifter.route('/resetpassword', methods = ['GET', 'POST'])
 def reset():
     resetform = ResetPasswordForm()
+    formLogout = LogoutForm()
     title = 'Reset Your Password'
-    render_template('reset.html', title = title, resetform = resetform)
+    render_template('reset.html', title = title, resetform = resetform, formLogout = formLogout)
     
 if __name__ == '__main__':
     Shifter.run()
