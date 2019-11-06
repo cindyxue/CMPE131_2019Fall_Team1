@@ -2,8 +2,20 @@
 {% extends "base.html" %}
 
 {% block content %}
+<link href = "../static/reset.css" rel = "stylesheet" type = "text/css">
 <body>
+    <div class="container">
+        <form action="" method = "POST">
+            {{ resetform.hidden_tag() }}
 
+            <h3 class = 'reset'>Reset Password</h3>
+            <p>
+                {{ resetform.question1.label}}:
+                
+            </p>
+        </form>
+
+    </div>
 
 
 </body>
