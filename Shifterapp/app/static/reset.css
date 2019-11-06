@@ -1,0 +1,32 @@
+body {
+    background-image:url("login3.jpg");
+    background-size:100%;
+    background-repeat: no-repeat;
+    margin:0;
+    background-color:rgba(194, 194, 194, 0.274);
+}
+.container {
+    width:97.3%;
+    height:0%;
+    
+    padding:5% 0 2% 5%;
+    border-radius:20px;
+    text-align: left;
+}
+p{
+    font-size:1.8vw;
+    margin-left: 0;
+    transition:all 0.5s ease;
+}
+
+input[type=text] {
+    
+    font-size:20px;
+    outline:none;
+    transition:all 10s ease;
+    border: 2px solid gray;
+    border-radius: 10px;
+    width:30%;
+    padding:10px 0 10px 0 ;
+    align-content: center;  
+}
