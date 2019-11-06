@@ -84,12 +84,16 @@ def register():
         
     return render_template("register.html", title=title, formRegister=formRegister)
 
-@Shifter.route('/resetpassword', methods = ['GET', 'POST'])
+@Shifter.route("/resetpassword", methods = ['GET', 'POST'])
 def reset():
-    resetform = ResetPasswordForm()
-    formLogout = LogoutForm()
     title = 'Reset Your Password'
-    render_template('reset.html', title = title, resetform = resetform, formLogout = formLogout)
+    formLogout = LogoutForm()
+    if formLogout.is_submitted():
+        flash('Logged out')
+        return redirect(url_for('login'))
+    resetform = ResetPasswordForm()
+    #resetform.question1.choices = [(Employee.id) for question1 in question1.query.filter_by(question1='Whichcity').all()]
+    return render_template('reset.html', title = title, resetform = resetform, formLogout = formLogout)
     
 if __name__ == '__main__':
     Shifter.run()
