@@ -52,7 +52,7 @@ class EmployeeForm(FlaskForm):
     first_name = StringField("First name", validators=[DataRequired()])
     last_name = StringField("Last name", validators=[DataRequired()])
     email = StringField("Email", validators=[DataRequired(), Email()])
-    phone_number = IntegerField("Phone number", validators=[DataRequired()])
+    phone_number = StringField("Phone number", validators=[DataRequired()])
     submit = SubmitField("Submit info")
 
 class ResetPasswordForm(FlaskForm):

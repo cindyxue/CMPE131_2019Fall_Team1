@@ -17,24 +17,27 @@ def login():
     elif formLogin.ResetPassword.data and formLogin.is_submitted():
         return redirect(url_for('reset'))
 
-    elif formLogin.is_submitted():
+    elif formLogin.validate_on_submit():
         user = Employee.query.filter_by(email=formLogin.Username.data).first()
         if user is None or not user.check_password(formLogin.Password.data):
             flash('Invalid username or password')
             return redirect(url_for('login'))
-        elif user.Manager == True:
+        elif user.manager == True:
             login_user(user, remember=formLogin.RememberMe.data)
         # return to page before user got asked to login
-        #next_page = request.args.get('next')
-        #if not next_page or url_parse(next_page).netloc != '':
-        #    next_page = url_for('choose')
-
-        #return redirect(next_page)
+            next_page = request.args.get('next')
+            if not next_page or url_parse(next_page).netloc != '':
+                next_page = url_for('chooseToDo')
+            return redirect(next_page)
     title = "Shifter Scheduling Application"
     return render_template('login.html', title=title, formLogin=formLogin)
 #@Shifter.route('/resetpassword', methods = ['POST', 'GET'])
 #def reset():
  #   return redirect(url_for('login'))
+@Shifter.route('/logout')
+def logout():
+    logout_user()
+    return redirect(url_for('login'))
 
 @Shifter.route("/addemployee")
 @login_required
@@ -44,15 +47,18 @@ def addemployee():
     formLogout = LogoutForm()
     return render_template("addemployee.html", title=title, formEmployee=formEmployee, formLogout=formLogout)
 
-
 @Shifter.route("/choose", methods = ['POST', 'GET'])
+@login_required
 def chooseToDo():
     title = "ChooseToDo"
     formLogout = LogoutForm()
-    if formLogout.is_submitted():
-        flash('Logged out')
-        return redirect(url_for('login'))
     formEditView = EditViewForm()
+
+    if formLogout.Logout.data and formLogout.is_submitted():
+        flash('Logged out')
+        return redirect(url_for('logout'))
+    elif formEditView.AddEmpl.data and formEditView.is_submitted():
+        return redirect(url_for('addemployee'))
 
     return render_template("choose.html", title = title, formLogout = formLogout, formEditView = formEditView)
 @Shifter.route("/register", methods = ['GET', 'POST'])

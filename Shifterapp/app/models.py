@@ -38,7 +38,9 @@ class Question(UserMixin, db.Model):
     question = db.Column(db.String(128))
     answer = db.Column(db.String(128))
     employee_id = db.Column(db.String(128), db.ForeignKey('employee.id'))
-    
+@login.user_loader
+def load_user(id):
+    return Employee.query.get(int(id))
 
 
 
