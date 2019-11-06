@@ -89,5 +89,6 @@ def reset():
     resetform = ResetPasswordForm()
     title = 'Reset Your Password'
     render_template('reset.html', title = title, resetform = resetform)
+    
 if __name__ == '__main__':
     Shifter.run()
