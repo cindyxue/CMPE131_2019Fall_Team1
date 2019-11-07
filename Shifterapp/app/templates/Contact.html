@@ -5,6 +5,9 @@
     <link href = "../static/Contact.css?v=8.0" rel = "stylesheet" type = "text/css">
     <body>
         <div class="container">
+            {% for message in get_flashed_messages() %}
+                <div class="flash">{{ message }}</div>
+            {% endfor %}
             <form action = "" method = "POST">
                 {{ formContact.hidden_tag() }}
                 <header><H1 class = 'contact'><u>Contact Shifter</u></H1></header>

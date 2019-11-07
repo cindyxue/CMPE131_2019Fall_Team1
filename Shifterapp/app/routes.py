@@ -49,19 +49,25 @@ def addemployee():
     return render_template("addemployee.html", title=title, formEmployee=formEmployee, formLogout=formLogout)
 
 
-@Shifter.route("/contact")
+@Shifter.route("/contact", methods=['GET','POST'])
 def contact():
     title = "Contact Us"
     formContact = ContactForm()
-    formLogout = LogoutForm()
-    return render_template("Contact.html", title=title, formContact=formContact, formLogout=formLogout)
+
+    if request.method == 'POST':
+        if form.validate() == False:
+            flash('All fields are required.')
+            return render_template('contact.html', formContact=formContact, title=title)
+        else:
+            return 'Form Sent'
+    elif request.method == 'GET':
+        return render_template("Contact.html", title=title, formContact=formContact)
 
 
 @Shifter.route("/about")
 def about():
     title = "About Shifter"
-    formLogout = LogoutForm()
-    return render_template("About.html", title=title, formLogout=formLogout)
+    return render_template("About.html", title=title)
 
 
 @Shifter.route("/choose", methods=['POST', 'GET'])
