@@ -6,6 +6,9 @@ from flask import render_template, flash, redirect, url_for
 from flask import request
 from flask_login import current_user, login_user, login_required, logout_user
 from werkzeug.urls import url_parse
+from flask_mail import Message, Mail
+
+mail = Mail()
 
 @Shifter.route('/', methods = ['GET', 'POST'])
 def login():
@@ -55,14 +58,26 @@ def contact():
     formContact = ContactForm()
 
     if request.method == 'POST':
-        if form.validate() == False:
+        if formContact.validate() == False:
             flash('All fields are required.')
             return render_template('contact.html', formContact=formContact, title=title)
         else:
+            msg = Message(formContact.subject.data, sender='contact@example.com', recipients=['CMPE131Shifter@gmail.com'])
+            msg.body = """
+                  From: %s <%s>
+                  %s
+                  """ % (formContact.name.data, formContact.email.data, formContact.message.data)
+            mail.send(msg)
             return 'Form Sent'
     elif request.method == 'GET':
         return render_template("Contact.html", title=title, formContact=formContact)
+Shifter.config["MAIL_SERVER"] = "smtp.gmail.com"
+Shifter.config["MAIL_PORT"] = 465
+Shifter.config["MAIL_USE_SSL"] = True
+Shifter.config["MAIL_USERNAME"] = 'CMPE131Shifter@gmail.com'
+Shifter.config["MAIL_PASSWORD"] = 'Password131'
 
+mail.init_app(Shifter)
 
 @Shifter.route("/about")
 def about():
