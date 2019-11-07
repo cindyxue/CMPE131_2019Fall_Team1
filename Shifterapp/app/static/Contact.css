@@ -72,6 +72,17 @@ input[type=text]:focus {
     font-weight: bolder;
 }
 
-div .messagebox{
+ .messagebox{
     vertical-align: top;
+    text-align: left;
+    font-size: 1.8vw;
+    outline: none;
+    transition: all 1s ease;
+    border: 2px solid gray;
+    border-radius: 10px;
+    width: 35%;
+    padding: 10px 10px 10px 10px;
+    margin-right: 40%;
+    font-family: arial, serif;
+
 }

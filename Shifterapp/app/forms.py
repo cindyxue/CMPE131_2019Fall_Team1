@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import BooleanField, SubmitField, StringField, PasswordField, IntegerField
+from wtforms import BooleanField, SubmitField, StringField, PasswordField, IntegerField, TextAreaField
 from wtforms.fields import SelectField
 from wtforms.validators import ValidationError, DataRequired, Email, EqualTo
 from app.models import Organization,Employee, Question
@@ -60,7 +60,7 @@ class ContactForm(FlaskForm):
     email = StringField("Email", validators=[DataRequired(), Email()])
     phone_number = IntegerField("Phone number", validators=[DataRequired()])
     subject = StringField("Subject", validators=[DataRequired()])
-    message = StringField("Message", validators=[DataRequired()])
+    message = TextAreaField("Message", validators=[DataRequired()])
     submit = SubmitField("Submit info")
 class ResetPasswordForm(FlaskForm):
     Question1 = SelectField('Question1'

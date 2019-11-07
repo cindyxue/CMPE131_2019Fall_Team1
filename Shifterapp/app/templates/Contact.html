@@ -44,7 +44,7 @@
                     <span style="color: red;">[{{ error }}]</span>
                     {% endfor %}
                 </p>
-              <p>
+                 <p>
                     {{ formContact.subject.label }}:
                     {{ formContact.subject(class_="subjectbox", placeholder="Enter subject...") }}<br>
                     {% for error in formContact.subject.errors %}
@@ -58,12 +58,14 @@
                     {% for error in formContact.message.errors %}
                     <span style="color: red;">[{{ error }}]</span>
                     {% endfor %}
+<!-- Ctrl+Shift+i on the website to change the css/html right away see changes --!>
 
                 </p>
-             <p>
 
                 <p>{{ formContact.submit(class_ = "submitinfo")}}</p>
-<p class = 'info'>      If you would like to speak directly with an individual, please give us a call at 1-800-555-5555 during our hours of operation: Monday–Friday, 7am–6pm Pacific time.</p>
+                <p class = 'info'>
+                     If you would like to speak directly with an individual, please give us a call at 1-800-555-5555 during our hours of operation: Monday–Friday, 7am–6pm Pacific time.
+                <p>
             </form>
         </div>
     </body>
