@@ -1,5 +1,5 @@
 import pytest
-from ..schedule import *
+from app.schedule import *
 
 @pytest.fixture(scope='module')
 def new_schedule():

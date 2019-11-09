@@ -1,7 +1,7 @@
 import calendar
-from calendar import Calendar
+import sqlalchemy.types as types
 
-class Schedule():
+class Schedule(types.UserDefinedType):
     """
     Holds daily schedules
     """

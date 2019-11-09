@@ -3,6 +3,7 @@ from app import db
 from app import login
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
+from schedule import Schedule
 
 class Organization(db.Model):
     id = db.Column(db.Integer, primary_key = True)
@@ -25,6 +26,11 @@ class Employee(UserMixin, db.Model):
     organization_id = db.Column(db.Integer, db.ForeignKey('organization.id'))
     manager = db.Column(db.Boolean, index = True, nullable = False)
     questions = db.relationship('Question', backref = "Employee")
+    
+class EmployeeSchdeule(db.Model):
+    id = db.Column(db.Integer, db.ForeignKey('employee.id'))
+    schedule = db.Column(Schedule(12))
+    
 
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
