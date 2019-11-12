@@ -36,6 +36,12 @@ def addemployee():
     formLogout = LogoutForm()
     return render_template("addemployee.html", title=title, formEmployee=formEmployee, formLogout=formLogout)
 
+@Shifter.route("/account")
+def displayMyAccount():
+    title = "My Account"
+    formLogout = LogoutForm()
+    formEditView = EditViewForm()
+    return render_template("account.html", title=title, formLogout = formLogout, formEditView = formEditView)
 
 @Shifter.route("/choose")
 def chooseToDo():
