@@ -2,21 +2,21 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <link href = "../static/Contact.css?v=8.0" rel = "stylesheet" type = "text/css">
-    <body>
 
+    <link href = "../static/Contact.css?v=8.0" rel = "stylesheet" type = "text/css">
+
+    <body>
         {% if success %}
-            <p>Thank you for your message. We'll get back to you shortly.</p>
+            <p class = 'Thx'>Thank you for your message. We'll get back to you shortly.</p>
 
         {% else %}
 
-            {% for message in get_flashed_messages() %}
-            {% endfor %}
+
 
             <div class="container">
 
             <form action = "" method = "POST">
-                            {{ formContact.hidden_tag() }}
+                {{ formContact.hidden_tag() }}
 
 
 

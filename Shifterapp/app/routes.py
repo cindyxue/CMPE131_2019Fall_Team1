@@ -60,15 +60,19 @@ def contact():
     if request.method == 'POST':
         if formContact.validate() == False:
             flash('All fields are required.')
-            return render_template('contact.html', formContact=formContact, title=title)
+            return render_template('Contact.html', formContact=formContact, title=title)
         else:
             msg = Message(formContact.subject.data, sender='contact@example.com', recipients=['CMPE131Shifter@gmail.com'])
             msg.body = f"""
-                  From: {formContact.name.data} {formContact.email.data} {formContact.phone_number.data} {formContact.subject.data}
+                  From:              {formContact.name.data} 
+                  Email:             {formContact.email.data} 
+                  Phone Number:      {formContact.phone_number.data} 
+                  Subject:           {formContact.subject.data} 
+                  Message:           {formContact.message.data}
                   """
             mail.send(msg)
 
-            render_template('Contact.html',title=title, success = True)
+            return render_template('Contact.html',title=title, success = True)
 
     elif request.method == 'GET':
         return render_template("Contact.html", title=title, formContact=formContact)
