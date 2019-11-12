@@ -63,12 +63,13 @@ def contact():
             return render_template('contact.html', formContact=formContact, title=title)
         else:
             msg = Message(formContact.subject.data, sender='contact@example.com', recipients=['CMPE131Shifter@gmail.com'])
-            msg.body = """
-                  From: %s <%s>
-                  %s
-                  """ % (formContact.name.data, formContact.email.data, formContact.message.data)
+            msg.body = f"""
+                  From: {formContact.name.data} {formContact.email.data} {formContact.phone_number.data} {formContact.subject.data}
+                  """
             mail.send(msg)
-            return 'Form Sent'
+
+            render_template('Contact.html',title=title, success = True)
+
     elif request.method == 'GET':
         return render_template("Contact.html", title=title, formContact=formContact)
 Shifter.config["MAIL_SERVER"] = "smtp.gmail.com"

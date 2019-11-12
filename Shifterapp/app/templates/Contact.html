@@ -4,12 +4,22 @@
 {% block content %}
     <link href = "../static/Contact.css?v=8.0" rel = "stylesheet" type = "text/css">
     <body>
-        <div class="container">
+
+        {% if success %}
+            <p>Thank you for your message. We'll get back to you shortly.</p>
+
+        {% else %}
+
             {% for message in get_flashed_messages() %}
-                <div class="flash">{{ message }}</div>
             {% endfor %}
+
+            <div class="container">
+
             <form action = "" method = "POST">
-                {{ formContact.hidden_tag() }}
+                            {{ formContact.hidden_tag() }}
+
+
+
                 <header><H1 class = 'contact'><u>Contact Shifter</u></H1></header>
                 <!--<h3 class = 'contact'>Contact Us!</h3> --!>
 
@@ -70,6 +80,10 @@
                      If you would like to speak directly with an individual, please give us a call at 1-800-555-5555 during our hours of operation: Monday–Friday, 7am–6pm Pacific time.
                 <p>
             </form>
+        {% endif %}
+
+
+
         </div>
     </body>
 {% endblock %}
