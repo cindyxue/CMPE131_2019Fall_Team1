@@ -91,6 +91,7 @@ def about():
 
 
 @Shifter.route("/choose", methods=['POST', 'GET'])
+@login_required
 def chooseToDo():
     title = "ChooseToDo"
     formLogout = LogoutForm()
