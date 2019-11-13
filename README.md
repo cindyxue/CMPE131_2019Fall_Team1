@@ -14,17 +14,17 @@ The user enters email and password. The database will verify and login the user 
 
 Once you click on the button, it will take you to a register page. The register page registers an organization. It prompts the user to input company info and new manager's info. To verify it, open the database and see if the data is added to the database. 
 
-Feature 3: Logout Page
+## Feature 3: Logout Page
 
-The user has to be logged 
+The user has to be logged in to be logged out. The page should be redirected to login page if a user is logged out successfully.
 
-Feature 4: Database (Login info)
+## Feature 4: Database (Login info)
 
 There are two tables. One is for employee and the other is for organization. To verify, drop the file to the link and it will display the structure of the database.
 
 Link: https://inloop.github.io/sqlite-viewer/
 
-Feature 5: Contact Page 
+## Feature 5: Contact Page 
 
 If the user needs customer support, they can write down the issue and it will send customer support an email. To verify it works, you could login to the email and check.
 
@@ -32,11 +32,13 @@ Email: CMPE131Shifter@gmail.com
 
 Password: Password131
 
-Feature 6: My Account Page
+## Feature 6: My Account Page (current only CSS page)
 
-Feature 7: Calender
+My accound page displays basic info of a user. It's currently hard coded.
 
-Feature 8: Register Employee Page
+## Feature 7: Calender
+
+## Feature 8: Register Employee Page
 
 
 ...
