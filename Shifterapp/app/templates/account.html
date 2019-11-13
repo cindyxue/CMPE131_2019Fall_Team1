@@ -7,27 +7,11 @@
     <body>
         <div class="container">
             <form action = "" method = "POST">
-                <h3 class = 'registartion'>Registeration</h3>
+                <h3 class = 'registartion'>My Account</h3>
                 <p>
                     {{ formRegister.name_company.label}}:
                     {{ formRegister.name_company(class_="companyname", placeholder= "Company") }}<br>
                     {% for error in formRegister.name_company.errors %}
-                    <span style="color: red;">[{{ error }}]</span>
-                    {% endfor %}
-
-                </p>
-                <p>
-                    {{ formRegister.type_company.label}}:
-                    {{ formRegister.type_company(class_="companytype", placeholder= "Buisness type") }}<br>
-                    {% for error in formRegister.type_company.errors %}
-                    <span style="color: red;">[{{ error }}]</span>
-                    {% endfor %}
-
-                </p>
-                <p>
-                    {{ formRegister.address.label}}:
-                    {{ formRegister.address(class_="address", placeholder= "ex. 555 Saint James Crt, 95432") }}<br>
-                    {% for error in formRegister.address.errors %}
                     <span style="color: red;">[{{ error }}]</span>
                     {% endfor %}
 
@@ -52,20 +36,6 @@
                     {{ formRegister.email.label }}:
                     {{ formRegister.email(class_="emailbox", placeholder= "ex: email_here@example.com") }}<br>
                     {% for error in formRegister.email.errors %}
-                    <span style="color: red;">[{{ error }}]</span>
-                    {% endfor %}
-                </p>
-                  <p>
-                    {{ formRegister.enter_password.label}}:
-                    {{ formRegister.enter_password(class_="password", placeholder= "Password") }}<br>
-                    {% for error in formRegister.enter_password.errors %}
-                    <span style="color: red;">[{{ error }}]</span>
-                    {% endfor %}
-                </p>
-                  <p>
-                    {{ formRegister.re_password.label}}:
-                    {{ formRegister.re_password(class_="confirmpassword", placeholder= "Confirm password") }}<br>
-                    {% for error in formRegister.re_password.errors %}
                     <span style="color: red;">[{{ error }}]</span>
                     {% endfor %}
                 </p>
