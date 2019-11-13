@@ -6,11 +6,11 @@ Clone the link into your Command Prompt
 On master branch, type "flask run"
 ....
 #  Describes all 8 features and how to verify that they were implemented
-Feature 1: Login Page
+## Feature 1: Login Page
 
 The user enters email and password. The database will verify and login the user in if only it's a valid user.
 
-Feature 2: Register Org Page
+## Feature 2: Register Org Page
 
 Once you click on the button, it will take you to a register page. The register page registers an organization. It prompts the user to input company info and new manager's info. To verify it, open the database and see if the data is added to the database. 
 
