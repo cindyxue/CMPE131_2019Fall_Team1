@@ -7,11 +7,36 @@ On master branch, type "flask run"
 ....
 #  Describes all 8 features and how to verify that they were implemented
 Feature 1: Login Page
-Feature 2: Register Page
+
+The user enters email and password. The database will verify and login the user in if only it's a valid user.
+
+Feature 2: Register Org Page
+
+Once you click on the button, it will take you to a register page. The register page registers an organization. It prompts the user to input company info and new manager's info. To verify it, open the database and see if the data is added to the database. 
+
 Feature 3: Logout Page
+
+The user has to be logged 
+
 Feature 4: Database (Login info)
+
+There are two tables. One is for employee and the other is for organization. To verify, drop the file to the link and it will display the structure of the database.
+
+Link: https://inloop.github.io/sqlite-viewer/
+
 Feature 5: Contact Page 
+
+If the user needs customer support, they can write down the issue and it will send customer support an email. To verify it works, you could login to the email and check.
+
+Email: CMPE131Shifter@gmail.com
+
+Password: Password131
+
 Feature 6: My Account Page
+
 Feature 7: Calender
-Feature 8: Reset Password
+
+Feature 8: Register Employee Page
+
+
 ...
