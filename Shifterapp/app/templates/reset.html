@@ -6,6 +6,14 @@
     <body>
         <div class="container">
             <form action="" method = "POST">
+                {{ resetform.hidden_tag() }}
+                <p>
+                    Enter your registered email:
+                    {{resetform.email(class = 'email')}}
+                    {% for error in resetform.email.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}
+                </p>
                 <p>
                     Question 1: 
                     {{ resetform.question1(class_ = "question")}} <br>

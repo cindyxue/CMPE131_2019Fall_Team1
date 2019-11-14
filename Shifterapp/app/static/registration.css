@@ -1,5 +1,4 @@
 body {
-    background-image:url("login3.jpg");
     background-size:cover;
     background-repeat: no-repeat;
     margin:0;
@@ -24,7 +23,7 @@ p{
     margin-left:5%;
 }
 
-input[type=text], .confirmpassword {
+input[type=text], .confirmpassword, .question, .password{
     font-size:1.7vw;
     outline:none;
     transition:all 1s ease;

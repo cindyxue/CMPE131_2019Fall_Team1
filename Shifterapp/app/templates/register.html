@@ -70,6 +70,35 @@
                     {% endfor %}
                     </p>
                 </p>
+                <p>
+                    {{formRegister.question1.label}}:
+                    {{ formRegister.question1(class_ = "question")}} <br>
+                    {% for error in formRegister.question1.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}
+                </p>
+                <p>    
+                    {{ formRegister.answer1.label}}:
+                    {{ formRegister.answer1(class_="answer1box") }}<br>
+                    {% for error in formRegister.answer1.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}
+                </p>
+                <p>
+                    {{formRegister.question2.label}}:
+                    {{ formRegister.question2 (class_ = "question")}} <br>
+                    {% for error in formRegister.question2.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}
+                </p>
+                <p>
+                    {{ formRegister.answer2.label}}:
+                    {{ formRegister.answer2(class_="answer2box") }}<br>
+                    {% for error in formRegister.answer2.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}
+                </p>
+                
                   <p>
                     {{ formRegister.enter_password.label}}:
                     {{ formRegister.enter_password(class_="password", placeholder= "Password") }}<br>
