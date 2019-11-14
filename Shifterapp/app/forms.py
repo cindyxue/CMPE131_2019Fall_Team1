@@ -2,7 +2,7 @@ from flask_wtf import FlaskForm
 from wtforms import BooleanField, SubmitField, StringField, PasswordField, IntegerField, TextAreaField
 from wtforms.fields import SelectField
 from wtforms.validators import ValidationError, DataRequired, Email, EqualTo
-from app.models import Organization,Employee, Question
+from app.models import Organization,Employee
 
 
 
@@ -30,11 +30,27 @@ class RegisterForm(FlaskForm):
     manager_namef = StringField("First name", validators=[DataRequired()])
     manager_namel = StringField("Last name", validators=[DataRequired()])
     email = StringField("Email", validators=[DataRequired(), Email()])
-    enter_password = StringField("Password",validators=[DataRequired()])
+    enter_password = PasswordField("Password",validators=[DataRequired()])
     re_password = PasswordField("Confirm Password",validators=[DataRequired()])
     business_phone_number = IntegerField("Business Phone number")
     manager_phone_number = IntegerField("Manager Phone Number", validators=[DataRequired()])
     submit = SubmitField("Submit")
+    question1 = SelectField('Question 1'
+    , choices = [ ('Select1', '--Select One--')
+    , ('Whichcity', 'Which city was your father born in?')
+    , ('Whatname', 'What is the first name of your best friend in high school?')
+    , ('Whatstreet', 'What street did you grow up on?')
+    , ('Whatcook', 'What was the first thing you learned to cook?')
+    , ('Wherefly', 'Where did you go the first time you flew on a plane?')], validators=[DataRequired()])
+    answer1 = StringField('Answer1', validators =[DataRequired()])
+    question2 = SelectField('Question 2'
+    , choices = [ ('Select2', '--Select One--')
+    , ('Whichcity', 'Which city was your father born in?')
+    , ('Whatname', 'What is the first name of your best friend in high school?')
+    , ('Whatstreet', 'What street did you grow up on?')
+    , ('Whatcook', 'What was the first thing you learned to cook?')
+    , ('Wherefly', 'Where did you go the first time you flew on a plane?')], validators=[DataRequired()])
+    answer2 = StringField('Answer2', validators =[DataRequired()])
 
     def validate_name_company(self, name_company):
         org = Organization.query.filter_by(name=name_company.data).first()
@@ -56,7 +72,8 @@ class EmployeeForm(FlaskForm):
     last_name = StringField("Last name", validators=[DataRequired()])
     email = StringField("Email", validators=[DataRequired(), Email()])
     phone_number = StringField("Phone number", validators=[DataRequired()])
-    submit = SubmitField("Submit info")
+    manager = SelectField('Select Role:', choices = [('Manager', 'Manager'), ('Employee','Employee')], validators = [DataRequired()])
+    submit = SubmitField("Submit info", validators = [DataRequired()])
 
 class ContactForm(FlaskForm):
     name = StringField("Name", validators=[DataRequired()])
@@ -79,6 +96,24 @@ class EditForm(FlaskForm):
     submit = SubmitField("Submit info")
     
 class ResetPasswordForm(FlaskForm):
-    Question1 = SelectField('Question1'
-    , choices = [('whichcity', 'Which city was your father born in?')], validators=[DataRequired()])
-    answer1 = StringField('answer1', validators =[DataRequired()])
+    email = StringField("Email", validators=[DataRequired(), Email()])
+    question1 = SelectField('Question 1: '
+    , choices = [ ('Select1', '--Select One--')
+    , ('Whichcity', 'Which city was your father born in?')
+    , ('Whatname', 'What is the first name of your best friend in high school?')
+    , ('Whatstreet', 'What street did you grow up on?')
+    , ('Whatcook', 'What was the first thing you learned to cook?')
+    , ('Wherefly', 'Where did you go the first time you flew on a plane?')], validators=[DataRequired()])
+    answer1 = StringField('Answer1', validators =[DataRequired()])
+    question2 = SelectField('Question 2: '
+    , choices = [ ('Select2', '--Select One--')
+    , ('Whichcity', 'Which city was your father born in?')
+    , ('Whatname', 'What is the first name of your best friend in high school?')
+    , ('Whatstreet', 'What street did you grow up on?')
+    , ('Whatcook', 'What was the first thing you learned to cook?')
+    , ('Wherefly', 'Where did you go the first time you flew on a plane?')], validators=[DataRequired()])
+    answer2 = StringField('Answer2', validators =[DataRequired()])
+    newPassword = StringField("New Password", validators=[DataRequired()])
+    newPasswordConfirm = StringField("Confirm New Password", validators=[DataRequired()])
+    submit = SubmitField("Submit")
+

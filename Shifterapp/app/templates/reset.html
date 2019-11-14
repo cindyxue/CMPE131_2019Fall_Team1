@@ -2,9 +2,57 @@
 {% extends "base.html" %}
 
 {% block content %}
-<body>
+    <link href = "../static/resetpassword.css" rel = "stylesheet" type = "text/css">
+    <body>
+        <div class="container">
+            <form action="" method = "POST">
+                {{ resetform.hidden_tag() }}
+                <p>
+                    Enter your registered email:
+                    {{resetform.email(class = 'email')}}
+                    {% for error in resetform.email.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}
+                </p>
+                <p>
+                    Question 1: 
+                    {{ resetform.question1(class_ = "question")}} <br>
+                </p>
+                <p>    
+                    {{ resetform.answer1.label}}:
+                    {{ resetform.answer1(class_="answer1box") }}<br><br>
+                    {% for error in resetform.answer1.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}
+                </p>
+                <p>
+                    Question 2: 
+                    {{ resetform.question2 (class_ = "question")}} <br>
+                </p>
+                <p>
+                    {{ resetform.answer2.label}}:
+                    {{ resetform.answer2(class_="answer2box") }}<br><br>
+                    {% for error in resetform.answer2.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}
+                </p>
+                <p>
+                    {{ resetform.newPassword.label}}:
+                    {{ resetform.newPassword(class_="newPasswordBox") }}<br>
+                    {% for error in resetform.newPassword.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}
+                </p>
+                <p>
+                    {{ resetform.newPasswordConfirm.label}}:
+                    {{ resetform.newPasswordConfirm(class_="newPasswordConfirmBox") }}<br>
+                    {% for error in resetform.newPasswordConfirm.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}
+                </p>
+                <p>{{ resetform.submit(class_ = "submitinfo")}}</p>
 
-
-
-</body>
+            </form>
+        </div>
+    </body>
 {% endblock %}

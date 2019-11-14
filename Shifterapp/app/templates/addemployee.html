@@ -6,6 +6,8 @@
     <body>
         <div class="container">
             <form action = "" method = "POST">
+                {{ formEmployee.hidden_tag() }}
+
                 <p>
                     {{ formEmployee.first_name.label}}:
                     {{ formEmployee.first_name(class_="firstnamebox") }}<br>
@@ -31,6 +33,13 @@
                     {{ formEmployee.phone_number.label }}:
                     {{ formEmployee.phone_number() }}<br>
                     {% for error in formEmployee.phone_number.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}
+                </p>
+                <p>
+                    {{formEmployee.manager.label}}
+                    {{formEmployee.manager(class_ = 'role')}}
+                    {% for error in formEmployee.manager.errors %}
                     <span style="color: red;">[{{ error }}]</span>
                     {% endfor %}
                 </p>

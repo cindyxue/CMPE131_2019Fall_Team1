@@ -17,6 +17,14 @@ p{
     margin-left: 0;
     transition:all 0.5s ease;
 }
+.role{
+    font-size:1.5vw;
+}
+input[type = radio]{
+    width:2em;
+    height:2em;
+    
+}
 
 input[type=text] {
     
