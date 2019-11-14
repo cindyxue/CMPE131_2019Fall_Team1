@@ -32,8 +32,8 @@ class RegisterForm(FlaskForm):
     email = StringField("Email", validators=[DataRequired(), Email()])
     enter_password = PasswordField("Password",validators=[DataRequired()])
     re_password = PasswordField("Confirm Password",validators=[DataRequired()])
-    business_phone_number = IntegerField("Business Phone number")
-    manager_phone_number = IntegerField("Manager Phone Number", validators=[DataRequired()])
+    business_phone_number = StringField("Business Phone number")
+    manager_phone_number = StringField("Manager Phone Number", validators=[DataRequired()])
     submit = SubmitField("Submit")
     question1 = SelectField('Question 1'
     , choices = [ ('Select1', '--Select One--')
@@ -60,13 +60,27 @@ class RegisterForm(FlaskForm):
         emp = Employee.query.filter_by(email=email.data).first()
         if emp is not None:
             raise ValidationError('This email has been already registered')
-
-    def validate_phone_emp(self, manager_phone_number):
+    def validate_business_phone_number(self, business_phone_number):
+        orgph = Organization.query.filter_by(phone_number = business_phone_number.data).first()
+        if orgph is not None:
+            raise ValidationError('This phone number has been already registered')
+        elif len(business_phone_number.data) !=10:
+            raise ValidationError('Invalid Phone Number, must be 10 digits. No Space')        
+    def validate_manager_phone_number(self, manager_phone_number):
         empph = Employee.query.filter_by(phone_number = manager_phone_number.data).first()
         if empph is not None:
             raise ValidationError('This phone number has been already registered')
         elif len(manager_phone_number.data) !=10:
             raise ValidationError('Invalid Phone Number, must be 10 digits. No Space')
+    def validate_re_password(self, re_password):
+        if (re_password.data != self.enter_password.data ):
+            raise ValidationError('Passwords Do not Match!')
+    def validate_question1(self, question1):
+        if question1.data == 'Select1':
+            raise ValidationError('Please pick a question.')
+    def validate_question2(self, question2):
+        if question2.data == 'Select2':
+            raise ValidationError('Please pick a question.')   
 class EmployeeForm(FlaskForm):
     first_name = StringField("First name", validators=[DataRequired()])
     last_name = StringField("Last name", validators=[DataRequired()])
@@ -113,7 +127,16 @@ class ResetPasswordForm(FlaskForm):
     , ('Whatcook', 'What was the first thing you learned to cook?')
     , ('Wherefly', 'Where did you go the first time you flew on a plane?')], validators=[DataRequired()])
     answer2 = StringField('Answer2', validators =[DataRequired()])
-    newPassword = StringField("New Password", validators=[DataRequired()])
-    newPasswordConfirm = StringField("Confirm New Password", validators=[DataRequired()])
+    newPassword = PasswordField("New Password", validators=[DataRequired()])
+    newPasswordConfirm = PasswordField("Confirm New Password", validators=[DataRequired()])
     submit = SubmitField("Submit")
 
+    def validate_newPasswordConfirm(self, newPasswordConfirm):
+        if (newPasswordConfirm.data != self.newPassword.data):
+            raise ValidationError('Passwords Do Not Match!')
+    def validate_question1(self, question1):
+        if question1.data == 'Select1':
+            raise ValidationError('Please pick a question.')
+    def validate_question2(self, question2):
+        if question2.data == 'Select2':
+            raise ValidationError('Please pick a question.')        

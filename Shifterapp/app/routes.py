@@ -53,6 +53,11 @@ def logout():
 def addemployee():
     title = "Add employee to Shifter"
     formEmployee = EmployeeForm()
+    formLogout = LogoutForm()
+    if formLogout.Logout.data and formLogout.is_submitted():
+        flash('Logged out')
+        return redirect(url_for('logout'))
+
     if (formEmployee.validate_on_submit()):
         user = Employee.query.filter_by(email = formEmployee.email.data).first()
         user1 = Employee.query.filter_by(phone_number=formEmployee.phone_number.data).first()
@@ -76,7 +81,6 @@ def addemployee():
 
 
         return redirect(url_for('login'))
-    formLogout = LogoutForm()
 
     return render_template("addemployee.html", title=title, formEmployee=formEmployee, formLogout=formLogout)
 
