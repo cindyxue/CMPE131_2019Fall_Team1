@@ -88,7 +88,7 @@ class EditForm(FlaskForm):
     email = StringField("Email", validators=[DataRequired(), Email()])
     enter_password = StringField("Password", validators=[DataRequired()])
     re_password = PasswordField("Confirm Password", validators=[DataRequired()])
-    securityQuestion1 = SelectField("Security Question", choices=QUESTION_CHOICES, validators=[DataRequired()])
+    securityQuestion1 = SelectField("Security Question", choices=[], validators=[DataRequired()])
     securityAnswer1 = StringField("Password", validators=[DataRequired()])
     edit = SubmitField("Edit")
     subject = StringField("Subject", validators=[DataRequired()])
