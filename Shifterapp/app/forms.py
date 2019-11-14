@@ -59,9 +59,22 @@ class ContactForm(FlaskForm):
     name = StringField("Name", validators=[DataRequired()])
     email = StringField("Email", validators=[DataRequired(), Email()])
     phone_number = IntegerField("Phone number", validators=[DataRequired()])
+    submit = SubmitField("Submit info")
+
+class EditForm(FlaskForm):
+    name_company = StringField("Organization name", validators=[DataRequired()])
+    type_company = StringField("Organization type", validators=[DataRequired()])
+    name = StringField("Name", validators=[DataRequired()])
+    email = StringField("Email", validators=[DataRequired(), Email()])
+    enter_password = StringField("Password", validators=[DataRequired()])
+    re_password = PasswordField("Confirm Password", validators=[DataRequired()])
+    securityQuestion1 = SelectField("Security Question", choices=QUESTION_CHOICES, validators=[DataRequired()])
+    securityAnswer1 = StringField("Password", validators=[DataRequired()])
+    edit = SubmitField("Edit")
     subject = StringField("Subject", validators=[DataRequired()])
     message = StringField("Message", validators=[DataRequired()])
     submit = SubmitField("Submit info")
+    
 class ResetPasswordForm(FlaskForm):
     Question1 = SelectField('Question1'
     , choices = [('whichcity', 'Which city was your father born in?')], validators=[DataRequired()])
