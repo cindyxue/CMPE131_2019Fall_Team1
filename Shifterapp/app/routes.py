@@ -181,7 +181,7 @@ def reset():
         if (current_user.is_authenticated):
             current_user.setfirstlogin(False)
             current_user.setQuestion(resetform.question1.data, resetform.question2.data)
-            current_user.setAnswer(resetform.answer1.data, resetform.answer1.data)
+            current_user.setAnswer(resetform.answer1.data, resetform.answer2.data)
             current_user.set_password(resetform.newPassword.data)
             db.session.commit()
             flash ('New password has been set for this account.')
