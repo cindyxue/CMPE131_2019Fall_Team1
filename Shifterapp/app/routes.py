@@ -51,6 +51,12 @@ def addemployee():
     formLogout = LogoutForm()
     return render_template("addemployee.html", title=title, formEmployee=formEmployee, formLogout=formLogout)
 
+@Shifter.route("/account")
+def displayMyAccount():
+    title = "My Account"
+    formRegister = RegisterForm()
+    formLogout = LogoutForm()
+    return render_template("account.html", title=title, formRegister=formRegister, formLogout=formLogout)
 
 @Shifter.route("/contact", methods=['GET','POST'])
 def contact():
