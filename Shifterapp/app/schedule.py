@@ -85,37 +85,55 @@ class Schedule(types.UserDefinedType):
         return [minutesIntoDay, day, month_year]
   
 
-    def add_shift(self, start_time:str, end_time:str):
+    def edit_shift(self, add_or_remove:str, start_time:str, end_time:str):
         """
         Accepts a start time and end time of the form 'MM/DD/YYYY HH:mm AM' or 'MM/DD/YYYY HH:mm PM'
         and updates full_schedule to contain the new interval
         """
-
+        
+        if add_or_remove == 'add':
+            working = True
+        elif add_or_remove == 'remove':
+            working = False
         
         start_of_shift = self.parse_time(start_time) # [minutesIntoDay, 'day', 'MM/YYYY'(month/year)]
-        start_of_shift[1] = int(start_of_shift[1]) # converted 'day' into int for use later
         end_of_shift = self.parse_time(end_time)
+        
+        start_of_shift[1] = int(start_of_shift[1]) # converted 'day' into int for use later
+        end_of_shift[1] = int(end_of_shift[1])
+        
         month_year_match_found = True
         month_year_list = []
-
-        month_year_list.append(start_of_shift[2])
-        if start_of_shift[2] != end_of_shift[2]: # if shift starts and ends on diffierent months
-            month_year_list.append(end_of_shift[2])
-            month_year_match_found = False
+        
+        month_year_list.append(start_of_shift[2])        
+        month_year_list.append(end_of_shift[2])
+        
+        month_year_match_found = False
 
         for month_year in month_year_list:
             self.add_to_calendar(month_year) # will not add a new month if it already exists
+        
+        day_match_found = True
+        day_list = []    
+        
+        day_list.append(start_of_shift[1])
+
+        if start_of_shift[1] != end_of_shift[1]: # if shift starts and ends on different days
+            day_list.append(end_of_shift[1])
+            day_match_found = False
         
         start_of_shift_index = []
         end_of_shift_index = []
         shift_days_index = []
         shift_month_years = []
         
-        start_of_shift_index.append((int)(start_of_shift[0] / 30) - 1) # index 0
+        start_of_shift_index.append((int)(start_of_shift[0] / 30)) # index 0
         shift_days_index.append(start_of_shift[1] - 1) # index 0
-        shift_month_years.append(month_year_list[0]) # index 0
         
-        if month_year_match_found:
+        for month_year in month_year_list:
+            shift_month_years.append(month_year)
+        
+        if day_match_found:
             # schedule starts and ends on the same day
             end_of_shift_index.append((int)(end_of_shift[0] / 30) - 1) # index 0
         else:
@@ -129,91 +147,24 @@ class Schedule(types.UserDefinedType):
             shift_month_years.append(end_of_shift[1]) # index 1
             end_of_shift_index.append(47) # 11:30 PM - 12:00 AM, index 0
             start_of_shift_index.append(0) # 12:00 AM - 12:30 AM, index 1
-            end_of_shift_index.append((int)(end_of_shift[0] / 30) - 1) # index 1
-        
-        # range(start, stop, step), stop value is not included
-        # range(3, 7, 1) = 3, 4, 5, 6 and not 7
-        
+            end_of_shift_index.append((int)(end_of_shift[0] / 30 ) - 1) # index 1
+
         for i in range(len(shift_days_index)):
             schedule_index = self.get_schedule_index(shift_month_years[i])
-            for j in range(start_of_shift_index[i], end_of_shift_index[i]):
-                self.full_schedule[schedule_index]['work_schedule'][shift_days_index[i]][j] = True
-
-        return 1 # Method did not run into errors
- 
- 
-    def remove_shift(self, start_time:str, end_time:str):
-        """
-        Accepts a start time and end time of the form 'MM/DD/YYYY HH:mm AM' or 'MM/DD/YYYY HH:mm PM'
-        and updates full_schedule to contain the new interval
-        """
-
-        
-        start_of_shift = self.parse_time(start_time) # [minutesIntoDay, 'day', 'MM/YYYY'(month/year)]
-        start_of_shift[1] = int(start_of_shift[1]) # converted 'day' into int for use later
-        end_of_shift = self.parse_time(end_time)
-        month_year_match_found = True
-        month_year_list = []
-
-        month_year_list.append(start_of_shift[2])
-        if start_of_shift[2] != end_of_shift[2]: # if shift starts and ends on diffierent months
-            month_year_list.append(end_of_shift[2])
-            month_year_match_found = False
-
-        for month_year in month_year_list:
-            self.add_to_calendar(month_year) # will not add a new month if it already exists
-        
-        start_of_shift_index = []
-        end_of_shift_index = []
-        shift_days_index = []
-        shift_month_years = []
-        
-        start_of_shift_index.append((int)(start_of_shift[0] / 30) - 1) # index 0
-        shift_days_index.append(start_of_shift[1] - 1) # index 0
-        shift_month_years.append(month_year_list[0]) # index 0
-        
-        if month_year_match_found:
-            # schedule starts and ends on the same day
-            end_of_shift_index.append((int)(end_of_shift[0] / 30) - 1) # index 0
-        else:
-            """
-            different start and end days, meaning shift goes past midnight
-            split into 2 shifts:
-                1) starts at original start time, ends at midnight
-                2) starts at midnight, ends at original end time
-            """
-            shift_days_index.append(end_of_shift[1] - 1) # index 1
-            shift_month_years.append(end_of_shift[1]) # index 1
-            end_of_shift_index.append(47) # 11:30 PM - 12:00 AM, index 0
-            start_of_shift_index.append(0) # 12:00 AM - 12:30 AM, index 1
-            end_of_shift_index.append((int)(end_of_shift[0] / 30) - 1) # index 1
-        
-        # range(start, stop, step), stop value is not included
-        # range(3, 7, 1) = 3, 4, 5, 6 and not 7
-        
-        for i in range(len(shift_days_index)):
-            schedule_index = self.get_schedule_index(shift_month_years[i])
-            for j in range(start_of_shift_index[i], end_of_shift_index[i]):
-                self.full_schedule[schedule_index]['work_schedule'][shift_days_index[i]][j] = False
+            for j in range(start_of_shift_index[i], end_of_shift_index[i] + 1):
+                self.full_schedule[schedule_index]['work_schedule'][shift_days_index[i]][j] = working
 
         return 1 # Method did not run into errors
 
     def add_to_calendar(self, month_year: str):
-        month_year_in_schedule = True
 
-        if not self.full_schedule: # if full_schedule is empty
-            month_year_in_schedule = False
-        else:
-            for schedule in self.full_schedule:
-                if month_year in schedule.values():
-                    return
+        for schedule in self.full_schedule:
+            if month_year in schedule.values():
+                return # month is already in schedule 
         
-        if month_year_in_schedule:
-            return # "MM/YYYY" already exists within schedule, nothing new added
-        else:
-            self.add_full_schedule_entry(month_year)
+        self.add_full_schedule_entry(month_year)
 
-    def add_full_schedule_entry(self, month_year: str): 
+    def add_full_schedule_entry(self, month_year: str):
         month_year_as_list = month_year.split("/") # ["MM, "YYYY"]
         
         month = month_year_as_list[0]
@@ -229,7 +180,7 @@ class Schedule(types.UserDefinedType):
             weekday_name = self.get_name_of_weekday(weekday)
             name_of_weekday.append(weekday_name)
             weekday = self.increment_weekday(weekday)
-            
+        
         self.full_schedule.append(
             {
                 'month_year': month_year,
@@ -237,8 +188,6 @@ class Schedule(types.UserDefinedType):
                 'name_of_weekday': name_of_weekday
             }
         )
-            
-        
             
             
     def get_name_of_weekday(self, number_of_weekday: int):
