@@ -17,8 +17,6 @@ class Schedule(types.UserDefinedType):
         proper documentaiton
 
         test cases
-    
-    add_shift and remove_shift only differ by 1 line, perhaps they should be merged?
     """
 
 
@@ -154,7 +152,6 @@ class Schedule(types.UserDefinedType):
             for j in range(start_of_shift_index[i], end_of_shift_index[i] + 1):
                 self.full_schedule[schedule_index]['work_schedule'][shift_days_index[i]][j] = working
 
-        return 1 # Method did not run into errors
 
     def add_to_calendar(self, month_year: str):
 

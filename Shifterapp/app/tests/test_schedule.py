@@ -1,6 +1,6 @@
 import pytest
 from ..schedule import Schedule
-from ..schedule import *
+from ..schedule import * # For static methods within schedule
 
 @pytest.fixture(scope='module')
 def new_schedule():
