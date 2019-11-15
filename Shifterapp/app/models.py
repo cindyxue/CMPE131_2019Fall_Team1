@@ -14,7 +14,6 @@ class Organization(db.Model):
     phone_number = db.Column(db.String(256), index = True)
     employees = db.relationship('Employee', backref = "Organization")
    
-    
 class Employee(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key = True)
     fname = db.Column(db.String(128), index = True)
@@ -24,8 +23,12 @@ class Employee(UserMixin, db.Model):
     phone_number = db.Column(db.String(128) ,index = True, unique = True)
     organization_id = db.Column(db.Integer, db.ForeignKey('organization.id'))
     manager = db.Column(db.Boolean, index = True, nullable = False)
-    work_schedule = db.Column(schedule.Schedule())
     questions = db.relationship('Question', backref = "Employee")
+class scheduletable(UserMixin,db.Model):
+    id = db.Column(db.Integer, primary_key = True)
+    work_schedule = db.Column(schedule.Schedule())
+    emp_id = db.Column(db.Integer)
+
     
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)

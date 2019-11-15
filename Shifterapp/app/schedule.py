@@ -1,4 +1,5 @@
 import calendar
+from sqlalchemy import func
 import sqlalchemy.types as types
 
 class Schedule(types.UserDefinedType):
@@ -19,8 +20,23 @@ class Schedule(types.UserDefinedType):
         test cases
     """
 
+    def get_col_spec(self, **kw):
+        return "Schedule(%s)"%self.precision 
 
-    def __init__(self):
+    def bind_processor(self, dialect):
+        def process(value):
+            return value
+        return process
+
+    def result_processor(self, dialect, coltype):
+        def process(value):
+            return value
+        return process
+    
+
+
+    def __init__(self, precision = 8):
+        self.precision = precision
         self.full_schedule = []
         """
         [

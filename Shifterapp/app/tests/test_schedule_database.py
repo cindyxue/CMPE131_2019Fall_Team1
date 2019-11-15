@@ -16,6 +16,7 @@ def new_schedule():
     last_name = 'Ross'
     email = 'Bob.Ross92847@gmail.com'
     phone_number = '1234567'
+    password = '123'
     organization_id = 924
     work_schedule = Schedule()
     
@@ -29,9 +30,13 @@ def new_schedule():
                         email = email,
                         employee_phone_number = phone_number,
                         manager = False,
-                        organization_id = organization_id
+                        organization_id = organization_id,
                         work_schedule = work_schedule
                         )
+    employee.set_password(password)
+    db.session.add()
+    db.session.commit()
+
     
     #employee_from_db
     
