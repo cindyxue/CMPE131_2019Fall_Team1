@@ -13,6 +13,8 @@ class Organization(db.Model):
     phone_number = db.Column(db.String(256), index = True)
     employees = db.relationship('Employee', backref = "Organization")
    
+
+    
 class Employee(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key = True)
     fname = db.Column(db.String(128), index = True)
@@ -21,10 +23,28 @@ class Employee(UserMixin, db.Model):
     password_hash = db.Column(db.String(128))
     phone_number = db.Column(db.String(128) ,index = True, unique = True)
     organization_id = db.Column(db.Integer, db.ForeignKey('organization.id'))
+    firsttimelogin = db.Column(db.Boolean, index = True, nullable = False)
     manager = db.Column(db.Boolean, index = True, nullable = False)
-    questions = db.relationship('Question', backref = "Employee")
-    schedules = db.relationship('Scheduletable', backref = 'Employee')
-    
+    question1 = db.Column(db.String(2056), index = True)
+    answer1 = db.Column(db.String (128), index = True)
+    question2 = db.Column(db.String(2056), index = True)
+    answer2 = db.Column(db.String (128), index = True)
+
+    def setManager(self, data):
+        if data == 'Employee':
+            self.manager = False
+        elif data == 'Manager':
+            self.manager = True
+    def setfirstlogin(self, firsttime):
+        self.firsttimelogin=firsttime
+
+    def setQuestion(self, question1, question2):
+        self.question1 = question1
+        self.question2 = question2
+    def setAnswer (self, answer1, answer2):
+        self.answer1 = answer1
+        self.answer2 = answer2
+
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
     def check_password(self, password):

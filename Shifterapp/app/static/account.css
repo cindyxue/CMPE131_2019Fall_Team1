@@ -9,7 +9,6 @@ body {
     font-size:2.5vw;
     margin-left:5%;
 }
-
 p{
     font-family: 'Times New Roman', Times, serif;
     font-size:1.8vw;
@@ -17,13 +16,8 @@ p{
     text-align:right;
 
 }
-.error{
-    font-size:1.5vw;
-    text-align: left;
-    margin-left:5%;
-}
 
-input[type=text], .confirmpassword, .question, .password{
+input[type=text], .confirmpassword {
     font-size:1.7vw;
     outline:none;
     transition:all 1s ease;
@@ -31,8 +25,10 @@ input[type=text], .confirmpassword, .question, .password{
     border-radius: 10px;
     width:35%;
     padding:10px 10px 10px 10px ;
-    margin-right:40%;
+    margin-right:45%;
 }
+
+
 input[type=text]:focus {
     background-color: #ebe6c0;
     text-align: center;
@@ -58,4 +54,3 @@ input[type=text]:focus {
     text-align: right;
     margin-right:35%;
 }
-

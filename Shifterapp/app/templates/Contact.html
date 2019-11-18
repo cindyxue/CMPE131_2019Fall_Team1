@@ -2,11 +2,24 @@
 {% extends "base.html" %}
 
 {% block content %}
+
     <link href = "../static/Contact.css?v=8.0" rel = "stylesheet" type = "text/css">
+
     <body>
-        <div class="container">
+        {% if success %}
+            <p class = 'Thx'>Thank you for your message. We'll get back to you shortly.</p>
+
+        {% else %}
+
+
+
+            <div class="container">
+
             <form action = "" method = "POST">
                 {{ formContact.hidden_tag() }}
+
+
+
                 <header><H1 class = 'contact'><u>Contact Shifter</u></H1></header>
                 <!--<h3 class = 'contact'>Contact Us!</h3> --!>
 
@@ -44,7 +57,7 @@
                     <span style="color: red;">[{{ error }}]</span>
                     {% endfor %}
                 </p>
-              <p>
+                 <p>
                     {{ formContact.subject.label }}:
                     {{ formContact.subject(class_="subjectbox", placeholder="Enter subject...") }}<br>
                     {% for error in formContact.subject.errors %}
@@ -58,13 +71,19 @@
                     {% for error in formContact.message.errors %}
                     <span style="color: red;">[{{ error }}]</span>
                     {% endfor %}
+<!-- Ctrl+Shift+i on the website to change the css/html right away see changes --!>
 
                 </p>
-             <p>
 
                 <p>{{ formContact.submit(class_ = "submitinfo")}}</p>
-<p class = 'info'>      If you would like to speak directly with an individual, please give us a call at 1-800-555-5555 during our hours of operation: Monday–Friday, 7am–6pm Pacific time.</p>
+                <p class = 'info'>
+                     If you would like to speak directly with an individual, please give us a call at 1-800-555-5555 during our hours of operation: Monday–Friday, 7am–6pm Pacific time.
+                <p>
             </form>
+        {% endif %}
+
+
+
         </div>
     </body>
 {% endblock %}
