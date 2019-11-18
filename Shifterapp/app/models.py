@@ -58,14 +58,6 @@ class Scheduletable(UserMixin,db.Model):
     work_schedule = db.Column(db.String(64))
     emp_id = db.Column(db.Integer, db.ForeignKey('employee.id'))
     
-    
-class Question(UserMixin, db.Model):
-    id = db.Column(db.Integer, primary_key = True)
-    question = db.Column(db.String(128))
-    answer = db.Column(db.String(128))
-    employee_id = db.Column(db.String(128), db.ForeignKey('employee.id'))
-        
-    
 @login.user_loader
 def load_user(id):
     return Employee.query.get(int(id))
