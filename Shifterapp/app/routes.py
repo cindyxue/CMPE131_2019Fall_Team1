@@ -93,9 +93,16 @@ def displayMyAccount():
 
 @Shifter.route("/contact", methods=['GET','POST'])
 def contact():
-    title = "Contact Us"
-    formContact = ContactForm()
+    if (current_user.is_authenticated):
+        title = "Contact Us By User"
+    else:
+        title = "Contact Us"
+    formLogout = LogoutForm()
 
+    formContact = ContactForm()
+    if formLogout.Logout.data and formLogout.is_submitted():
+        flash('Logged out')
+        return redirect(url_for('logout'))
     if request.method == 'POST':
         if formContact.validate() == False:
             flash('All fields are required.')
@@ -114,7 +121,7 @@ def contact():
             return render_template('Contact.html',title=title, success = True)
 
     elif request.method == 'GET':
-        return render_template("Contact.html", title=title, formContact=formContact)
+        return render_template("Contact.html", title=title, formContact=formContact, formLogout=formLogout)
 Shifter.config["MAIL_SERVER"] = "smtp.gmail.com"
 Shifter.config["MAIL_PORT"] = 465
 Shifter.config["MAIL_USE_SSL"] = True
@@ -123,10 +130,17 @@ Shifter.config["MAIL_PASSWORD"] = 'Password131'
 
 mail.init_app(Shifter)
 
-@Shifter.route("/about")
+@Shifter.route("/about", methods = ['POST', 'GET'])
 def about():
-    title = "About Shifter"
-    return render_template("About.html", title=title)
+    if (current_user.is_authenticated):
+        title = "About Shifter By User"
+    else:
+        title = "About Shifter"
+    formLogout = LogoutForm()
+    if formLogout.Logout.data and formLogout.is_submitted():
+        flash('Logged out')
+        return redirect(url_for('logout'))
+    return render_template("About.html", title=title, formLogout = formLogout)
 
 
 @Shifter.route("/choose", methods=['POST', 'GET'])
@@ -178,10 +192,19 @@ def register():
 
 @Shifter.route("/resetpassword", methods = ['GET', 'POST'])
 def reset():
-    title = 'Reset Your Password'
-    formLogout = LogoutForm()
+    if current_user.is_authenticated:
+        title = 'First Login password change'
+        email = current_user.email
+    else:
+        email = ''
+        title = 'Reset Your Password'
     resetform = ResetPasswordForm()
-    if resetform.validate_on_submit():
+    formLogout = LogoutForm()
+    if formLogout.Logout.data and formLogout.is_submitted():
+        flash('Logged out')
+        return redirect(url_for('logout'))
+        
+    if resetform.submit.data and resetform.is_submitted:
         if (current_user.is_authenticated):
             current_user.setfirstlogin(False)
             current_user.setQuestion(resetform.question1.data, resetform.question2.data)
@@ -208,13 +231,14 @@ def reset():
                     user1.set_password(resetform.newPassword.data)
                     user1.setfirstlogin(False)
                     db.session.commit()
+                    flash('New password has been set successfully!')
                     return redirect(url_for('login'))
 
 
 
             return redirect(url_for('login'))
     #resetform.question1.choices = [(Employee.id) for question1 in question1.query.filter_by(question1='Whichcity').all()]
-    return render_template('reset.html', title = title, resetform = resetform, formLogout = formLogout)
+    return render_template('reset.html', title = title, resetform = resetform, formLogout = formLogout, email = email)
     
 if __name__ == '__main__':
     Shifter.run()

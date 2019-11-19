@@ -6,15 +6,16 @@
     <body>
         <div class="container">
             <form action="" method = "POST">
-                {{ resetform.hidden_tag() }}
+                
                 <p>
                     Registered Email:
-                    {{resetform.email(class = 'email')}}<br>
+                    {{resetform.email(class = 'email' ,value = email)}}<br>
                     <p class = 'error'>{% for error in resetform.email.errors %}
                     <span style="color: red;">{{ error }}</span>
                     {% endfor %}
                     </p>
                 </p>
+
                 <p>
                     Question 1: 
                     {{ resetform.question1(class_ = "question")}}<br> 
@@ -64,6 +65,10 @@
                     </p>
                 </p>
                 {{ resetform.submit(class_ = "submitinfo")}}
+                <p class = 'error'>{% for error in resetform.submit.errors %}
+                    <span style="color: red;">{{ error }}</span>
+                {% endfor %}
+                </p>
 
             </form>
         </div>
