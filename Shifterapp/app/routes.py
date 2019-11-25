@@ -1,13 +1,15 @@
 from app import Shifter 
 from app import db
 from app.forms import LoginForm, EmployeeForm, LogoutForm, EditViewForm, RegisterForm, ResetPasswordForm, ContactForm
-from app.models import Organization, Employee
+from app.models import Organization, Employee, Schedule
 from flask import render_template, flash, redirect, url_for
 from flask import request
 from flask_login import current_user, login_user, login_required, logout_user
 from werkzeug.urls import url_parse
 from flask_mail import Message, Mail
-
+from datetime import *
+from datetime import date
+import calendar
 mail = Mail()
 
 @Shifter.route('/', methods = ['GET', 'POST'])
@@ -49,8 +51,18 @@ def login():
 @Shifter.route("/emphomepage")
 @login_required
 def emphomepage():
-    title = current_user.fname, ' ' , current_user.lname , 'homepage'
-    return render_template('emphomepage.html', title = title)
+    formLogout = LogoutForm()
+    title = current_user.fname + ' ' + current_user.lname + ' Homepage'
+
+    today = date.today()
+    startdate = today-timedelta(days=today.weekday())
+    enddate = startdate + timedelta(days=6)
+    s = Schedule.query.filter_by(emp_id = current_user.id).filter(Schedule.thedates>=startdate).filter(Schedule.thedates<=enddate).all()
+    
+    print(s)
+ 
+
+    return render_template('emphomepage.html', title = title, formLogout=formLogout)
 @Shifter.route('/logout')
 def logout():
     logout_user()

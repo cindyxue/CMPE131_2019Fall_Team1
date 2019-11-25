@@ -58,10 +58,13 @@ class Employee(UserMixin, db.Model):
     
 class Schedule(UserMixin,db.Model):
     id = db.Column(db.Integer, primary_key = True)
-    date = db.Column(db.Date, nullable = True)
+    thedates = db.Column(db.Date, nullable = True)
     starttime = db.Column(db.Time, nullable = True)
     endtime = db.Column(db.Time, nullable = True)
     emp_id = db.Column(db.Integer, db.ForeignKey('employee.id'))
+
+   # def showschedule(self):
+        
     
 @login.user_loader
 def load_user(id):
