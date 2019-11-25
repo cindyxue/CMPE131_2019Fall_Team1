@@ -1,8 +1,8 @@
 from flask_wtf import FlaskForm
-from wtforms import BooleanField, SubmitField, StringField, PasswordField, IntegerField, TextAreaField
+from wtforms import BooleanField, SubmitField, StringField, PasswordField, IntegerField, TextAreaField, DateField
 from wtforms.fields import SelectField
 from wtforms.validators import ValidationError, DataRequired, Email, EqualTo
-from app.models import Organization,Employee
+from app.models import Organization,Employee, Schedule
 
 
 
@@ -142,3 +142,10 @@ class ResetPasswordForm(FlaskForm):
     def validate_question2(self, question2):
         if question2.data == 'Select2':
             raise ValidationError('Please pick a question.')        
+class ChangeWeekForm(FlaskForm):
+    previous= SubmitField('Previous')
+    nextMonth = SubmitField('Next')
+    thisMonth = SubmitField('This Month')
+    startdatebox = DateField('Date', format = '%m/%d/%Y')
+    enddatebox = DateField('Date', format = '%m/%d/%Y')
+

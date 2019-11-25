@@ -1,6 +1,6 @@
 from app import Shifter 
 from app import db
-from app.forms import LoginForm, EmployeeForm, LogoutForm, EditViewForm, RegisterForm, ResetPasswordForm, ContactForm
+from app.forms import LoginForm, EmployeeForm, LogoutForm, EditViewForm, RegisterForm, ResetPasswordForm, ContactForm, ChangeWeekForm
 from app.models import Organization, Employee, Schedule
 from flask import render_template, flash, redirect, url_for
 from flask import request
@@ -10,6 +10,9 @@ from flask_mail import Message, Mail
 from datetime import *
 from datetime import date
 import calendar
+import datetime
+from calendar import monthrange
+
 mail = Mail()
 
 @Shifter.route('/', methods = ['GET', 'POST'])
@@ -48,24 +51,49 @@ def login():
     title = "Shifter Scheduling Application"
     return render_template('login.html', title=title, formLogin=formLogin)
 
-@Shifter.route("/emphomepage")
+@Shifter.route("/emphomepage", methods = ['POST', 'GET'])
 @login_required
 def emphomepage():
     formLogout = LogoutForm()
+    formchangeweek = ChangeWeekForm()
     title = current_user.fname + ' ' + current_user.lname + ' Homepage'
+    if formLogout.Logout.data and formLogout.is_submitted():
+        return redirect(url_for('logout'))
 
-    today = date.today()
-    startdate = today-timedelta(days=today.weekday())
-    enddate = startdate + timedelta(days=6)
-    s = Schedule.query.filter_by(emp_id = current_user.id).filter(Schedule.thedates>=startdate).filter(Schedule.thedates<=enddate).all()
+        
+    startdate = date.today().replace(day=1)
+    monthlength = monthrange(startdate.year, startdate.month)
+    enddate = startdate + timedelta(days= monthlength[1]-1) 
     
-    print(s)
- 
+    if formchangeweek.nextMonth.data and formchangeweek.is_submitted:
+        startdate+=timedelta(days= monthlength[1]) 
+        monthlength = monthrange(startdate.year, startdate.month)
+        enddate = startdate + timedelta(days= monthlength[1]-1) 
+    if formchangeweek.previous.data and formchangeweek.is_submitted:
+        startdate-=timedelta(days= monthlength[1]+1) 
+        monthlength = monthrange(startdate.year, startdate.month)
+        enddate = startdate + timedelta(days= monthlength[1]-2) 
+        
 
-    return render_template('emphomepage.html', title = title, formLogout=formLogout)
+        
+    
+   
+    datechosen = date.today()
+
+    
+    getWeeklySchedule(datechosen)
+    return render_template('emphomepage.html', title = title, formLogout=formLogout, formchangeweek = formchangeweek, startdate = startdate, enddate = enddate)
+
+def getWeeklySchedule(d):
+    startdate = d-timedelta(days=d.weekday())
+    enddate = startdate + timedelta(days=6)
+    s = Schedule.query.filter_by(emp_id = current_user.id).filter(Schedule.thedates>=startdate).filter(Schedule.thedates<=enddate).order_by(Schedule.thedates).all()
+         
+        
 @Shifter.route('/logout')
 def logout():
     logout_user()
+    flash('Logged out')
     return redirect(url_for('login'))
 
 
@@ -76,7 +104,6 @@ def addemployee():
     formEmployee = EmployeeForm()
     formLogout = LogoutForm()
     if formLogout.Logout.data and formLogout.is_submitted():
-        flash('Logged out')
         return redirect(url_for('logout'))
 
     if (formEmployee.validate_on_submit()):
@@ -122,7 +149,6 @@ def contact():
 
     formContact = ContactForm()
     if formLogout.Logout.data and formLogout.is_submitted():
-        flash('Logged out')
         return redirect(url_for('logout'))
     if request.method == 'POST':
         if formContact.validate() == False:
@@ -159,7 +185,6 @@ def about():
         title = "About Shifter"
     formLogout = LogoutForm()
     if formLogout.Logout.data and formLogout.is_submitted():
-        flash('Logged out')
         return redirect(url_for('logout'))
     return render_template("About.html", title=title, formLogout = formLogout)
 
@@ -172,7 +197,6 @@ def chooseToDo():
     formEditView = EditViewForm()
 
     if formLogout.Logout.data and formLogout.is_submitted():
-        flash('Logged out')
         return redirect(url_for('logout'))
     elif formEditView.AddEmpl.data and formEditView.is_submitted():
         return redirect(url_for('addemployee'))
@@ -222,7 +246,6 @@ def reset():
     resetform = ResetPasswordForm()
     formLogout = LogoutForm()
     if formLogout.Logout.data and formLogout.is_submitted():
-        flash('Logged out')
         return redirect(url_for('logout'))
         
     if resetform.submit.data and resetform.is_submitted:

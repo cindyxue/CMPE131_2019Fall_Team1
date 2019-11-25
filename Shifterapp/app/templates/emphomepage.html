@@ -3,7 +3,15 @@
 
 {% block content %}
     <link href = "../static/emphomepage.css" rel = "stylesheet" type = "text/css">
-<body>
+    <body>
+        <form action ='' method = 'POST' class = 'dates'>
+            <p>{{formchangeweek.previous}}</p>
+            <p>{{formchangeweek.thisMonth}}</p>
+            <p>{{formchangeweek.nextMonth}}</p>
+            <p>{{formchangeweek.startdatebox(value = startdate , readonly="readonly" )}}</p>
+            <p>{{formchangeweek.enddatebox(value = enddate ,readonly="readonly")}}</p>
+            
 
-</body>
+        </form>
+    </body>
 {% endblock %}
