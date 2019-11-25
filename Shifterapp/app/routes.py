@@ -36,12 +36,21 @@ def login():
             if not next_page or url_parse(next_page).netloc != '':
                 next_page = url_for('chooseToDo')
             return redirect(next_page)
+        elif user.manager == False and user.firsttimelogin == False:
+            login_user(user, remember=formLogin.RememberMe.data)
+            next_page = request.args.get('next')
+            if not next_page or url_parse(next_page).netloc != '':
+                next_page = url_for('emphomepage')
+            return redirect(next_page)
         
     title = "Shifter Scheduling Application"
     return render_template('login.html', title=title, formLogin=formLogin)
-#@Shifter.route('/resetpassword', methods = ['POST', 'GET'])
-#def reset():
- #   return redirect(url_for('login'))
+
+@Shifter.route("/emphomepage")
+@login_required
+def emphomepage():
+    title = current_user.fname, ' ' , current_user.lname , 'homepage'
+    return render_template('emphomepage.html', title = title)
 @Shifter.route('/logout')
 def logout():
     logout_user()
@@ -239,6 +248,8 @@ def reset():
             return redirect(url_for('login'))
     #resetform.question1.choices = [(Employee.id) for question1 in question1.query.filter_by(question1='Whichcity').all()]
     return render_template('reset.html', title = title, resetform = resetform, formLogout = formLogout, email = email)
+
+
     
 if __name__ == '__main__':
     Shifter.run()

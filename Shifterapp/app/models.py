@@ -1,4 +1,6 @@
 from datetime import datetime
+from datetime import date
+from datetime import time
 from app import db
 from app import login
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -29,6 +31,7 @@ class Employee(UserMixin, db.Model):
     answer1 = db.Column(db.String (128), index = True)
     question2 = db.Column(db.String(2056), index = True)
     answer2 = db.Column(db.String (128), index = True)
+    schedule = db.relationship('Schedule', backref = 'Employee')
 
     def setManager(self, data):
         if data == 'Employee':
@@ -53,9 +56,11 @@ class Employee(UserMixin, db.Model):
         self.organization_id = id
     
     
-class Scheduletable(UserMixin,db.Model):
+class Schedule(UserMixin,db.Model):
     id = db.Column(db.Integer, primary_key = True)
-    work_schedule = db.Column(db.String(64))
+    date = db.Column(db.Date, nullable = True)
+    starttime = db.Column(db.Time, nullable = True)
+    endtime = db.Column(db.Time, nullable = True)
     emp_id = db.Column(db.Integer, db.ForeignKey('employee.id'))
     
 @login.user_loader
