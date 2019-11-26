@@ -64,7 +64,7 @@ def emphomepage():
     startdate = date.today().replace(day=1)
     monthlength = monthrange(startdate.year, startdate.month)
     enddate = startdate + timedelta(days= monthlength[1]-1) 
-    
+
     if formchangeweek.nextMonth.data and formchangeweek.is_submitted:
         startdate+=timedelta(days= monthlength[1]) 
         monthlength = monthrange(startdate.year, startdate.month)
@@ -74,21 +74,26 @@ def emphomepage():
         monthlength = monthrange(startdate.year, startdate.month)
         enddate = startdate + timedelta(days= monthlength[1]-2) 
         
+    array = getWeeklySchedule(startdate,enddate)
+    dates = monthlength[1]+1
+    schedulestarts = {}
+    schedulesends = {}
+    for i in range(1, monthlength[1]+1):
+        schedulestarts[i]=[]
+        schedulesends[i]=[]
+    for j in range(1,monthlength[1]+1):
+        for i in range(0, len(array)):
+            if j==array[i].thedates.day:
+                schedulestarts[j].append((array[i].starttime).strftime( '%H:%M '))
+                schedulesends[j].append((array[i].endtime).strftime('%H:%M'))
 
-        
     
-   
-    datechosen = date.today()
+    return render_template('emphomepage.html', title = title, formLogout=formLogout, formchangeweek = formchangeweek, startdate = startdate, enddate = enddate, dates = dates, 
+    starttimes = schedulestarts, endtimes = schedulesends, len = dates)
 
-    
-    getWeeklySchedule(datechosen)
-    return render_template('emphomepage.html', title = title, formLogout=formLogout, formchangeweek = formchangeweek, startdate = startdate, enddate = enddate)
-
-def getWeeklySchedule(d):
-    startdate = d-timedelta(days=d.weekday())
-    enddate = startdate + timedelta(days=6)
+def getWeeklySchedule(startdate, enddate):
     s = Schedule.query.filter_by(emp_id = current_user.id).filter(Schedule.thedates>=startdate).filter(Schedule.thedates<=enddate).order_by(Schedule.thedates).all()
-         
+    return s
         
 @Shifter.route('/logout')
 def logout():
@@ -195,7 +200,8 @@ def chooseToDo():
     title = "ChooseToDo"
     formLogout = LogoutForm()
     formEditView = EditViewForm()
-
+    if current_user.manager==False:
+        return redirect(url_for('emphomepage'))
     if formLogout.Logout.data and formLogout.is_submitted():
         return redirect(url_for('logout'))
     elif formEditView.AddEmpl.data and formEditView.is_submitted():

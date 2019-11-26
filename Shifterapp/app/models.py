@@ -14,6 +14,7 @@ class Organization(db.Model):
     address = db.Column(db.String(256), index = True)
     phone_number = db.Column(db.String(256), index = True)
     employees = db.relationship('Employee', backref = "Organization")
+    schedule = db.relationship('Schedule', backref='Organization')
    
 
     
@@ -62,6 +63,7 @@ class Schedule(UserMixin,db.Model):
     starttime = db.Column(db.Time, nullable = True)
     endtime = db.Column(db.Time, nullable = True)
     emp_id = db.Column(db.Integer, db.ForeignKey('employee.id'))
+    org_id = db.Column(db.Integer, db.ForeignKey('organization.id'))
 
    # def showschedule(self):
         
