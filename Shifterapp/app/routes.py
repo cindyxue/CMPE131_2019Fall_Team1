@@ -46,30 +46,13 @@ def displayMyAccount():
         flash('Logged out')
         return redirect(url_for('logout'))
 
-    if (formEmployee.validate_on_submit()):
-        user = Employee.query.filter_by(email = formEmployee.email.data).first()
-        user1 = Employee.query.filter_by(phone_number=formEmployee.phone_number.data).first()
-        if user is not None:
-            flash('There is already an account registered under this email address.')
-            return redirect(url_for('addemployee'))
-        elif user1 is not None:
-            flash('There is already an account registered under this phone number.')
-            return redirect(url_for('addemployee'))
-        else:
-            employee = Employee(fname = formEmployee.first_name.data,
-                            lname = formEmployee.last_name.data,
-                            email = formEmployee.email.data,
-                            phone_number=formEmployee.phone_number.data,
-                            organization_id = current_user.organization_id,
-                            firsttimelogin = True)
-            employee.setManager(formEmployee.manager.data)
-            employee.set_password(formEmployee.phone_number.data)
-            db.session.add(employee)
-            db.session.commit()
+    firstname = 'vivian'
+    lastname = 'taylor'
+    email = 'abc@gmail.com'
+    phonenumber = '408-408-4080'
 
-
-        return redirect(url_for('login'))
-    return render_template("account.html", title=title, formEmployee=formEmployee, formLogout=formLogout)
+    return render_template("account.html", title=title, formEmployee=formEmployee, formLogout=formLogout, 
+    firstname=firstname, lastname=lastname, email=email, phonenumber=phonenumber)
 
 @Shifter.route("/choose")
 def chooseToDo():
