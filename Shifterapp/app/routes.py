@@ -206,7 +206,6 @@ def chooseToDo():
         return redirect(url_for('logout'))
     elif formEditView.AddEmpl.data and formEditView.is_submitted():
         return redirect(url_for('addemployee'))
-
     return render_template("choose.html", title = title, formLogout = formLogout, formEditView = formEditView)
 @Shifter.route("/register", methods = ['GET', 'POST'])
 def register():
