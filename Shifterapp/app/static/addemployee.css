@@ -30,7 +30,7 @@ input[type=text] {
     
     font-size:20px;
     outline:none;
-    transition:all 10s ease;
+    transition:all 0.5s ease;
     border: 2px solid gray;
     border-radius: 10px;
     width:30%;
