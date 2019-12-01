@@ -5,12 +5,9 @@
     <link href = "../static/choose.css" rel = "stylesheet" type = "text/css">
     <body>
         <div class = "forms">
-            <form>
-                {{formEditView.View(class_="Buttons") }}<br></form>
-            <form>
+            <form action = '' method = 'POST'>
+                {{formEditView.View(class_="Buttons") }}<br>
                 {{formEditView.AddEmpl(class_ = "Buttons")}}<br>
-            </form>
-            <form>
                 {{formEditView.EditEmpl(class_="Buttons")}}
             </form>
         </div>
