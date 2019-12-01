@@ -1,6 +1,6 @@
 from app import Shifter 
 from app import db
-from app.forms import LoginForm, EmployeeForm, LogoutForm, EditViewForm, RegisterForm
+from app.forms import LoginForm, EmployeeForm, LogoutForm, EditViewForm, RegisterForm, EditForm
 from app.models import Organization, Employee
 from flask import render_template, flash, redirect, url_for
 from flask import request
@@ -41,7 +41,7 @@ def displayMyAccount():
     title = "My Account"
     formRegister = RegisterForm()
     formLogout = LogoutForm()
-    return render_template("account.html", title=title, formRegister=formRegister, formLogout=formLogout)
+    return render_template("account.html", title=title, formRegister=formRegister, formEdit=formEdit)
 
 @Shifter.route("/choose")
 def chooseToDo():

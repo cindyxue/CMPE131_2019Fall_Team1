@@ -9,8 +9,9 @@
             <form action = "" method = "POST">
                 <h3 class ='registartion'>My Account</h3>
                 <p>
+                    
                     {{ formRegister.name_company.label}}:
-                    {{ formRegister.name_company(class_="companyname", placeholder= "Shifter") }}<br>
+                    {{ formRegister.name_company(class_="companyname", placeholder=title) }}<br>
                     {% for error in formRegister.name_company.errors %}
                     <span style="color: red;">[{{ error }}]</span>
                     {% endfor %}
