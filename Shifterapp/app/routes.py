@@ -289,6 +289,41 @@ def reset():
     #resetform.question1.choices = [(Employee.id) for question1 in question1.query.filter_by(question1='Whichcity').all()]
     return render_template('reset.html', title = title, resetform = resetform, formLogout = formLogout, email = email)
 
+@Shifter.route("/managerview", methods = ['GET', 'POST'])
+@login_required
+def managerview():
+    title = "Employee Schedules"
+    formLogout = LogoutForm()
+    
+    if current_user.manager==False:
+        return redirect(url_for('emphomepage'))
+    elif formLogout.Logout.data and formLogout.is_submitted():
+        return redirect(url_for('logout'))
+    
+    schedules = Schedule.query.filter_by(org_id=current_user.organization_id).all()
+    employees = Employee.query.filter_by(org_id=current_user.organization_id).all()
+    
+    schedule_starts = [] # List of Strings with format 'HH:MM'
+    schedule_ends = []
+    schedule_days = [] # List of Strings with format 'YY-MM-DD'
+    employee_names = []
+    
+    for i in range(0, len(schedules)):
+        schedule_starts.append(schedules[i].starttime.strftime('%H:%M'))
+        schedule_ends.append(schedules[i].endtime.strftime('%H:%M'))
+        schedule_days.append(str(schedules[i].thedates))
+        employee_id = (schedules[i].emp_id)
+        employee_names.append(Employee.query.get(employee_id))
+    
+    return render_template("managerviewsch.html",
+                           title=title,
+                           formLogout=formLogout,
+                           schedule_starts=schedule_starts,
+                           schedule_ends=schedule_ends,
+                           schedule_days=schedule_days,
+                           employee_names=employee_names)
+    
+    
 
     
 if __name__ == '__main__':

@@ -1,0 +1,28 @@
+/*
+https://www.w3schools.com/css/css_grid_container.asp
+https://developers.google.com/chart/interactive/docs/gallery/timeline
+*/
+
+#grid-container {
+    display: grid;
+    grid-template-columns: 28% 70%;
+    grid-template-rows: 100%;
+    grid-gap: 5px;
+    background-color: #2196F3;
+    padding: 10px;
+  }
+  
+#grid-container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  background: green;
+  padding: 20px 20px;
+  font-size: 14px;
+}
+
+.scroll-wrapper {
+  overflow-x: scroll;
+  overflow-y: auto;
+  height: 400px;
+  width: 400px;
+}

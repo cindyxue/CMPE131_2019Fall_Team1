@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+
+{% block content %}
+<link href = "manager.css" rel = "stylesheet" type = "text/css">
+    <div id="grid-container">
+        <div id="column-left">
+            Left column for add/remove shift buttons, page navigation, etc
+        </div>
+            <div id="column-right">
+                <div id="schedule-graph" class="scroll-wrapper">
+                    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+                    <script type = "text/javascript" src="managerviewsch.js">
+                        var schedule_starts = {{schedules_starts|tojson}}
+                        var schedule_ends = {{schedule_ends|tojson}}
+                        var schedule_days = {{schedule_days|tojson}}
+                        var employee_names = {{employee_names|tojson}}
+                    </script>
+                </div>
+            </div>
+    </div>
+{% endblock %}
