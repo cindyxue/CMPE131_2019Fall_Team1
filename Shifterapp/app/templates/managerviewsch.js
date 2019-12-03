@@ -55,12 +55,12 @@ function prepareDataTable() {
 
   }
 
-  dataTable.addRows(rows)
+  dataTable.addRows([
 
     /*
     // Format to follow: ['Name on left', 'Text on bar', 'Start date', 'End date']
     // Date format: (year, month, day, hours, minutes, seconds)
-
+*/
     [ 'Chris Williams',  'Butcher',    new Date(0,0,0,12,0,0),  new Date(0,0,0,14,0,0) ],
     [ 'Chris Williams',  'Butcher',    new Date(0,0,0,14,30,0), new Date(0,0,0,16,0,0) ],
     [ 'Chris Williams',  'Cashier', new Date(0,0,0,16,30,0), new Date(0,0,0,19,0,0) ],
@@ -70,7 +70,7 @@ function prepareDataTable() {
     [ 'Jake Anderson',   'Security',       new Date(0,0,0,12,30,0), new Date(0,0,0,14,0,0) ],
     [ 'Jake Anderson',   'Security',             new Date(0,0,0,14,30,0), new Date(0,0,0,16,0,0) ],
     [ 'Jake Anderson',   'Deli',          new Date(0,0,0,16,30,0), new Date(0,0,0,18,30,0) ]]);
-    */
-
+    
+  
   return dataTable;
 }

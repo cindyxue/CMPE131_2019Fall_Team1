@@ -70,9 +70,9 @@ def emphomepage():
         monthlength = monthrange(startdate.year, startdate.month)
         enddate = startdate + timedelta(days= monthlength[1]-1) 
     if formchangeweek.previous.data and formchangeweek.is_submitted:
-        startdate-=timedelta(days= monthlength[1]+1) 
+        startdate-=timedelta(days= monthlength[1]-1) 
         monthlength = monthrange(startdate.year, startdate.month)
-        enddate = startdate + timedelta(days= monthlength[1]-2) 
+        enddate = startdate + timedelta(days= monthlength[1]-1) 
         
     array = getWeeklySchedule(startdate,enddate)
     dates = monthlength[1]+1
