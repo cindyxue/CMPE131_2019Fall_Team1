@@ -8,7 +8,7 @@ from flask_login import current_user, login_user, login_required, logout_user
 from werkzeug.urls import url_parse
 from flask_mail import Message, Mail
 from datetime import *
-from datetime import date
+from datetime import date, time
 import calendar
 import datetime
 from calendar import monthrange
@@ -310,13 +310,22 @@ def managerview():
     schedule_days = [] # List of Strings with format 'YY-MM-DD'
     employee_names = []
     
+    #ts = time(12,30)
+    #te = time(16,30)
+    #d = date(2019,12,2)
+    #S = Schedule(id = 200,thedates = d, starttime = ts, endtime = te, emp_id = 2, org_id = 1 )
+    #db.session.add(S)
+    #db.session.commit()
     for i in range(0, len(schedules)):
         schedule_starts.append(schedules[i].starttime.strftime('%H:%M'))
         schedule_ends.append(schedules[i].endtime.strftime('%H:%M'))
         schedule_days.append(str(schedules[i].thedates))
         employee_id = (schedules[i].emp_id)
-        employee_names.append(Employee.query.get(employee_id))
-    
+        employee_names.append(Employee.query.get(employee_id).fname)
+    print(schedule_days)
+    print(schedule_ends)
+    print(schedule_starts)
+    print(employee_names)
     return render_template("managerviewsch.html",
                            title=title,
                            formLogout=formLogout,

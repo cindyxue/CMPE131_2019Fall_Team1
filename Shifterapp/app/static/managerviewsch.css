@@ -2,7 +2,9 @@
 https://www.w3schools.com/css/css_grid_container.asp
 https://developers.google.com/chart/interactive/docs/gallery/timeline
 */
-
+body{
+  margin:0;
+}
 #grid-container {
     display: grid;
     grid-template-columns: 28% 70%;
