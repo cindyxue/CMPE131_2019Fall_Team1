@@ -5,7 +5,18 @@
 <link href = "../static/managerviewsch.css" rel = "stylesheet" type = "text/css">
     <div id="grid-container">
         <div id="column-left">
-            Left column for add/remove shift buttons, page navigation, etc
+            Left column for add/remove shift buttons, page navigation, etc<br>
+            {{scheduleform.employees.label}}
+            {{scheduleform.employees}}<br>
+            {{scheduleform.startdate.label}}
+            {{scheduleform.startdate(value = todaysdate)}}
+            {{scheduleform.starttime.label}}
+            {{scheduleform.starttime}}<br>
+            {{scheduleform.enddate.label}}
+            {{scheduleform.enddate(value = todaysdate)}}
+            {{scheduleform.endtime.label}}
+            {{scheduleform.endtime}}
+
         </div>
             <div id="column-right">
                 <div id="schedule-graph" class="scroll-wrapper">

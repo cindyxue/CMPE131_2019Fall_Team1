@@ -1,9 +1,9 @@
 from flask_wtf import FlaskForm
 from wtforms import BooleanField, SubmitField, StringField, PasswordField, IntegerField, TextAreaField, DateField
 from wtforms.fields import SelectField
-from wtforms.validators import ValidationError, DataRequired, Email, EqualTo
+from wtforms.validators import ValidationError, DataRequired, Email, EqualTo, data_required
 from app.models import Organization,Employee, Schedule
-
+from datetime import time
 
 
 
@@ -148,4 +148,26 @@ class ChangeWeekForm(FlaskForm):
     thisMonth = SubmitField('This Month')
     startdatebox = DateField('Date', format = '%m/%d/%Y')
     enddatebox = DateField('Date', format = '%m/%d/%Y')
+class managerhomepageForm(FlaskForm):
+    startdate = DateField('StartDate', format = '%m/%d/%Y')
 
+    starttime = SelectField('StartTime:', choices=[(time(0,0),'00:00'),(time(0,30),'00:30'),(time(1,0),'01:00'),
+    (time(1,30),'01:30'),(time(2,0),'02:00'),(time(2,30),'02:30'),(time(3,0),'03:00'),(time(3,30),'03:30'),
+    (time(4,0),'04:00'),(time(4,30),'04:30'),(time(5,0),'05:00'),(time(5,0),'05:30'),(time(6,0),'06:30'),
+    (time(7,0),'07:00'),(time(7,30),'07:30'),(time(8,0),'08:00'),(time(8,30),'08:30'),(time(9,0),'09:00'),(time(9,30),'09:30'),(time(10,0),'10:00'),(time(10,30),'10:30'),
+    (time(11,0),'11:00'),(time(11,30),'11:30'),(time(12,0),'12:00'),(time(12,30),'12:30'),(time(13,00),'13:00'),(time(13,30),'13:30'),(time(14,0),'14:00'),
+    (time(14,30),'14:30'),(time(15,0),'15:00'),(time(15,30),'15:30'),(time(16,0),'16:00'),(time(16,30),'16:30'),(time(17,0),'17:00'),(time(17,30),'17:30'),
+    (time(18,0),'18:00'),(time(18,30),'18:30'),(time(19,0),'19:00'),(time(19,30),'19:30'),(time(20,0),'20:00'),(time(20,30),'20:30'),(time(21,0),'21:00'),
+    (time(21,30),'21:30'),(time(22,0),'22:00'),(time(22,30),'22:30'),(time(23,0),'23:00'),(time(23,30),'23:30')])
+    
+    endtime = SelectField('EndTime:', choices=[(time(0,0),'00:00'),(time(0,30),'00:30'),(time(1,0),'01:00'),
+    (time(1,30),'01:30'),(time(2,0),'02:00'),(time(2,30),'02:30'),(time(3,0),'03:00'),(time(3,30),'03:30'),
+    (time(4,0),'04:00'),(time(4,30),'04:30'),(time(5,0),'05:00'),(time(5,0),'05:30'),(time(6,0),'06:30'),
+    (time(7,0),'07:00'),(time(7,30),'07:30'),(time(8,0),'08:00'),(time(8,30),'08:30'),(time(9,0),'09:00'),(time(9,30),'09:30'),(time(10,0),'10:00'),(time(10,30),'10:30'),
+    (time(11,0),'11:00'),(time(11,30),'11:30'),(time(12,0),'12:00'),(time(12,30),'12:30'),(time(13,00),'13:00'),(time(13,30),'13:30'),(time(14,0),'14:00'),
+    (time(14,30),'14:30'),(time(15,0),'15:00'),(time(15,30),'15:30'),(time(16,0),'16:00'),(time(16,30),'16:30'),(time(17,0),'17:00'),(time(17,30),'17:30'),
+    (time(18,0),'18:00'),(time(18,30),'18:30'),(time(19,0),'19:00'),(time(19,30),'19:30'),(time(20,0),'20:00'),(time(20,30),'20:30'),(time(21,0),'21:00'),
+    (time(21,30),'21:30'),(time(22,0),'22:00'),(time(22,30),'22:30'),(time(23,0),'23:00'),(time(23,30),'23:30'), (time(23,59), '23:59')])
+    enddate = DateField('EndDate', format = '%m/%d/%Y')
+
+    employees = SelectField('Employees:', coerce=str)

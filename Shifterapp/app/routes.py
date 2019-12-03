@@ -1,6 +1,6 @@
 from app import Shifter 
 from app import db
-from app.forms import LoginForm, EmployeeForm, LogoutForm, EditViewForm, RegisterForm, ResetPasswordForm, ContactForm, ChangeWeekForm
+from app.forms import LoginForm, EmployeeForm, LogoutForm, EditViewForm, RegisterForm, ResetPasswordForm, ContactForm, ChangeWeekForm, managerhomepageForm
 from app.models import Organization, Employee, Schedule
 from flask import render_template, flash, redirect, url_for
 from flask import request
@@ -302,14 +302,20 @@ def managerview():
     elif formLogout.Logout.data and formLogout.is_submitted():
         return redirect(url_for('logout'))
     
+    scheduleform = managerhomepageForm()
+    todaysdate = date.today()
+    
     schedules = Schedule.query.filter_by(org_id=current_user.organization_id).all()
     employees = Employee.query.filter_by(organization_id=current_user.organization_id).all()
-    
+    employee_list = []
+    for i in employees:
+        employee_list.append((i.fname, i.fname +' '+ i.lname))
+    print(employee_list)
+    scheduleform.employees.choices = employee_list
     schedule_starts = [] # List of Strings with format 'HH:MM'
     schedule_ends = []
     schedule_days = [] # List of Strings with format 'YY-MM-DD'
     employee_names = []
-    
     #ts = time(12,30)
     #te = time(16,30)
     #d = date(2019,12,2)
@@ -332,7 +338,9 @@ def managerview():
                            schedule_starts=schedule_starts,
                            schedule_ends=schedule_ends,
                            schedule_days=schedule_days,
-                           employee_names=employee_names)
+                           employee_names=employee_names,
+                           scheduleform = scheduleform,
+                           todaysdate = todaysdate)
     
     
 
