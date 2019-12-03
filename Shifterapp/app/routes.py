@@ -206,6 +206,8 @@ def chooseToDo():
         return redirect(url_for('logout'))
     elif formEditView.AddEmpl.data and formEditView.is_submitted():
         return redirect(url_for('addemployee'))
+    elif formEditView.View.data and formEditView.is_submitted:
+        return redirect(url_for('managerview'))
     return render_template("choose.html", title = title, formLogout = formLogout, formEditView = formEditView)
 @Shifter.route("/register", methods = ['GET', 'POST'])
 def register():
@@ -301,7 +303,7 @@ def managerview():
         return redirect(url_for('logout'))
     
     schedules = Schedule.query.filter_by(org_id=current_user.organization_id).all()
-    employees = Employee.query.filter_by(org_id=current_user.organization_id).all()
+    employees = Employee.query.filter_by(organization_id=current_user.organization_id).all()
     
     schedule_starts = [] # List of Strings with format 'HH:MM'
     schedule_ends = []
