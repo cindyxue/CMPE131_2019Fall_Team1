@@ -149,7 +149,7 @@ class ChangeWeekForm(FlaskForm):
     startdatebox = DateField('Date', format = '%m/%d/%Y')
     enddatebox = DateField('Date', format = '%m/%d/%Y')
 class managerhomepageForm(FlaskForm):
-    startdate = DateField('StartDate', format = '%m/%d/%Y')
+    startdate = DateField('StartDate', format = '%m/%d/%Y', validators=[DataRequired(), data_required()])
 
     starttime = SelectField('StartTime:', choices=[(time(0,0),'00:00'),(time(0,30),'00:30'),(time(1,0),'01:00'),
     (time(1,30),'01:30'),(time(2,0),'02:00'),(time(2,30),'02:30'),(time(3,0),'03:00'),(time(3,30),'03:30'),
@@ -171,3 +171,4 @@ class managerhomepageForm(FlaskForm):
     enddate = DateField('EndDate', format = '%m/%d/%Y')
 
     employees = SelectField('Employees:', coerce=str)
+    Submit = SubmitField('Submit')
