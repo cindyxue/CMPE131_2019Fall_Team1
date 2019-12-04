@@ -45,11 +45,11 @@ class RegisterForm(FlaskForm):
     answer1 = StringField('Answer1', validators =[DataRequired()])
     question2 = SelectField('Question 2'
     , choices = [ ('Select2', '--Select One--')
-    , ('Whichcity', 'Which city was your father born in?')
-    , ('Whatname', 'What is the first name of your best friend in high school?')
-    , ('Whatstreet', 'What street did you grow up on?')
-    , ('Whatcook', 'What was the first thing you learned to cook?')
-    , ('Wherefly', 'Where did you go the first time you flew on a plane?')], validators=[DataRequired()])
+    , ('FirstConcert', 'What was the first concert you attended?')
+    , ('FirstCar', 'What was the name of the first car you owned?')
+    , ('FavTeam', 'What is your favorit sports team?')
+    , ('FavSport', 'What is your favorite sports?')
+    , ('FavArtist', 'Who is your favorite actor?')], validators=[DataRequired()])
     answer2 = StringField('Answer2', validators =[DataRequired()])
 
     def validate_name_company(self, name_company):
@@ -121,13 +121,13 @@ class ResetPasswordForm(FlaskForm):
     , ('Whatcook', 'What was the first thing you learned to cook?')
     , ('Wherefly', 'Where did you go the first time you flew on a plane?')], validators=[DataRequired()])
     answer1 = StringField('Answer1', validators =[DataRequired()])
-    question2 = SelectField('Question 2: '
+    question2 = SelectField('Question 2'
     , choices = [ ('Select2', '--Select One--')
-    , ('Whichcity', 'Which city was your father born in?')
-    , ('Whatname', 'What is the first name of your best friend in high school?')
-    , ('Whatstreet', 'What street did you grow up on?')
-    , ('Whatcook', 'What was the first thing you learned to cook?')
-    , ('Wherefly', 'Where did you go the first time you flew on a plane?')], validators=[DataRequired()])
+    , ('FirstConcert', 'What was the first concert you attended?')
+    , ('FirstCar', 'What was the name of the first car you owned?')
+    , ('FavTeam', 'What is your favorit sports team?')
+    , ('FavSport', 'What is your favorite sports?')
+    , ('FavArtist', 'Who is your favorite actor?')], validators=[DataRequired()])
     answer2 = StringField('Answer2', validators =[DataRequired()])
     newPassword = PasswordField("New Password", validators=[DataRequired()])
     newPasswordConfirm = PasswordField("Confirm New Password", validators=[DataRequired()])

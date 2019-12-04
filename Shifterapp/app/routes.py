@@ -54,6 +54,9 @@ def login():
 @Shifter.route("/emphomepage", methods = ['POST', 'GET'])
 @login_required
 def emphomepage():
+    if current_user.firsttimelogin == True:
+        flash('First you need to update your password.')
+        return redirect(url_for('reset'))
     formLogout = LogoutForm()
     formchangeweek = ChangeWeekForm()
     title = current_user.fname + ' ' + current_user.lname + ' Homepage'
@@ -121,6 +124,7 @@ def addemployee():
             flash('There is already an account registered under this phone number.')
             return redirect(url_for('addemployee'))
         else:
+            firstn = formEmployee.first_name.data
             employee = Employee(fname = formEmployee.first_name.data,
                             lname = formEmployee.last_name.data,
                             email = formEmployee.email.data,
@@ -132,7 +136,7 @@ def addemployee():
             db.session.add(employee)
             db.session.commit()
 
-
+        flash(firstn + ' has been added to the company')
         return redirect(url_for('login'))
 
     return render_template("addemployee.html", title=title, formEmployee=formEmployee, formLogout=formLogout)
@@ -140,12 +144,28 @@ def addemployee():
 @Shifter.route("/account", methods = ['POST', 'GET'])
 @login_required
 def displayMyAccount():
+    if current_user.firsttimelogin == True:
+        flash('First you need to update your password.')
+        return redirect(url_for('reset'))
     title = current_user.fname + ' ' + current_user.lname + ' Account'
     formEmployee = EmployeeForm()
     formLogout = LogoutForm()
-
     if formLogout.Logout.data and formLogout.is_submitted():
         return redirect(url_for('logout'))
+    if formEmployee.submit.data and formEmployee.is_submitted():
+        fn = formEmployee.first_name.data
+        ln = formEmployee.last_name.data
+        pn = formEmployee.phone_number.data
+        em = formEmployee.email.data
+        row = Employee.query.filter_by(id = current_user.id).first()
+        row.fname = fn
+        row.lname = ln
+        row.phone_number = pn
+        row.email = em
+        db.session.commit()
+        flash('Your information has just been updated!')
+        return redirect(url_for('chooseToDo'))
+
     firstname = current_user.fname
     lastname = current_user.lname
     email = current_user.email
@@ -156,6 +176,9 @@ def displayMyAccount():
 
 @Shifter.route("/contact", methods=['GET','POST'])
 def contact():
+    if current_user.firsttimelogin == True:
+        flash('First you need to update your password.')
+        return redirect(url_for('reset'))
     if (current_user.is_authenticated):
         title = "Contact Us By User"
     else:
@@ -194,6 +217,9 @@ mail.init_app(Shifter)
 
 @Shifter.route("/about", methods = ['POST', 'GET'])
 def about():
+    if current_user.firsttimelogin == True:
+        flash('First you need to update your password.')
+        return redirect(url_for('reset'))
     if (current_user.is_authenticated):
         title = "About Shifter By User"
     else:
@@ -207,6 +233,9 @@ def about():
 @Shifter.route("/choose", methods=['POST', 'GET'])
 @login_required
 def chooseToDo():
+    if current_user.firsttimelogin == True:
+        flash('First you need to update your password.')
+        return redirect(url_for('reset'))
     title = "ChooseToDo"
     formLogout = LogoutForm()
     formEditView = EditViewForm()
