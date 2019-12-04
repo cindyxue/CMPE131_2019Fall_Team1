@@ -42,7 +42,7 @@ input[type=text]:focus {
     border-radius: 15px;
     color:gold;
     cursor: pointer;
-    margin-left:5%;
+    align-self: left;
 }
 .submitinfo:hover{
     text-decoration-line: underline;

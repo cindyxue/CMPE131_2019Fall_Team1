@@ -141,9 +141,20 @@ def addemployee():
 @Shifter.route("/account")
 def displayMyAccount():
     title = "My Account"
-    formRegister = RegisterForm()
+    formEmployee = EmployeeForm()
     formLogout = LogoutForm()
-    return render_template("account.html", title=title, formRegister=formRegister, formLogout=formLogout)
+
+    if formLogout.Logout.data and formLogout.is_submitted():
+        flash('Logged out')
+        return redirect(url_for('logout'))
+
+    firstname = 'vivian'
+    lastname = 'taylor'
+    email = 'abc@gmail.com'
+    phonenumber = '408-408-4080'
+
+    return render_template("account.html", title=title, formEmployee=formEmployee, formLogout=formLogout, 
+    firstname=firstname, lastname=lastname, email=email, phonenumber=phonenumber)
 
 @Shifter.route("/contact", methods=['GET','POST'])
 def contact():

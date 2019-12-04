@@ -7,46 +7,38 @@
     <body>
         <div class="container">
             <form action = "" method = "POST">
-                <h3 class ='registartion'>My Account</h3>
-                <p>
-                    {{ formRegister.name_company.label}}:
-                    {{ formRegister.name_company(class_="companyname", placeholder= "Shifter") }}<br>
-                    {% for error in formRegister.name_company.errors %}
-                    <span style="color: red;">[{{ error }}]</span>
-                    {% endfor %}
-
-                </p>
-                <p>
-
-                    {{ formRegister.manager_namef.label}}:
-                    {{ formRegister.manager_namef(class_="managerfirstname", placeholder= "Vivian") }}<br>
-                    {% for error in formRegister.manager_namef.errors %}
-                    <span style="color: red;">[{{ error }}]</span>
-                    {% endfor %}
-
-                </p>
-                  <p>
-                    {{ formRegister.manager_namel.label}}:
-                    {{ formRegister.manager_namel(class_="managerlastname", placeholder= "Lee") }}<br>
-                    {% for error in formRegister.manager_namel.errors %}
-                    <span style="color: red;">[{{ error }}]</span>
-                    {% endfor %}
-                </p>
-                <p>
-                    {{ formRegister.email.label }}:
-                    {{ formRegister.email(class_="emailbox", placeholder= "vivian.lee@gmail.com") }}<br>
-                    {% for error in formRegister.email.errors %}
-                    <span style="color: red;">[{{ error }}]</span>
-                    {% endfor %}
-                </p>
-                <p>
-                    {{ formRegister.phone_number.label}}:
-                    {{ formRegister.phone_number(class_="phone", placeholder= "222-333-3344") }}<br>
-                    {% for error in formRegister.phone_number.errors %}
-                    <span style="color: red;">[{{ error }}]</span>
-                    {% endfor %}
-                </p>
-                    {{ formRegister.submit(class_ = "submitinfo")}}</p>
-            </form>
+                    {{ formEmployee.hidden_tag() }}
+    
+                    <p>
+                        {{ formEmployee.first_name.label}}:
+                        {{ formEmployee.first_name(class_="firstnamebox", placeholder=firstname) }}<br>
+                        {% for error in formEmployee.first_name.errors %}
+                        <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </p>
+                    <p>
+                        {{ formEmployee.last_name.label }}:
+                        {{ formEmployee.last_name(class_="lastnamebox", placeholder=lastname) }}<br>
+                        {% for error in formEmployee.last_name.errors %}
+                        <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </p>
+                    <p>
+                        {{ formEmployee.email.label }}:
+                        {{ formEmployee.email(class_="emailbox", placeholder=email) }}<br>
+                        {% for error in formEmployee.email.errors %}
+                        <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </p>
+                    <p>
+                        {{ formEmployee.phone_number.label }}:
+                        {{ formEmployee.phone_number(placeholder=phonenumber) }}<br>
+                        {% for error in formEmployee.phone_number.errors %}
+                        <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </p>
+                    <p align="left">{{ formEmployee.submit(class_ = "submitinfo")}}</p>
+                </form>
+            </div>
     </body>
 {% endblock %}
