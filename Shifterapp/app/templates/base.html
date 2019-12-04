@@ -18,7 +18,7 @@
                 <li><a href="about">About</a></li>
                 <li><a href="{{url_for('contact')}}">Contact</a></li>
              <ul>
-                {% if title != "Shifter Scheduling Application" and title != "Register Organization" and title != "About Shifter" and title != "Contact Us" and title != 'Reset Your Password' %}
+                {% if title != "Shifter Scheduling Application" and title != "Register Organization" and title != "About Shifter" and title != 'Reset Your Password' %}
                 <li class = 'logout'><form action = "", method = 'POST'>
                     {{formLogout.Logout(class_ = 'Logoutbutton')}}</form>
                 </li>
