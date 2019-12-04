@@ -12,7 +12,6 @@ from datetime import date, time
 import calendar
 import datetime
 from calendar import monthrange
-from app import globaldate
 from flask import request
 mail = Mail()
 
@@ -138,20 +137,19 @@ def addemployee():
 
     return render_template("addemployee.html", title=title, formEmployee=formEmployee, formLogout=formLogout)
 
-@Shifter.route("/account")
+@Shifter.route("/account", methods = ['POST', 'GET'])
+@login_required
 def displayMyAccount():
-    title = "My Account"
+    title = current_user.fname + ' ' + current_user.lname + ' Account'
     formEmployee = EmployeeForm()
     formLogout = LogoutForm()
 
     if formLogout.Logout.data and formLogout.is_submitted():
-        flash('Logged out')
         return redirect(url_for('logout'))
-
-    firstname = 'vivian'
-    lastname = 'taylor'
-    email = 'abc@gmail.com'
-    phonenumber = '408-408-4080'
+    firstname = current_user.fname
+    lastname = current_user.lname
+    email = current_user.email
+    phonenumber = current_user.phone_number
 
     return render_template("account.html", title=title, formEmployee=formEmployee, formLogout=formLogout, 
     firstname=firstname, lastname=lastname, email=email, phonenumber=phonenumber)

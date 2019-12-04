@@ -33,7 +33,7 @@ input[type=text]:focus {
     background-color: #ebe6c0;
     text-align: center;
 }
-.submitinfo{
+p .submitinfo{
     background-color:rgb(61, 3, 3);
     text-align: center;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
@@ -42,7 +42,7 @@ input[type=text]:focus {
     border-radius: 15px;
     color:gold;
     cursor: pointer;
-    align-self: left;
+    margin-right: 80%;
 }
 .submitinfo:hover{
     text-decoration-line: underline;
