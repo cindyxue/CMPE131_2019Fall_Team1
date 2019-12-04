@@ -21,7 +21,7 @@ class LogoutForm(FlaskForm):
 class EditViewForm(FlaskForm):
     View = SubmitField("Edit/View Schedule")
     AddEmpl = SubmitField("Add Employee")
-    EditEmpl = SubmitField("Edit Employee")
+    ViewOwn = SubmitField("View My Schedule")
 
 class RegisterForm(FlaskForm):
     name_company = StringField("Organization name", validators=[DataRequired()])
@@ -149,8 +149,8 @@ class ChangeWeekForm(FlaskForm):
     startdatebox = DateField('Date', format = '%m/%d/%Y')
     enddatebox = DateField('Date', format = '%m/%d/%Y')
 class managerhomepageForm(FlaskForm):
-    startdate = DateField('StartDate', format = '%m/%d/%Y', validators=[DataRequired(), data_required()])
-
+    startdate = DateField('Date', format = '%m/%d/%Y', validators=[DataRequired(), data_required()])
+    
     starttime = SelectField('StartTime:', choices=[(time(0,0),'00:00'),(time(0,30),'00:30'),(time(1,0),'01:00'),
     (time(1,30),'01:30'),(time(2,0),'02:00'),(time(2,30),'02:30'),(time(3,0),'03:00'),(time(3,30),'03:30'),
     (time(4,0),'04:00'),(time(4,30),'04:30'),(time(5,0),'05:00'),(time(5,0),'05:30'),(time(6,0),'06:30'),
@@ -168,7 +168,10 @@ class managerhomepageForm(FlaskForm):
     (time(14,30),'14:30'),(time(15,0),'15:00'),(time(15,30),'15:30'),(time(16,0),'16:00'),(time(16,30),'16:30'),(time(17,0),'17:00'),(time(17,30),'17:30'),
     (time(18,0),'18:00'),(time(18,30),'18:30'),(time(19,0),'19:00'),(time(19,30),'19:30'),(time(20,0),'20:00'),(time(20,30),'20:30'),(time(21,0),'21:00'),
     (time(21,30),'21:30'),(time(22,0),'22:00'),(time(22,30),'22:30'),(time(23,0),'23:00'),(time(23,30),'23:30'), (time(23,59), '23:59')])
-    enddate = DateField('EndDate', format = '%m/%d/%Y')
-
-    employees = SelectField('Employees:', coerce=str)
+    
+    employees = SelectField('Employee:', coerce=str)
     Submit = SubmitField('Submit')
+
+class scheduleTableForm(FlaskForm):
+    datebox = DateField('datebox', format = '%m/%d/%Y', validators=[DataRequired(), data_required()])
+    goTo = SubmitField('Go To') 

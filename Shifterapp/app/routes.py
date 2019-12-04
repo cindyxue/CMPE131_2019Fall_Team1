@@ -1,6 +1,6 @@
 from app import Shifter 
 from app import db
-from app.forms import LoginForm, EmployeeForm, LogoutForm, EditViewForm, RegisterForm, ResetPasswordForm, ContactForm, ChangeWeekForm, managerhomepageForm
+from app.forms import LoginForm, EmployeeForm, LogoutForm, EditViewForm, RegisterForm, ResetPasswordForm, ContactForm, ChangeWeekForm, managerhomepageForm, scheduleTableForm
 from app.models import Organization, Employee, Schedule
 from flask import render_template, flash, redirect, url_for
 from flask import request
@@ -12,7 +12,8 @@ from datetime import date, time
 import calendar
 import datetime
 from calendar import monthrange
-
+from app import globaldate
+from flask import request
 mail = Mail()
 
 @Shifter.route('/', methods = ['GET', 'POST'])
@@ -208,6 +209,8 @@ def chooseToDo():
         return redirect(url_for('addemployee'))
     elif formEditView.View.data and formEditView.is_submitted:
         return redirect(url_for('managerview'))
+    elif formEditView.ViewOwn.data and formEditView.is_submitted:
+        return redirect(url_for('emphomepage'))
     return render_template("choose.html", title = title, formLogout = formLogout, formEditView = formEditView)
 @Shifter.route("/register", methods = ['GET', 'POST'])
 def register():
@@ -291,56 +294,67 @@ def reset():
     #resetform.question1.choices = [(Employee.id) for question1 in question1.query.filter_by(question1='Whichcity').all()]
     return render_template('reset.html', title = title, resetform = resetform, formLogout = formLogout, email = email)
 
+
 @Shifter.route("/managerview", methods = ['GET', 'POST'])
 @login_required
 def managerview():
+    
     title = "Employee Schedules"
     formLogout = LogoutForm()
+    tableForm = scheduleTableForm() 
+    scheduleform = managerhomepageForm()
+ 
+    datechosen = date.today() 
+    if formLogout.Logout.data and formLogout.is_submitted():
+        return redirect(url_for('logout'))  
+    if tableForm.goTo.data and request.method == 'POST':
+        datechosen = request.form['datebox']
+    if scheduleform.Submit.data and scheduleform.is_submitted():
+        dateToWork = datetime.datetime.fromisoformat(request.form['startdate'])
+        
+        print(type(dateToWork))
+        st = datetime.time.fromisoformat(scheduleform.starttime.data)
+        
+        print(type(st))
+        et = datetime.time.fromisoformat(scheduleform.endtime.data)
+        empId = int(scheduleform.employees.data)
+        s = Schedule( thedates = dateToWork, starttime = st, endtime=et, emp_id = empId, org_id = current_user.id)
+        db.session.add(s)
+        db.session.commit()
+        datechosen = request.form['startdate']
     
     if current_user.manager==False:
         return redirect(url_for('emphomepage'))
-    elif formLogout.Logout.data and formLogout.is_submitted():
-        return redirect(url_for('logout'))
     
-    scheduleform = managerhomepageForm()
+    
+    
     todaysdate = date.today()
-    
-    schedules = Schedule.query.filter_by(org_id=current_user.organization_id).all()
+    tabledict = {}
+    schedules = Schedule.query.filter_by(org_id=current_user.organization_id).filter_by(thedates = datechosen).order_by(Schedule.starttime).all()
     employees = Employee.query.filter_by(organization_id=current_user.organization_id).all()
     employee_list = []
-    for i in employees:
-        employee_list.append((i.fname, i.fname +' '+ i.lname))
-    print(employee_list)
+    for employee in employees:
+        for schedule in schedules:
+            if schedule.emp_id == employee.id:
+                tabledict[employee.fname + ' ' + employee.lname] = [schedule.starttime.strftime(format='%H:%M'), schedule.endtime.strftime(format='%H:%M')]
+                
+        employee_list.append((employee.id, employee.fname +' '+ employee.lname))
     scheduleform.employees.choices = employee_list
-    schedule_starts = [] # List of Strings with format 'HH:MM'
-    schedule_ends = []
-    schedule_days = [] # List of Strings with format 'YY-MM-DD'
-    employee_names = []
     #ts = time(12,30)
     #te = time(16,30)
     #d = date(2019,12,2)
     #S = Schedule(id = 200,thedates = d, starttime = ts, endtime = te, emp_id = 2, org_id = 1 )
     #db.session.add(S)
     #db.session.commit()
-    for i in range(0, len(schedules)):
-        schedule_starts.append(schedules[i].starttime.strftime('%H:%M'))
-        schedule_ends.append(schedules[i].endtime.strftime('%H:%M'))
-        schedule_days.append(str(schedules[i].thedates))
-        employee_id = (schedules[i].emp_id)
-        employee_names.append(Employee.query.get(employee_id).fname)
-    print(schedule_days)
-    print(schedule_ends)
-    print(schedule_starts)
-    print(employee_names)
+    
     return render_template("managerviewsch.html",
                            title=title,
                            formLogout=formLogout,
-                           schedule_starts=schedule_starts,
-                           schedule_ends=schedule_ends,
-                           schedule_days=schedule_days,
-                           employee_names=employee_names,
+                           tableForm = tableForm,
                            scheduleform = scheduleform,
-                           todaysdate = todaysdate)
+                           todaysdate = todaysdate,
+                           datechosen = datechosen,
+                           tabledict = tabledict)
     
     
 
