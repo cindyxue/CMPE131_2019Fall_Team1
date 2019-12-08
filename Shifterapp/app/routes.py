@@ -284,6 +284,14 @@ def register():
     return render_template("register.html", title=title, formRegister=formRegister)
 
 @Shifter.route("/resetpassword", methods = ['GET', 'POST'])
+"""
+Function to reset password for first login new employee
+It will ask new employee 2 security question
+Then, new employee type new password 
+
+If it's not first login, user input Q&A for 2 question
+If match, set new password
+"""
 def reset():
     if current_user.is_authenticated:
         title = 'First Login password change'
