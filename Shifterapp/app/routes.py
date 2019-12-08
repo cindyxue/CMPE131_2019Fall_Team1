@@ -30,7 +30,7 @@ def login():
     elif formLogin.ResetPassword.data and formLogin.is_submitted():
         return redirect(url_for('reset'))
 
-    elif formLogin.validate_on_submit():
+    elif formLogin.Login.data and formLogin.validate_on_submit():
         user = Employee.query.filter_by(email=formLogin.Username.data).first()
         if user is None or not user.check_password(formLogin.Password.data):
             flash('Invalid username or password')
@@ -195,9 +195,7 @@ def displayMyAccount():
 def contact():
     """Allow the customers to contact our team for support and help"""
 
-    if current_user.firsttimelogin == True:
-        flash('First you need to update your password.')
-        return redirect(url_for('reset'))
+    
     if (current_user.is_authenticated):
         title = "Contact Us By User"
     else:
