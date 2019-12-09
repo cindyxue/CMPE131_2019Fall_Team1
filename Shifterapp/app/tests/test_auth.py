@@ -1,5 +1,5 @@
 import pytest
-from app.models import User
+from models import *
 
 def test_get_login_page(client):
     response = client.get('/login')

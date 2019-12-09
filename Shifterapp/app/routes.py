@@ -1,5 +1,7 @@
-from app import Shifter 
-from app import db
+# from app import Shifter 
+# from app import db
+from . import db
+from flask import current_app as Shifter
 from app.forms import LoginForm, EmployeeForm, LogoutForm, EditViewForm, RegisterForm, ResetPasswordForm, ContactForm, ChangeWeekForm, managerhomepageForm, scheduleTableForm
 from app.models import Organization, Employee, Schedule
 from flask import render_template, flash, redirect, url_for
