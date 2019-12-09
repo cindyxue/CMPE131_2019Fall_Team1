@@ -119,6 +119,7 @@ class ContactForm(FlaskForm):
 
     submit: This is a button that will send the form information to the support email
 
+    This is where the boxes are being made for the contact Page the rest of the desgin is CSS
     """
     name = StringField("Name", validators=[DataRequired()])
     email = StringField("Email", validators=[DataRequired(), Email()])
