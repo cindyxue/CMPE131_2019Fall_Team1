@@ -17,7 +17,7 @@ mail = Mail()
 
 @Shifter.route('/', methods = ['GET', 'POST'])
 def login():
-    """Alloes the user to login with username and password, register their organization or reset their password.
+    """Allowes the user to login with username and password, register their organization or reset their password.
     Depending on their role as manager or employee then they are redirected to emphomepage or managerhomepage.
     If they are logged in for the first time, they are redirected to resetpassword page.
     """
@@ -193,11 +193,15 @@ def displayMyAccount():
 
 @Shifter.route("/contact", methods=['GET','POST'])
 def contact():
-    """Allow the customers to contact our team for support and help"""
 
-    if current_user.firsttimelogin == True:
-        flash('First you need to update your password.')
-        return redirect(url_for('reset'))
+    """
+    Allow the customers to contact our team for support and help
+    Here is the contact us function
+    This uses the parameters in the class app.forms.ContacttForm
+
+
+    """
+
     if (current_user.is_authenticated):
         title = "Contact Us By User"
     else:
@@ -207,6 +211,11 @@ def contact():
     formContact = ContactForm()
     if formLogout.Logout.data and formLogout.is_submitted():
         return redirect(url_for('logout'))
+    """
+      This first if statement takes in the fromContact  all the information filled
+      out by the user and organizes it in the message show below and send the the information
+      to the a support email.
+    """
     if request.method == 'POST':
         if formContact.validate() == False:
             flash('All fields are required.')
@@ -226,6 +235,10 @@ def contact():
 
     elif request.method == 'GET':
         return render_template("Contact.html", title=title, formContact=formContact, formLogout=formLogout)
+    """
+    These Shifter.config are what allow this email to be used as a support email.
+    This is a way to have gmail grant this code access 
+    """
 Shifter.config["MAIL_SERVER"] = "smtp.gmail.com"
 Shifter.config["MAIL_PORT"] = 465
 Shifter.config["MAIL_USE_SSL"] = True
@@ -236,11 +249,12 @@ mail.init_app(Shifter)
 
 @Shifter.route("/about", methods = ['POST', 'GET'])
 def about():
-    """Tells you about Shifter Team"""
+    """
+    Tells you about Shifter Team
+    No parameters taken here just a simple CSS page
+    """
 
-    if current_user.firsttimelogin == True:
-        flash('First you need to update your password.')
-        return redirect(url_for('reset'))
+
     if (current_user.is_authenticated):
         title = "About Shifter By User"
     else:
