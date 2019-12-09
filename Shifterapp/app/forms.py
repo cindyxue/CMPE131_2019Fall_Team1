@@ -104,6 +104,23 @@ class EmployeeForm(FlaskForm):
     submit = SubmitField("Submit info", validators = [DataRequired()])
 
 class ContactForm(FlaskForm):
+    """
+    Here are what this form is taking in
+
+    name: Takes a valid name first or full name
+
+    email: Takes in a valid email
+
+    phone_number: Takes in a valid phone number
+
+    subject: Takes in a small amount of text
+
+    message: Takes in a Large amount of text
+
+    submit: This is a button that will send the form information to the support email
+
+    This is where the boxes are being made for the contact Page the rest of the desgin is CSS
+    """
     name = StringField("Name", validators=[DataRequired()])
     email = StringField("Email", validators=[DataRequired(), Email()])
     phone_number = IntegerField("Phone number", validators=[DataRequired()])
