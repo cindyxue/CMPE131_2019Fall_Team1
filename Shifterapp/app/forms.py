@@ -53,32 +53,46 @@ class RegisterForm(FlaskForm):
     answer2 = StringField('Answer2', validators =[DataRequired()])
 
     def validate_name_company(self, name_company):
+        """the function makes sure that the company name is not already registered or in use"""
+
         org = Organization.query.filter_by(name=name_company.data).first()
         if org is not None:
             raise ValidationError('The Company has been already registered.')
     def validate_email(self, email):
+        """the function makes sure that the email is not already registered or in use"""
+
         emp = Employee.query.filter_by(email=email.data).first()
         if emp is not None:
             raise ValidationError('This email has been already registered')
     def validate_business_phone_number(self, business_phone_number):
+        """the function makes sure that the phone number is not already registerd"""
+
         orgph = Organization.query.filter_by(phone_number = business_phone_number.data).first()
         if orgph is not None:
             raise ValidationError('This phone number has been already registered')
         elif len(business_phone_number.data) !=10:
             raise ValidationError('Invalid Phone Number, must be 10 digits. No Space')        
     def validate_manager_phone_number(self, manager_phone_number):
+        """makes sure that the phone number is not already registered"""
+
         empph = Employee.query.filter_by(phone_number = manager_phone_number.data).first()
         if empph is not None:
             raise ValidationError('This phone number has been already registered')
         elif len(manager_phone_number.data) !=10:
             raise ValidationError('Invalid Phone Number, must be 10 digits. No Space')
     def validate_re_password(self, re_password):
+        """makes sure that the password and the repeated password match, otherwise alerts the user"""
+
         if (re_password.data != self.enter_password.data ):
             raise ValidationError('Passwords Do not Match!')
     def validate_question1(self, question1):
+        """makes sure that a question is selected"""
+
         if question1.data == 'Select1':
             raise ValidationError('Please pick a question.')
     def validate_question2(self, question2):
+        """makes sure that a question is selected"""
+
         if question2.data == 'Select2':
             raise ValidationError('Please pick a question.')   
 class EmployeeForm(FlaskForm):
@@ -90,6 +104,23 @@ class EmployeeForm(FlaskForm):
     submit = SubmitField("Submit info", validators = [DataRequired()])
 
 class ContactForm(FlaskForm):
+    """
+    Here are what this form is taking in
+
+    name: Takes a valid name first or full name
+
+    email: Takes in a valid email
+
+    phone_number: Takes in a valid phone number
+
+    subject: Takes in a small amount of text
+
+    message: Takes in a Large amount of text
+
+    submit: This is a button that will send the form information to the support email
+
+    This is where the boxes are being made for the contact Page the rest of the desgin is CSS
+    """
     name = StringField("Name", validators=[DataRequired()])
     email = StringField("Email", validators=[DataRequired(), Email()])
     phone_number = IntegerField("Phone number", validators=[DataRequired()])
@@ -134,14 +165,23 @@ class ResetPasswordForm(FlaskForm):
     submit = SubmitField("Submit")
 
     def validate_newPasswordConfirm(self, newPasswordConfirm):
+        """makes sure that the confirm password matches the password"""
+
         if (newPasswordConfirm.data != self.newPassword.data):
             raise ValidationError('Passwords Do Not Match!')
+
     def validate_question1(self, question1):
+        """makes sure that a question is picked"""
+
         if question1.data == 'Select1':
             raise ValidationError('Please pick a question.')
+
     def validate_question2(self, question2):
+        """makes sure that a question is picked"""
+
         if question2.data == 'Select2':
-            raise ValidationError('Please pick a question.')        
+            raise ValidationError('Please pick a question.')   
+                 
 class ChangeWeekForm(FlaskForm):
     previous= SubmitField('Previous')
     nextMonth = SubmitField('Next')

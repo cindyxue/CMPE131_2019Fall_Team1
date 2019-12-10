@@ -19,6 +19,11 @@ mail = Mail()
 
 @Shifter.route('/', methods = ['GET', 'POST'])
 def login():
+    """Alloes the user to login with username and password, register their organization or reset their password.
+    Depending on their role as manager or employee then they are redirected to emphomepage or managerhomepage.
+    If they are logged in for the first time, they are redirected to resetpassword page.
+    """
+
     if current_user.is_authenticated and current_user.manager==True:
         return redirect(url_for('chooseToDo'))
     formLogin = LoginForm()
@@ -27,7 +32,7 @@ def login():
     elif formLogin.ResetPassword.data and formLogin.is_submitted():
         return redirect(url_for('reset'))
 
-    elif formLogin.validate_on_submit():
+    elif formLogin.Login.data and formLogin.validate_on_submit():
         user = Employee.query.filter_by(email=formLogin.Username.data).first()
         if user is None or not user.check_password(formLogin.Password.data):
             flash('Invalid username or password')
@@ -56,6 +61,8 @@ def login():
 @Shifter.route("/emphomepage", methods = ['POST', 'GET'])
 @login_required
 def emphomepage():
+    """Employee Home Page. Displays the Schedule of logged in employee"""
+
     if current_user.firsttimelogin == True:
         flash('First you need to update your password.')
         return redirect(url_for('reset'))
@@ -97,11 +104,15 @@ def emphomepage():
     starttimes = schedulestarts, endtimes = schedulesends, len = dates)
 
 def getWeeklySchedule(startdate, enddate):
+    """fetches the schedules of the logged in user between the two specefied days"""
+
     s = Schedule.query.filter_by(emp_id = current_user.id).filter(Schedule.thedates>=startdate).filter(Schedule.thedates<=enddate).order_by(Schedule.thedates).all()
     return s
         
 @Shifter.route('/logout')
 def logout():
+    """Loggs out user and redirects them back to login page"""
+
     logout_user()
     flash('Logged out')
     return redirect(url_for('login'))
@@ -110,6 +121,10 @@ def logout():
 @Shifter.route("/addemployee", methods = ['GET', 'POST'])
 @login_required
 def addemployee():
+    """Adds a new Employee to the data base under the same organization id as the logged in user who is adding the
+    new user.
+    Also allows the new user to be selected as manager or employee"""
+
     title = "Add employee to Shifter"
     formEmployee = EmployeeForm()
     formLogout = LogoutForm()
@@ -146,6 +161,8 @@ def addemployee():
 @Shifter.route("/account", methods = ['POST', 'GET'])
 @login_required
 def displayMyAccount():
+    """Fetches the info of the logged in user and allow him or her to modify it"""
+
     if current_user.firsttimelogin == True:
         flash('First you need to update your password.')
         return redirect(url_for('reset'))
@@ -178,9 +195,15 @@ def displayMyAccount():
 
 @Shifter.route("/contact", methods=['GET','POST'])
 def contact():
-    if current_user.firsttimelogin == True:
-        flash('First you need to update your password.')
-        return redirect(url_for('reset'))
+
+    """
+    Allow the customers to contact our team for support and help
+    Here is the contact us function
+    This uses the parameters in the class app.forms.ContacttForm
+
+
+    """
+
     if (current_user.is_authenticated):
         title = "Contact Us By User"
     else:
@@ -190,6 +213,11 @@ def contact():
     formContact = ContactForm()
     if formLogout.Logout.data and formLogout.is_submitted():
         return redirect(url_for('logout'))
+    """
+      This first if statement takes in the fromContact  all the information filled
+      out by the user and organizes it in the message show below and send the the information
+      to the a support email.
+    """
     if request.method == 'POST':
         if formContact.validate() == False:
             flash('All fields are required.')
@@ -209,6 +237,10 @@ def contact():
 
     elif request.method == 'GET':
         return render_template("Contact.html", title=title, formContact=formContact, formLogout=formLogout)
+    """
+    These Shifter.config are what allow this email to be used as a support email.
+    This is a way to have gmail grant this code access 
+    """
 Shifter.config["MAIL_SERVER"] = "smtp.gmail.com"
 Shifter.config["MAIL_PORT"] = 465
 Shifter.config["MAIL_USE_SSL"] = True
@@ -219,9 +251,12 @@ mail.init_app(Shifter)
 
 @Shifter.route("/about", methods = ['POST', 'GET'])
 def about():
-    if current_user.firsttimelogin == True:
-        flash('First you need to update your password.')
-        return redirect(url_for('reset'))
+    """
+    Tells you about Shifter Team
+    No parameters taken here just a simple CSS page
+    """
+
+
     if (current_user.is_authenticated):
         title = "About Shifter By User"
     else:
@@ -235,6 +270,8 @@ def about():
 @Shifter.route("/choose", methods=['POST', 'GET'])
 @login_required
 def chooseToDo():
+    """Provides options for the manager who is logged in."""
+
     if current_user.firsttimelogin == True:
         flash('First you need to update your password.')
         return redirect(url_for('reset'))
@@ -254,6 +291,8 @@ def chooseToDo():
     return render_template("choose.html", title = title, formLogout = formLogout, formEditView = formEditView)
 @Shifter.route("/register", methods = ['GET', 'POST'])
 def register():
+    """Allows people to register their company and a manager along with"""
+
     title = "Register Organization"
     formRegister = RegisterForm()
     if formRegister.validate_on_submit():
@@ -287,6 +326,9 @@ def register():
 
 @Shifter.route("/resetpassword", methods = ['GET', 'POST'])
 def reset():
+    """Allows the user to reset their password. Once when they want to reset their password 
+    and once when they are forced to"""
+
     if current_user.is_authenticated:
         title = 'First Login password change'
         email = current_user.email
@@ -338,6 +380,7 @@ def reset():
 @Shifter.route("/managerview", methods = ['GET', 'POST'])
 @login_required
 def managerview():
+    """Lets the manager setup the schedule and add Shifts to employees"""
     
     title = "Employee Schedules"
     formLogout = LogoutForm()

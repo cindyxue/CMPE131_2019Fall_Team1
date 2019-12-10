@@ -35,25 +35,42 @@ class Employee(UserMixin, db.Model):
     schedule = db.relationship('Schedule', backref = 'Employee')
 
     def setManager(self, data):
+        """Toggles the manager column of each employee"""
+
         if data == 'Employee':
             self.manager = False
         elif data == 'Manager':
             self.manager = True
+
     def setfirstlogin(self, firsttime):
+        """Toggles the firsttime login column of each employee"""
+
         self.firsttimelogin=firsttime
 
     def setQuestion(self, question1, question2):
+        """set the security questions of each employee"""
+
         self.question1 = question1
         self.question2 = question2
+
     def setAnswer (self, answer1, answer2):
+        """set the security questions' answers of each employee"""
+
         self.answer1 = answer1
         self.answer2 = answer2
 
     def set_password(self, password):
+        """sets the password of each employee"""
+
         self.password_hash = generate_password_hash(password)
     def check_password(self, password):
+        """checks the password with data base, if matches, returns True"""
+
         return check_password_hash(self.password_hash, password)
+
     def set_orgid(self, id):
+        """sets the Organization Id of each employee"""
+        
         self.organization_id = id
     
     
