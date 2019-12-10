@@ -1,0 +1,109 @@
+body {
+    background-size:100%;
+    margin:0;
+    background-color:rgba(194, 194, 194, 0.274);
+}
+
+.container {
+    width:97.3%;
+    height:0;
+    
+    padding:5% 0 2% 5%;
+    border-radius:20px;
+    text-align: left;
+}
+p{
+    font-size:1.8vw;
+    margin-left: 0;
+    transition:all 0.5s ease;
+}
+.role{
+    font-size:1.5vw;
+}
+input[type = radio]{
+    width:2em;
+    height:2em;
+    
+}
+
+input[type=text] {
+    
+    font-size:20px;
+    outline:none;
+    transition:all 0.5s ease;
+    border: 2px solid gray;
+    border-radius: 10px;
+    width:30%;
+    padding:10px 0 10px 0 ;
+    align-content: center;  
+}
+.firstnamebox, .lastnamebox{
+    margin-left:3%;
+    margin-right:0;
+}
+.emailbox{
+    margin-left:6.2%;
+    margin-right:0;
+}
+
+input[type=text]:focus {
+    background-color: #ebe6c0;
+    text-align: center;
+}
+.submitinfo{
+    font-family:'Times New Roman', Times, serif;
+    padding:10px;
+    font-size:2vw;
+    margin-right:0;
+    cursor:pointer;
+}
+.note{
+    font-size:1.5vw;
+    font-weight: bolder;
+}
+
+.companyname {
+
+
+    margin-left:3%;
+    margin-right:0;
+}
+
+.managerfirstname, .managerlastname {
+    margin-left:10%;
+    margin-right:0;
+}
+.password {
+     margin-left:7.2%;
+    margin-right:0;
+}
+
+.confirmpassword{
+    margin-left:7.2%;
+    margin-right:0;
+}
+
+
+.phone{
+    margin-left:10%;
+    margin-right:0;
+}
+input[type=text]:focus {
+    background-color: #ebe6c0;
+    text-align: center;
+}
+.submitinfo{
+    background-color:rgb(61, 3, 3);
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size:1.5vw;
+    padding:20px;
+    border-radius: 15px;
+    color:gold;
+    cursor: pointer;
+    margin-left:5%;
+}
+.note{
+    font-size:1.5vw;
+    font-weight: bolder;
+}

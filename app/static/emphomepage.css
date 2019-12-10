@@ -1,0 +1,42 @@
+body{
+    margin:0;
+}
+.dates{
+    margin-top:10px;
+}
+.dates p{
+    font-family: 'Times New Roman', Times, serif;
+    padding:2px;
+    display: inline;
+}
+table{
+    margin-top:20px;
+    border-collapse: collapse;
+    margin-left:25px;
+    margin-bottom:25px;
+
+}
+table th, td , tr{
+    border: 2.5px solid rgba(0, 0, 0, 0.733);
+    width:150px;
+    height:150px;
+    align-content: flex-start;
+    vertical-align: top;
+    background-color:rgba(211, 211, 211, 0.438);
+  }
+  .number{
+      text-align: start;
+      margin-top:1px;
+      margin-left:0;
+      margin-left:0;
+      font-weight: 800;
+      background-color:rgb(61, 3, 3);
+      font-size:25px;
+      color:rgba(255, 217, 0, 0.623);
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      padding:5px;
+  }
+  .Scheduletxt{
+      padding:2px;
+      font-size:20px;
+  }

@@ -1,0 +1,61 @@
+body {
+    background-size:cover;
+    background-repeat: no-repeat;
+    margin:0;
+    background-color:rgba(194, 194, 194, 0.274);
+}
+
+.registartion{
+    font-size:2.5vw;
+    margin-left:5%;
+}
+
+p{
+    font-family: 'Times New Roman', Times, serif;
+    font-size:1.8vw;
+    transition:all 0.5s ease;
+    text-align:right;
+
+}
+.error{
+    font-size:1.5vw;
+    text-align: left;
+    margin-left:5%;
+}
+
+input[type=text], .confirmpassword, .question, .password{
+    font-size:1.7vw;
+    outline:none;
+    transition:all 1s ease;
+    border: 2px solid gray;
+    border-radius: 10px;
+    width:35%;
+    padding:10px 10px 10px 10px ;
+    margin-right:40%;
+}
+input[type=text]:focus {
+    background-color: #ebe6c0;
+    text-align: center;
+}
+.submitinfo{
+    background-color:rgb(61, 3, 3);
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size:1.5vw;
+    padding:20px;
+    border-radius: 15px;
+    color:gold;
+    cursor: pointer;
+    margin-left:5%;
+}
+.submitinfo:hover{
+    text-decoration-line: underline;
+    font-weight: bolder;
+}
+.note{
+    font-size:1.7vw;
+    font-weight: bolder;
+    text-align: right;
+    margin-right:35%;
+}
+

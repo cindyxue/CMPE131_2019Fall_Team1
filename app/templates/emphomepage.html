@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+
+{% block content %}
+    <link href = "../static/emphomepage.css" rel = "stylesheet" type = "text/css">
+    <body>
+        <form action ='' method = 'POST' class = 'dates'>
+            <p>{{formchangeweek.previous}}</p>
+            <p>{{formchangeweek.thisMonth}}</p>
+            <p>{{formchangeweek.nextMonth}}</p>
+            <p>{{formchangeweek.startdatebox(value = startdate , readonly="readonly" )}}</p>
+            <p>{{formchangeweek.enddatebox(value = enddate ,readonly="readonly")}}</p>
+
+        </form>
+        <table>
+            <tr>
+            {% for i in range(1,len) %}
+            {% if i == 8 or i==15 or i==22 or i==29 %}
+            </tr><tr>
+            {% endif %}
+            <td><p class = 'number'>{{i}}</p>
+                {% if starttimes[i]!= [] %}
+                {% for j in range(0,starttimes[i]|length) %}
+                <p class = 'Scheduletxt'>{{starttimes[i][j]}} - {{endtimes[i][j]}}</p>
+                {% endfor %}
+                {% endif %}
+                
+
+            </td>
+            {% endfor %}
+            </tr>
+            
+
+        </table>
+    </body>
+{% endblock %}

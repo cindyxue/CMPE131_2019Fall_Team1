@@ -1,0 +1,27 @@
+body {
+    background-image:url("login6.jpg");
+    background-size:100%;
+    background-repeat: no-repeat;
+    margin:0;
+    background-color:rgba(194, 194, 194, 0.274);
+}
+
+div{
+    transition: all 0.1s ease-in;
+    background:rgb(131, 112, 112);
+    border-radius: 20px;
+    width :70vw;
+    height:10%;
+    padding:2.5% 2%;
+    margin-left:13%;
+    margin-top:4%;
+}
+
+p{
+    font-family: 'Times New Roman', Times, serif;
+    font-size:1.8vw;
+    transition:all 0.5s ease;
+    text-align:right;
+    color:palegoldenrod;
+
+}

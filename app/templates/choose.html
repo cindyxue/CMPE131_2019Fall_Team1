@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+
+{% block content %}
+    <link href = "../static/choose.css" rel = "stylesheet" type = "text/css">
+    <body>
+        <div class = "forms">
+            <form action = '' method = 'POST'>
+                {{formEditView.View(class_="Buttons") }}<br>
+                {{formEditView.AddEmpl(class_ = "Buttons")}}<br>
+                {{formEditView.ViewOwn(class_="Buttons")}}
+            </form>
+        </div>
+    </body>
+
+
+{% endblock %}

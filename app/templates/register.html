@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+
+{% block content %}
+    <link href = "../static/registration.css" rel = "stylesheet" type = "text/css">
+    <body>
+        <div class="container">
+            <form action = "" method = "POST">
+                {{ formRegister.hidden_tag() }}
+
+                <h3 class = 'registartion'>Registeration</h3>
+                <p>
+                    {{ formRegister.name_company.label}}:
+                    {{ formRegister.name_company(class_="companyname", placeholder= "Company") }}<br>
+                    <p class = 'error'> {% for error in formRegister.name_company.errors %}
+                    <span style="color: red;">{{ error }}</span>
+                    {% endfor %}
+                    </p>
+
+                </p>
+                <p>
+                    {{ formRegister.type_company.label}}:
+                    {{ formRegister.type_company(class_="companytype", placeholder= "Buisness type") }}<br>
+                    <p class = 'error'> {% for error in formRegister.type_company.errors %}
+                    <span style="color: red;">{{ error }}</span>
+                    {% endfor %}
+                    </p>
+
+                </p>
+                <p>
+                    {{ formRegister.address.label}}:
+                    {{ formRegister.address(class_="address", placeholder= "ex. 555 Saint James Crt, 95432") }}<br>
+                    <p class = 'error'> {% for error in formRegister.address.errors %}
+                    <span style="color: red;">{{ error }}</span>
+                    {% endfor %}
+                    </p>
+                <p>
+                    {{formRegister.business_phone_number.label}}:
+                    {{formRegister.business_phone_number(class_="Buisness_phone_number", placeholder = "ex. 222-333-3344")}}<br>
+                    <p class = 'error'> {% for error in formRegister.business_phone_number.errors %}
+                    <span style="color: red;">{{ error }}</span>
+                    {% endfor %}
+                    </p>
+                </p>    
+                </p>
+                <p class = 'note'>Note: By filling the information below, you create your first employee as a manager.</p>
+                <p>
+
+                    {{ formRegister.manager_namef.label}}:
+                    {{ formRegister.manager_namef(class_="managerfirstname", placeholder= "First name") }}<br>
+                    <p class = 'error'> {% for error in formRegister.manager_namef.errors %}
+                    <span style="color: red;">{{ error }}</span>
+                    {% endfor %}
+                    </p>
+
+                </p>
+                  <p>
+                    {{ formRegister.manager_namel.label}}:
+                    {{ formRegister.manager_namel(class_="managerlastname", placeholder= "Last Name") }}<br>
+                    <p class = 'error'> {% for error in formRegister.manager_namel.errors %}
+                    <span style="color: red;">{{ error }}</span>
+                    {% endfor %}
+                    </p>
+                </p>
+                <p>
+                    {{ formRegister.email.label }}:
+                    {{ formRegister.email(class_="emailbox", placeholder= "ex: email_here@example.com") }}<br>
+                    <p class = 'error'> {% for error in formRegister.email.errors %}
+                    <span style="color: red;">{{ error }}</span>
+                    {% endfor %}
+                    </p>
+                </p>
+                <p>
+                    {{formRegister.question1.label}}:
+                    {{ formRegister.question1(class_ = "question")}} <br>
+                    <p class = 'error'>{% for error in formRegister.question1.errors %}
+                    <span style="color: red;">{{ error }}</span>
+                    {% endfor %}
+                    </p>
+                </p>
+                <p>    
+                    {{ formRegister.answer1.label}}:
+                    {{ formRegister.answer1(class_="answer1box") }}<br>
+                    <p class = 'error'>{% for error in formRegister.answer1.errors %}
+                    <span style="color: red;">{{ error }}</span>
+                    {% endfor %}
+                    </p>
+                </p>
+                <p>
+                    {{formRegister.question2.label}}:
+                    {{ formRegister.question2 (class_ = "question")}} <br>
+                    <p class = 'error'>{% for error in formRegister.question2.errors %}
+                    <span style="color: red;">{{ error }}</span>
+                    {% endfor %}
+                    </p>
+                </p>
+                <p>
+                    {{ formRegister.answer2.label}}:
+                    {{ formRegister.answer2(class_="answer2box") }}<br>
+                    <p class = 'error'>{% for error in formRegister.answer2.errors %}
+                    <span style="color: red;">{{ error }}</span>
+                    {% endfor %}
+                    </p>
+                </p>
+                
+                  <p>
+                    {{ formRegister.enter_password.label}}:
+                    {{ formRegister.enter_password(class_="password", placeholder= "Password") }}<br>
+                    <p class = 'error'> {% for error in formRegister.enter_password.errors %}
+                    <span style="color: red;">{{ error }}</span>
+                    {% endfor %}
+                    </p>
+                </p>
+                  <p>
+                    {{ formRegister.re_password.label}}:
+                    {{ formRegister.re_password(class_="confirmpassword", placeholder= "Confirm password") }}<br>
+                    <p class = 'error'> {% for error in formRegister.re_password.errors %}
+                    <span style="color: red;">{{ error }}</span>
+                    {% endfor %}
+                    </p>
+                </p>
+                <p>
+                    {{ formRegister.manager_phone_number.label}}:
+                    {{ formRegister.manager_phone_number(class_="phone", placeholder= "ex. 222-333-3344") }}<br>
+                    <p class = 'error'> {% for error in formRegister.manager_phone_number.errors %}
+                    <span style="color: red;">{{ error }}</span>
+                    {% endfor %}
+                    </p>
+                </p>
+                    {{ formRegister.submit(class_ = "submitinfo")}}</p>
+            </form>
+        </div>
+    </body>
+{% endblock %}
