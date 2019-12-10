@@ -1,0 +1,987 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>app package &mdash; Shifter 12/04/2019 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Shifter
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">How to install my app</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functions.html">Functions</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Shifter</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>app package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/rst/app.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="app-package">
+<h1>app package<a class="headerlink" href="#app-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-app.forms">
+<span id="app-forms-module"></span><h2>app.forms module<a class="headerlink" href="#module-app.forms" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="app.forms.ChangeWeekForm">
+<em class="property">class </em><code class="sig-prename descclassname">app.forms.</code><code class="sig-name descname">ChangeWeekForm</code><span class="sig-paren">(</span><em class="sig-param">formdata=&lt;object object&gt;</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#app.forms.ChangeWeekForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">flask_wtf.form.FlaskForm</span></code></p>
+<dl class="attribute">
+<dt id="app.forms.ChangeWeekForm.enddatebox">
+<code class="sig-name descname">enddatebox</code><em class="property"> = &lt;UnboundField(DateField, ('Date',), {'format': '%m/%d/%Y'})&gt;</em><a class="headerlink" href="#app.forms.ChangeWeekForm.enddatebox" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.forms.ChangeWeekForm.nextMonth">
+<code class="sig-name descname">nextMonth</code><em class="property"> = &lt;UnboundField(SubmitField, ('Next',), {})&gt;</em><a class="headerlink" href="#app.forms.ChangeWeekForm.nextMonth" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.forms.ChangeWeekForm.previous">
+<code class="sig-name descname">previous</code><em class="property"> = &lt;UnboundField(SubmitField, ('Previous',), {})&gt;</em><a class="headerlink" href="#app.forms.ChangeWeekForm.previous" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.forms.ChangeWeekForm.startdatebox">
+<code class="sig-name descname">startdatebox</code><em class="property"> = &lt;UnboundField(DateField, ('Date',), {'format': '%m/%d/%Y'})&gt;</em><a class="headerlink" href="#app.forms.ChangeWeekForm.startdatebox" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.forms.ChangeWeekForm.thisMonth">
+<code class="sig-name descname">thisMonth</code><em class="property"> = &lt;UnboundField(SubmitField, ('This Month',), {})&gt;</em><a class="headerlink" href="#app.forms.ChangeWeekForm.thisMonth" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="app.forms.ContactForm">
+<em class="property">class </em><code class="sig-prename descclassname">app.forms.</code><code class="sig-name descname">ContactForm</code><span class="sig-paren">(</span><em class="sig-param">formdata=&lt;object object&gt;</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#app.forms.ContactForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">flask_wtf.form.FlaskForm</span></code></p>
+<p>Here are what this form is taking in</p>
+<p>name: Takes a valid name first or full name</p>
+<p>email: Takes in a valid email</p>
+<p>phone_number: Takes in a valid phone number</p>
+<p>subject: Takes in a small amount of text</p>
+<p>message: Takes in a Large amount of text</p>
+<p>submit: This is a button that will send the form information to the support email</p>
+<p>This is where the boxes are being made for the contact Page the rest of the desgin is CSS</p>
+<dl class="attribute">
+<dt id="app.forms.ContactForm.email">
+<code class="sig-name descname">email</code><em class="property"> = &lt;UnboundField(StringField, ('Email',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;, &lt;wtforms.validators.Email object&gt;]})&gt;</em><a class="headerlink" href="#app.forms.ContactForm.email" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.forms.ContactForm.message">
+<code class="sig-name descname">message</code><em class="property"> = &lt;UnboundField(TextAreaField, ('Message',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;]})&gt;</em><a class="headerlink" href="#app.forms.ContactForm.message" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.forms.ContactForm.name">
+<code class="sig-name descname">name</code><em class="property"> = &lt;UnboundField(StringField, ('Name',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;]})&gt;</em><a class="headerlink" href="#app.forms.ContactForm.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.forms.ContactForm.phone_number">
+<code class="sig-name descname">phone_number</code><em class="property"> = &lt;UnboundField(IntegerField, ('Phone number',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;]})&gt;</em><a class="headerlink" href="#app.forms.ContactForm.phone_number" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.forms.ContactForm.subject">
+<code class="sig-name descname">subject</code><em class="property"> = &lt;UnboundField(StringField, ('Subject',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;]})&gt;</em><a class="headerlink" href="#app.forms.ContactForm.subject" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.forms.ContactForm.submit">
+<code class="sig-name descname">submit</code><em class="property"> = &lt;UnboundField(SubmitField, ('Submit info',), {})&gt;</em><a class="headerlink" href="#app.forms.ContactForm.submit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="app.forms.EditForm">
+<em class="property">class </em><code class="sig-prename descclassname">app.forms.</code><code class="sig-name descname">EditForm</code><span class="sig-paren">(</span><em class="sig-param">formdata=&lt;object object&gt;</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#app.forms.EditForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">flask_wtf.form.FlaskForm</span></code></p>
+<dl class="attribute">
+<dt id="app.forms.EditForm.edit">
+<code class="sig-name descname">edit</code><em class="property"> = &lt;UnboundField(SubmitField, ('Edit',), {})&gt;</em><a class="headerlink" href="#app.forms.EditForm.edit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.forms.EditForm.email">
+<code class="sig-name descname">email</code><em class="property"> = &lt;UnboundField(StringField, ('Email',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;, &lt;wtforms.validators.Email object&gt;]})&gt;</em><a class="headerlink" href="#app.forms.EditForm.email" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.forms.EditForm.enter_password">
+<code class="sig-name descname">enter_password</code><em class="property"> = &lt;UnboundField(StringField, ('Password',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;]})&gt;</em><a class="headerlink" href="#app.forms.EditForm.enter_password" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.forms.EditForm.message">
+<code class="sig-name descname">message</code><em class="property"> = &lt;UnboundField(TextAreaField, ('Message',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;]})&gt;</em><a class="headerlink" href="#app.forms.EditForm.message" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.forms.EditForm.name">
+<code class="sig-name descname">name</code><em class="property"> = &lt;UnboundField(StringField, ('Name',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;]})&gt;</em><a class="headerlink" href="#app.forms.EditForm.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.forms.EditForm.name_company">
+<code class="sig-name descname">name_company</code><em class="property"> = &lt;UnboundField(StringField, ('Organization name',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;]})&gt;</em><a class="headerlink" href="#app.forms.EditForm.name_company" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.forms.EditForm.re_password">
+<code class="sig-name descname">re_password</code><em class="property"> = &lt;UnboundField(PasswordField, ('Confirm Password',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;]})&gt;</em><a class="headerlink" href="#app.forms.EditForm.re_password" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.forms.EditForm.securityAnswer1">
+<code class="sig-name descname">securityAnswer1</code><em class="property"> = &lt;UnboundField(StringField, ('Password',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;]})&gt;</em><a class="headerlink" href="#app.forms.EditForm.securityAnswer1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.forms.EditForm.securityQuestion1">
+<code class="sig-name descname">securityQuestion1</code><em class="property"> = &lt;UnboundField(SelectField, ('Security Question',), {'choices': [], 'validators': [&lt;wtforms.validators.DataRequired object&gt;]})&gt;</em><a class="headerlink" href="#app.forms.EditForm.securityQuestion1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.forms.EditForm.subject">
+<code class="sig-name descname">subject</code><em class="property"> = &lt;UnboundField(StringField, ('Subject',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;]})&gt;</em><a class="headerlink" href="#app.forms.EditForm.subject" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.forms.EditForm.submit">
+<code class="sig-name descname">submit</code><em class="property"> = &lt;UnboundField(SubmitField, ('Submit info',), {})&gt;</em><a class="headerlink" href="#app.forms.EditForm.submit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.forms.EditForm.type_company">
+<code class="sig-name descname">type_company</code><em class="property"> = &lt;UnboundField(StringField, ('Organization type',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;]})&gt;</em><a class="headerlink" href="#app.forms.EditForm.type_company" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="app.forms.EditViewForm">
+<em class="property">class </em><code class="sig-prename descclassname">app.forms.</code><code class="sig-name descname">EditViewForm</code><span class="sig-paren">(</span><em class="sig-param">formdata=&lt;object object&gt;</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#app.forms.EditViewForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">flask_wtf.form.FlaskForm</span></code></p>
+<dl class="attribute">
+<dt id="app.forms.EditViewForm.AddEmpl">
+<code class="sig-name descname">AddEmpl</code><em class="property"> = &lt;UnboundField(SubmitField, ('Add Employee',), {})&gt;</em><a class="headerlink" href="#app.forms.EditViewForm.AddEmpl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.forms.EditViewForm.View">
+<code class="sig-name descname">View</code><em class="property"> = &lt;UnboundField(SubmitField, ('Edit/View Schedule',), {})&gt;</em><a class="headerlink" href="#app.forms.EditViewForm.View" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.forms.EditViewForm.ViewOwn">
+<code class="sig-name descname">ViewOwn</code><em class="property"> = &lt;UnboundField(SubmitField, ('View My Schedule',), {})&gt;</em><a class="headerlink" href="#app.forms.EditViewForm.ViewOwn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="app.forms.EmployeeForm">
+<em class="property">class </em><code class="sig-prename descclassname">app.forms.</code><code class="sig-name descname">EmployeeForm</code><span class="sig-paren">(</span><em class="sig-param">formdata=&lt;object object&gt;</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#app.forms.EmployeeForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">flask_wtf.form.FlaskForm</span></code></p>
+<dl class="attribute">
+<dt id="app.forms.EmployeeForm.email">
+<code class="sig-name descname">email</code><em class="property"> = &lt;UnboundField(StringField, ('Email',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;, &lt;wtforms.validators.Email object&gt;]})&gt;</em><a class="headerlink" href="#app.forms.EmployeeForm.email" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.forms.EmployeeForm.first_name">
+<code class="sig-name descname">first_name</code><em class="property"> = &lt;UnboundField(StringField, ('First name',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;]})&gt;</em><a class="headerlink" href="#app.forms.EmployeeForm.first_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.forms.EmployeeForm.last_name">
+<code class="sig-name descname">last_name</code><em class="property"> = &lt;UnboundField(StringField, ('Last name',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;]})&gt;</em><a class="headerlink" href="#app.forms.EmployeeForm.last_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.forms.EmployeeForm.manager">
+<code class="sig-name descname">manager</code><em class="property"> = &lt;UnboundField(SelectField, ('Select Role:',), {'choices': [('Manager', 'Manager'), ('Employee', 'Employee')], 'validators': [&lt;wtforms.validators.DataRequired object&gt;]})&gt;</em><a class="headerlink" href="#app.forms.EmployeeForm.manager" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.forms.EmployeeForm.phone_number">
+<code class="sig-name descname">phone_number</code><em class="property"> = &lt;UnboundField(StringField, ('Phone number',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;]})&gt;</em><a class="headerlink" href="#app.forms.EmployeeForm.phone_number" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.forms.EmployeeForm.submit">
+<code class="sig-name descname">submit</code><em class="property"> = &lt;UnboundField(SubmitField, ('Submit info',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;]})&gt;</em><a class="headerlink" href="#app.forms.EmployeeForm.submit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="app.forms.LoginForm">
+<em class="property">class </em><code class="sig-prename descclassname">app.forms.</code><code class="sig-name descname">LoginForm</code><span class="sig-paren">(</span><em class="sig-param">formdata=&lt;object object&gt;</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#app.forms.LoginForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">flask_wtf.form.FlaskForm</span></code></p>
+<dl class="attribute">
+<dt id="app.forms.LoginForm.Login">
+<code class="sig-name descname">Login</code><em class="property"> = &lt;UnboundField(SubmitField, ('Login',), {})&gt;</em><a class="headerlink" href="#app.forms.LoginForm.Login" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.forms.LoginForm.Password">
+<code class="sig-name descname">Password</code><em class="property"> = &lt;UnboundField(PasswordField, ('Password',), {})&gt;</em><a class="headerlink" href="#app.forms.LoginForm.Password" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.forms.LoginForm.Register">
+<code class="sig-name descname">Register</code><em class="property"> = &lt;UnboundField(SubmitField, ('Register',), {})&gt;</em><a class="headerlink" href="#app.forms.LoginForm.Register" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.forms.LoginForm.RememberMe">
+<code class="sig-name descname">RememberMe</code><em class="property"> = &lt;UnboundField(BooleanField, ('Remember Me',), {})&gt;</em><a class="headerlink" href="#app.forms.LoginForm.RememberMe" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.forms.LoginForm.ResetPassword">
+<code class="sig-name descname">ResetPassword</code><em class="property"> = &lt;UnboundField(SubmitField, ('ResetPassword',), {})&gt;</em><a class="headerlink" href="#app.forms.LoginForm.ResetPassword" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.forms.LoginForm.Username">
+<code class="sig-name descname">Username</code><em class="property"> = &lt;UnboundField(StringField, ('Username',), {})&gt;</em><a class="headerlink" href="#app.forms.LoginForm.Username" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="app.forms.LogoutForm">
+<em class="property">class </em><code class="sig-prename descclassname">app.forms.</code><code class="sig-name descname">LogoutForm</code><span class="sig-paren">(</span><em class="sig-param">formdata=&lt;object object&gt;</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#app.forms.LogoutForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">flask_wtf.form.FlaskForm</span></code></p>
+<dl class="attribute">
+<dt id="app.forms.LogoutForm.Logout">
+<code class="sig-name descname">Logout</code><em class="property"> = &lt;UnboundField(SubmitField, ('Logout',), {})&gt;</em><a class="headerlink" href="#app.forms.LogoutForm.Logout" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="app.forms.RegisterForm">
+<em class="property">class </em><code class="sig-prename descclassname">app.forms.</code><code class="sig-name descname">RegisterForm</code><span class="sig-paren">(</span><em class="sig-param">formdata=&lt;object object&gt;</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#app.forms.RegisterForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">flask_wtf.form.FlaskForm</span></code></p>
+<dl class="attribute">
+<dt id="app.forms.RegisterForm.address">
+<code class="sig-name descname">address</code><em class="property"> = &lt;UnboundField(StringField, ('Address',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;]})&gt;</em><a class="headerlink" href="#app.forms.RegisterForm.address" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.forms.RegisterForm.answer1">
+<code class="sig-name descname">answer1</code><em class="property"> = &lt;UnboundField(StringField, ('Answer1',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;]})&gt;</em><a class="headerlink" href="#app.forms.RegisterForm.answer1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.forms.RegisterForm.answer2">
+<code class="sig-name descname">answer2</code><em class="property"> = &lt;UnboundField(StringField, ('Answer2',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;]})&gt;</em><a class="headerlink" href="#app.forms.RegisterForm.answer2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.forms.RegisterForm.business_phone_number">
+<code class="sig-name descname">business_phone_number</code><em class="property"> = &lt;UnboundField(StringField, ('Business Phone number',), {})&gt;</em><a class="headerlink" href="#app.forms.RegisterForm.business_phone_number" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.forms.RegisterForm.email">
+<code class="sig-name descname">email</code><em class="property"> = &lt;UnboundField(StringField, ('Email',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;, &lt;wtforms.validators.Email object&gt;]})&gt;</em><a class="headerlink" href="#app.forms.RegisterForm.email" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.forms.RegisterForm.enter_password">
+<code class="sig-name descname">enter_password</code><em class="property"> = &lt;UnboundField(PasswordField, ('Password',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;]})&gt;</em><a class="headerlink" href="#app.forms.RegisterForm.enter_password" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.forms.RegisterForm.manager_namef">
+<code class="sig-name descname">manager_namef</code><em class="property"> = &lt;UnboundField(StringField, ('First name',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;]})&gt;</em><a class="headerlink" href="#app.forms.RegisterForm.manager_namef" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.forms.RegisterForm.manager_namel">
+<code class="sig-name descname">manager_namel</code><em class="property"> = &lt;UnboundField(StringField, ('Last name',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;]})&gt;</em><a class="headerlink" href="#app.forms.RegisterForm.manager_namel" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.forms.RegisterForm.manager_phone_number">
+<code class="sig-name descname">manager_phone_number</code><em class="property"> = &lt;UnboundField(StringField, ('Manager Phone Number',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;]})&gt;</em><a class="headerlink" href="#app.forms.RegisterForm.manager_phone_number" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.forms.RegisterForm.name_company">
+<code class="sig-name descname">name_company</code><em class="property"> = &lt;UnboundField(StringField, ('Organization name',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;]})&gt;</em><a class="headerlink" href="#app.forms.RegisterForm.name_company" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.forms.RegisterForm.question1">
+<code class="sig-name descname">question1</code><em class="property"> = &lt;UnboundField(SelectField, ('Question 1',), {'choices': [('Select1', '--Select One--'), ('Whichcity', 'Which city was your father born in?'), ('Whatname', 'What is the first name of your best friend in high school?'), ('Whatstreet', 'What street did you grow up on?'), ('Whatcook', 'What was the first thing you learned to cook?'), ('Wherefly', 'Where did you go the first time you flew on a plane?')], 'validators': [&lt;wtforms.validators.DataRequired object&gt;]})&gt;</em><a class="headerlink" href="#app.forms.RegisterForm.question1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.forms.RegisterForm.question2">
+<code class="sig-name descname">question2</code><em class="property"> = &lt;UnboundField(SelectField, ('Question 2',), {'choices': [('Select2', '--Select One--'), ('FirstConcert', 'What was the first concert you attended?'), ('FirstCar', 'What was the name of the first car you owned?'), ('FavTeam', 'What is your favorit sports team?'), ('FavSport', 'What is your favorite sports?'), ('FavArtist', 'Who is your favorite actor?')], 'validators': [&lt;wtforms.validators.DataRequired object&gt;]})&gt;</em><a class="headerlink" href="#app.forms.RegisterForm.question2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.forms.RegisterForm.re_password">
+<code class="sig-name descname">re_password</code><em class="property"> = &lt;UnboundField(PasswordField, ('Confirm Password',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;]})&gt;</em><a class="headerlink" href="#app.forms.RegisterForm.re_password" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.forms.RegisterForm.submit">
+<code class="sig-name descname">submit</code><em class="property"> = &lt;UnboundField(SubmitField, ('Submit',), {})&gt;</em><a class="headerlink" href="#app.forms.RegisterForm.submit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.forms.RegisterForm.type_company">
+<code class="sig-name descname">type_company</code><em class="property"> = &lt;UnboundField(StringField, ('Organization type',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;]})&gt;</em><a class="headerlink" href="#app.forms.RegisterForm.type_company" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="app.forms.RegisterForm.validate_business_phone_number">
+<code class="sig-name descname">validate_business_phone_number</code><span class="sig-paren">(</span><em class="sig-param">business_phone_number</em><span class="sig-paren">)</span><a class="headerlink" href="#app.forms.RegisterForm.validate_business_phone_number" title="Permalink to this definition">¶</a></dt>
+<dd><p>the function makes sure that the phone number is not already registerd</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="app.forms.RegisterForm.validate_email">
+<code class="sig-name descname">validate_email</code><span class="sig-paren">(</span><em class="sig-param">email</em><span class="sig-paren">)</span><a class="headerlink" href="#app.forms.RegisterForm.validate_email" title="Permalink to this definition">¶</a></dt>
+<dd><p>the function makes sure that the email is not already registered or in use</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="app.forms.RegisterForm.validate_manager_phone_number">
+<code class="sig-name descname">validate_manager_phone_number</code><span class="sig-paren">(</span><em class="sig-param">manager_phone_number</em><span class="sig-paren">)</span><a class="headerlink" href="#app.forms.RegisterForm.validate_manager_phone_number" title="Permalink to this definition">¶</a></dt>
+<dd><p>makes sure that the phone number is not already registered</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="app.forms.RegisterForm.validate_name_company">
+<code class="sig-name descname">validate_name_company</code><span class="sig-paren">(</span><em class="sig-param">name_company</em><span class="sig-paren">)</span><a class="headerlink" href="#app.forms.RegisterForm.validate_name_company" title="Permalink to this definition">¶</a></dt>
+<dd><p>the function makes sure that the company name is not already registered or in use</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="app.forms.RegisterForm.validate_question1">
+<code class="sig-name descname">validate_question1</code><span class="sig-paren">(</span><em class="sig-param">question1</em><span class="sig-paren">)</span><a class="headerlink" href="#app.forms.RegisterForm.validate_question1" title="Permalink to this definition">¶</a></dt>
+<dd><p>makes sure that a question is selected</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="app.forms.RegisterForm.validate_question2">
+<code class="sig-name descname">validate_question2</code><span class="sig-paren">(</span><em class="sig-param">question2</em><span class="sig-paren">)</span><a class="headerlink" href="#app.forms.RegisterForm.validate_question2" title="Permalink to this definition">¶</a></dt>
+<dd><p>makes sure that a question is selected</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="app.forms.RegisterForm.validate_re_password">
+<code class="sig-name descname">validate_re_password</code><span class="sig-paren">(</span><em class="sig-param">re_password</em><span class="sig-paren">)</span><a class="headerlink" href="#app.forms.RegisterForm.validate_re_password" title="Permalink to this definition">¶</a></dt>
+<dd><p>makes sure that the password and the repeated password match, otherwise alerts the user</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="app.forms.ResetPasswordForm">
+<em class="property">class </em><code class="sig-prename descclassname">app.forms.</code><code class="sig-name descname">ResetPasswordForm</code><span class="sig-paren">(</span><em class="sig-param">formdata=&lt;object object&gt;</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#app.forms.ResetPasswordForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">flask_wtf.form.FlaskForm</span></code></p>
+<dl class="attribute">
+<dt id="app.forms.ResetPasswordForm.answer1">
+<code class="sig-name descname">answer1</code><em class="property"> = &lt;UnboundField(StringField, ('Answer1',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;]})&gt;</em><a class="headerlink" href="#app.forms.ResetPasswordForm.answer1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.forms.ResetPasswordForm.answer2">
+<code class="sig-name descname">answer2</code><em class="property"> = &lt;UnboundField(StringField, ('Answer2',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;]})&gt;</em><a class="headerlink" href="#app.forms.ResetPasswordForm.answer2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.forms.ResetPasswordForm.email">
+<code class="sig-name descname">email</code><em class="property"> = &lt;UnboundField(StringField, ('Email',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;, &lt;wtforms.validators.Email object&gt;]})&gt;</em><a class="headerlink" href="#app.forms.ResetPasswordForm.email" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.forms.ResetPasswordForm.newPassword">
+<code class="sig-name descname">newPassword</code><em class="property"> = &lt;UnboundField(PasswordField, ('New Password',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;]})&gt;</em><a class="headerlink" href="#app.forms.ResetPasswordForm.newPassword" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.forms.ResetPasswordForm.newPasswordConfirm">
+<code class="sig-name descname">newPasswordConfirm</code><em class="property"> = &lt;UnboundField(PasswordField, ('Confirm New Password',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;]})&gt;</em><a class="headerlink" href="#app.forms.ResetPasswordForm.newPasswordConfirm" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.forms.ResetPasswordForm.question1">
+<code class="sig-name descname">question1</code><em class="property"> = &lt;UnboundField(SelectField, ('Question 1: ',), {'choices': [('Select1', '--Select One--'), ('Whichcity', 'Which city was your father born in?'), ('Whatname', 'What is the first name of your best friend in high school?'), ('Whatstreet', 'What street did you grow up on?'), ('Whatcook', 'What was the first thing you learned to cook?'), ('Wherefly', 'Where did you go the first time you flew on a plane?')], 'validators': [&lt;wtforms.validators.DataRequired object&gt;]})&gt;</em><a class="headerlink" href="#app.forms.ResetPasswordForm.question1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.forms.ResetPasswordForm.question2">
+<code class="sig-name descname">question2</code><em class="property"> = &lt;UnboundField(SelectField, ('Question 2',), {'choices': [('Select2', '--Select One--'), ('FirstConcert', 'What was the first concert you attended?'), ('FirstCar', 'What was the name of the first car you owned?'), ('FavTeam', 'What is your favorit sports team?'), ('FavSport', 'What is your favorite sports?'), ('FavArtist', 'Who is your favorite actor?')], 'validators': [&lt;wtforms.validators.DataRequired object&gt;]})&gt;</em><a class="headerlink" href="#app.forms.ResetPasswordForm.question2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.forms.ResetPasswordForm.submit">
+<code class="sig-name descname">submit</code><em class="property"> = &lt;UnboundField(SubmitField, ('Submit',), {})&gt;</em><a class="headerlink" href="#app.forms.ResetPasswordForm.submit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="app.forms.ResetPasswordForm.validate_newPasswordConfirm">
+<code class="sig-name descname">validate_newPasswordConfirm</code><span class="sig-paren">(</span><em class="sig-param">newPasswordConfirm</em><span class="sig-paren">)</span><a class="headerlink" href="#app.forms.ResetPasswordForm.validate_newPasswordConfirm" title="Permalink to this definition">¶</a></dt>
+<dd><p>makes sure that the confirm password matches the password</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="app.forms.ResetPasswordForm.validate_question1">
+<code class="sig-name descname">validate_question1</code><span class="sig-paren">(</span><em class="sig-param">question1</em><span class="sig-paren">)</span><a class="headerlink" href="#app.forms.ResetPasswordForm.validate_question1" title="Permalink to this definition">¶</a></dt>
+<dd><p>makes sure that a question is picked</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="app.forms.ResetPasswordForm.validate_question2">
+<code class="sig-name descname">validate_question2</code><span class="sig-paren">(</span><em class="sig-param">question2</em><span class="sig-paren">)</span><a class="headerlink" href="#app.forms.ResetPasswordForm.validate_question2" title="Permalink to this definition">¶</a></dt>
+<dd><p>makes sure that a question is picked</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="app.forms.managerhomepageForm">
+<em class="property">class </em><code class="sig-prename descclassname">app.forms.</code><code class="sig-name descname">managerhomepageForm</code><span class="sig-paren">(</span><em class="sig-param">formdata=&lt;object object&gt;</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#app.forms.managerhomepageForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">flask_wtf.form.FlaskForm</span></code></p>
+<dl class="attribute">
+<dt id="app.forms.managerhomepageForm.Submit">
+<code class="sig-name descname">Submit</code><em class="property"> = &lt;UnboundField(SubmitField, ('Submit',), {})&gt;</em><a class="headerlink" href="#app.forms.managerhomepageForm.Submit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.forms.managerhomepageForm.employees">
+<code class="sig-name descname">employees</code><em class="property"> = &lt;UnboundField(SelectField, ('Employee:',), {'coerce': &lt;class 'str'&gt;})&gt;</em><a class="headerlink" href="#app.forms.managerhomepageForm.employees" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.forms.managerhomepageForm.endtime">
+<code class="sig-name descname">endtime</code><em class="property"> = &lt;UnboundField(SelectField, ('EndTime:',), {'choices': [(datetime.time(0, 0), '00:00'), (datetime.time(0, 30), '00:30'), (datetime.time(1, 0), '01:00'), (datetime.time(1, 30), '01:30'), (datetime.time(2, 0), '02:00'), (datetime.time(2, 30), '02:30'), (datetime.time(3, 0), '03:00'), (datetime.time(3, 30), '03:30'), (datetime.time(4, 0), '04:00'), (datetime.time(4, 30), '04:30'), (datetime.time(5, 0), '05:00'), (datetime.time(5, 0), '05:30'), (datetime.time(6, 0), '06:30'), (datetime.time(7, 0), '07:00'), (datetime.time(7, 30), '07:30'), (datetime.time(8, 0), '08:00'), (datetime.time(8, 30), '08:30'), (datetime.time(9, 0), '09:00'), (datetime.time(9, 30), '09:30'), (datetime.time(10, 0), '10:00'), (datetime.time(10, 30), '10:30'), (datetime.time(11, 0), '11:00'), (datetime.time(11, 30), '11:30'), (datetime.time(12, 0), '12:00'), (datetime.time(12, 30), '12:30'), (datetime.time(13, 0), '13:00'), (datetime.time(13, 30), '13:30'), (datetime.time(14, 0), '14:00'), (datetime.time(14, 30), '14:30'), (datetime.time(15, 0), '15:00'), (datetime.time(15, 30), '15:30'), (datetime.time(16, 0), '16:00'), (datetime.time(16, 30), '16:30'), (datetime.time(17, 0), '17:00'), (datetime.time(17, 30), '17:30'), (datetime.time(18, 0), '18:00'), (datetime.time(18, 30), '18:30'), (datetime.time(19, 0), '19:00'), (datetime.time(19, 30), '19:30'), (datetime.time(20, 0), '20:00'), (datetime.time(20, 30), '20:30'), (datetime.time(21, 0), '21:00'), (datetime.time(21, 30), '21:30'), (datetime.time(22, 0), '22:00'), (datetime.time(22, 30), '22:30'), (datetime.time(23, 0), '23:00'), (datetime.time(23, 30), '23:30'), (datetime.time(23, 59), '23:59')]})&gt;</em><a class="headerlink" href="#app.forms.managerhomepageForm.endtime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.forms.managerhomepageForm.startdate">
+<code class="sig-name descname">startdate</code><em class="property"> = &lt;UnboundField(DateField, ('Date',), {'format': '%m/%d/%Y', 'validators': [&lt;wtforms.validators.DataRequired object&gt;, &lt;wtforms.validators.DataRequired object&gt;]})&gt;</em><a class="headerlink" href="#app.forms.managerhomepageForm.startdate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.forms.managerhomepageForm.starttime">
+<code class="sig-name descname">starttime</code><em class="property"> = &lt;UnboundField(SelectField, ('StartTime:',), {'choices': [(datetime.time(0, 0), '00:00'), (datetime.time(0, 30), '00:30'), (datetime.time(1, 0), '01:00'), (datetime.time(1, 30), '01:30'), (datetime.time(2, 0), '02:00'), (datetime.time(2, 30), '02:30'), (datetime.time(3, 0), '03:00'), (datetime.time(3, 30), '03:30'), (datetime.time(4, 0), '04:00'), (datetime.time(4, 30), '04:30'), (datetime.time(5, 0), '05:00'), (datetime.time(5, 0), '05:30'), (datetime.time(6, 0), '06:30'), (datetime.time(7, 0), '07:00'), (datetime.time(7, 30), '07:30'), (datetime.time(8, 0), '08:00'), (datetime.time(8, 30), '08:30'), (datetime.time(9, 0), '09:00'), (datetime.time(9, 30), '09:30'), (datetime.time(10, 0), '10:00'), (datetime.time(10, 30), '10:30'), (datetime.time(11, 0), '11:00'), (datetime.time(11, 30), '11:30'), (datetime.time(12, 0), '12:00'), (datetime.time(12, 30), '12:30'), (datetime.time(13, 0), '13:00'), (datetime.time(13, 30), '13:30'), (datetime.time(14, 0), '14:00'), (datetime.time(14, 30), '14:30'), (datetime.time(15, 0), '15:00'), (datetime.time(15, 30), '15:30'), (datetime.time(16, 0), '16:00'), (datetime.time(16, 30), '16:30'), (datetime.time(17, 0), '17:00'), (datetime.time(17, 30), '17:30'), (datetime.time(18, 0), '18:00'), (datetime.time(18, 30), '18:30'), (datetime.time(19, 0), '19:00'), (datetime.time(19, 30), '19:30'), (datetime.time(20, 0), '20:00'), (datetime.time(20, 30), '20:30'), (datetime.time(21, 0), '21:00'), (datetime.time(21, 30), '21:30'), (datetime.time(22, 0), '22:00'), (datetime.time(22, 30), '22:30'), (datetime.time(23, 0), '23:00'), (datetime.time(23, 30), '23:30')]})&gt;</em><a class="headerlink" href="#app.forms.managerhomepageForm.starttime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="app.forms.scheduleTableForm">
+<em class="property">class </em><code class="sig-prename descclassname">app.forms.</code><code class="sig-name descname">scheduleTableForm</code><span class="sig-paren">(</span><em class="sig-param">formdata=&lt;object object&gt;</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#app.forms.scheduleTableForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">flask_wtf.form.FlaskForm</span></code></p>
+<dl class="attribute">
+<dt id="app.forms.scheduleTableForm.datebox">
+<code class="sig-name descname">datebox</code><em class="property"> = &lt;UnboundField(DateField, ('datebox',), {'format': '%m/%d/%Y', 'validators': [&lt;wtforms.validators.DataRequired object&gt;, &lt;wtforms.validators.DataRequired object&gt;]})&gt;</em><a class="headerlink" href="#app.forms.scheduleTableForm.datebox" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.forms.scheduleTableForm.goTo">
+<code class="sig-name descname">goTo</code><em class="property"> = &lt;UnboundField(SubmitField, ('Go To',), {})&gt;</em><a class="headerlink" href="#app.forms.scheduleTableForm.goTo" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-app.models">
+<span id="app-models-module"></span><h2>app.models module<a class="headerlink" href="#module-app.models" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="app.models.Employee">
+<em class="property">class </em><code class="sig-prename descclassname">app.models.</code><code class="sig-name descname">Employee</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#app.models.Employee" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">flask_login.mixins.UserMixin</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">sqlalchemy.ext.declarative.api.Model</span></code></p>
+<dl class="attribute">
+<dt id="app.models.Employee.Organization">
+<code class="sig-name descname">Organization</code><a class="headerlink" href="#app.models.Employee.Organization" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.models.Employee.answer1">
+<code class="sig-name descname">answer1</code><a class="headerlink" href="#app.models.Employee.answer1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.models.Employee.answer2">
+<code class="sig-name descname">answer2</code><a class="headerlink" href="#app.models.Employee.answer2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="app.models.Employee.check_password">
+<code class="sig-name descname">check_password</code><span class="sig-paren">(</span><em class="sig-param">password</em><span class="sig-paren">)</span><a class="headerlink" href="#app.models.Employee.check_password" title="Permalink to this definition">¶</a></dt>
+<dd><p>checks the password with data base, if matches, returns True</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="app.models.Employee.email">
+<code class="sig-name descname">email</code><a class="headerlink" href="#app.models.Employee.email" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.models.Employee.firsttimelogin">
+<code class="sig-name descname">firsttimelogin</code><a class="headerlink" href="#app.models.Employee.firsttimelogin" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.models.Employee.fname">
+<code class="sig-name descname">fname</code><a class="headerlink" href="#app.models.Employee.fname" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.models.Employee.id">
+<code class="sig-name descname">id</code><a class="headerlink" href="#app.models.Employee.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.models.Employee.lname">
+<code class="sig-name descname">lname</code><a class="headerlink" href="#app.models.Employee.lname" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.models.Employee.manager">
+<code class="sig-name descname">manager</code><a class="headerlink" href="#app.models.Employee.manager" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.models.Employee.organization_id">
+<code class="sig-name descname">organization_id</code><a class="headerlink" href="#app.models.Employee.organization_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.models.Employee.password_hash">
+<code class="sig-name descname">password_hash</code><a class="headerlink" href="#app.models.Employee.password_hash" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.models.Employee.phone_number">
+<code class="sig-name descname">phone_number</code><a class="headerlink" href="#app.models.Employee.phone_number" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.models.Employee.question1">
+<code class="sig-name descname">question1</code><a class="headerlink" href="#app.models.Employee.question1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.models.Employee.question2">
+<code class="sig-name descname">question2</code><a class="headerlink" href="#app.models.Employee.question2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.models.Employee.schedule">
+<code class="sig-name descname">schedule</code><a class="headerlink" href="#app.models.Employee.schedule" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="app.models.Employee.setAnswer">
+<code class="sig-name descname">setAnswer</code><span class="sig-paren">(</span><em class="sig-param">answer1</em>, <em class="sig-param">answer2</em><span class="sig-paren">)</span><a class="headerlink" href="#app.models.Employee.setAnswer" title="Permalink to this definition">¶</a></dt>
+<dd><p>set the security questions’ answers of each employee</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="app.models.Employee.setManager">
+<code class="sig-name descname">setManager</code><span class="sig-paren">(</span><em class="sig-param">data</em><span class="sig-paren">)</span><a class="headerlink" href="#app.models.Employee.setManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Toggles the manager column of each employee</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="app.models.Employee.setQuestion">
+<code class="sig-name descname">setQuestion</code><span class="sig-paren">(</span><em class="sig-param">question1</em>, <em class="sig-param">question2</em><span class="sig-paren">)</span><a class="headerlink" href="#app.models.Employee.setQuestion" title="Permalink to this definition">¶</a></dt>
+<dd><p>set the security questions of each employee</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="app.models.Employee.set_orgid">
+<code class="sig-name descname">set_orgid</code><span class="sig-paren">(</span><em class="sig-param">id</em><span class="sig-paren">)</span><a class="headerlink" href="#app.models.Employee.set_orgid" title="Permalink to this definition">¶</a></dt>
+<dd><p>sets the Organization Id of each employee</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="app.models.Employee.set_password">
+<code class="sig-name descname">set_password</code><span class="sig-paren">(</span><em class="sig-param">password</em><span class="sig-paren">)</span><a class="headerlink" href="#app.models.Employee.set_password" title="Permalink to this definition">¶</a></dt>
+<dd><p>sets the password of each employee</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="app.models.Employee.setfirstlogin">
+<code class="sig-name descname">setfirstlogin</code><span class="sig-paren">(</span><em class="sig-param">firsttime</em><span class="sig-paren">)</span><a class="headerlink" href="#app.models.Employee.setfirstlogin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Toggles the firsttime login column of each employee</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="app.models.Organization">
+<em class="property">class </em><code class="sig-prename descclassname">app.models.</code><code class="sig-name descname">Organization</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#app.models.Organization" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">sqlalchemy.ext.declarative.api.Model</span></code></p>
+<dl class="attribute">
+<dt id="app.models.Organization.address">
+<code class="sig-name descname">address</code><a class="headerlink" href="#app.models.Organization.address" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.models.Organization.email">
+<code class="sig-name descname">email</code><a class="headerlink" href="#app.models.Organization.email" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.models.Organization.employees">
+<code class="sig-name descname">employees</code><a class="headerlink" href="#app.models.Organization.employees" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.models.Organization.id">
+<code class="sig-name descname">id</code><a class="headerlink" href="#app.models.Organization.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.models.Organization.name">
+<code class="sig-name descname">name</code><a class="headerlink" href="#app.models.Organization.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.models.Organization.phone_number">
+<code class="sig-name descname">phone_number</code><a class="headerlink" href="#app.models.Organization.phone_number" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.models.Organization.schedule">
+<code class="sig-name descname">schedule</code><a class="headerlink" href="#app.models.Organization.schedule" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.models.Organization.typeofbusiness">
+<code class="sig-name descname">typeofbusiness</code><a class="headerlink" href="#app.models.Organization.typeofbusiness" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="app.models.Schedule">
+<em class="property">class </em><code class="sig-prename descclassname">app.models.</code><code class="sig-name descname">Schedule</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#app.models.Schedule" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">flask_login.mixins.UserMixin</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">sqlalchemy.ext.declarative.api.Model</span></code></p>
+<dl class="attribute">
+<dt id="app.models.Schedule.Employee">
+<code class="sig-name descname">Employee</code><a class="headerlink" href="#app.models.Schedule.Employee" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.models.Schedule.Organization">
+<code class="sig-name descname">Organization</code><a class="headerlink" href="#app.models.Schedule.Organization" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.models.Schedule.emp_id">
+<code class="sig-name descname">emp_id</code><a class="headerlink" href="#app.models.Schedule.emp_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.models.Schedule.endtime">
+<code class="sig-name descname">endtime</code><a class="headerlink" href="#app.models.Schedule.endtime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.models.Schedule.id">
+<code class="sig-name descname">id</code><a class="headerlink" href="#app.models.Schedule.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.models.Schedule.org_id">
+<code class="sig-name descname">org_id</code><a class="headerlink" href="#app.models.Schedule.org_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.models.Schedule.starttime">
+<code class="sig-name descname">starttime</code><a class="headerlink" href="#app.models.Schedule.starttime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app.models.Schedule.thedates">
+<code class="sig-name descname">thedates</code><a class="headerlink" href="#app.models.Schedule.thedates" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="app.models.load_user">
+<code class="sig-prename descclassname">app.models.</code><code class="sig-name descname">load_user</code><span class="sig-paren">(</span><em class="sig-param">id</em><span class="sig-paren">)</span><a class="headerlink" href="#app.models.load_user" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-app.routes">
+<span id="app-routes-module"></span><h2>app.routes module<a class="headerlink" href="#module-app.routes" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="app.routes.about">
+<code class="sig-prename descclassname">app.routes.</code><code class="sig-name descname">about</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app.routes.about" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tells you about Shifter Team
+No parameters taken here just a simple CSS page</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="app.routes.addemployee">
+<code class="sig-prename descclassname">app.routes.</code><code class="sig-name descname">addemployee</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app.routes.addemployee" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a new Employee to the data base under the same organization id as the logged in user who is adding the
+new user.
+Also allows the new user to be selected as manager or employee</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="app.routes.chooseToDo">
+<code class="sig-prename descclassname">app.routes.</code><code class="sig-name descname">chooseToDo</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app.routes.chooseToDo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides options for the manager who is logged in.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="app.routes.contact">
+<code class="sig-prename descclassname">app.routes.</code><code class="sig-name descname">contact</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app.routes.contact" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allow the customers to contact our team for support and help
+Here is the contact us function
+This uses the parameters in the class app.forms.ContacttForm</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="app.routes.displayMyAccount">
+<code class="sig-prename descclassname">app.routes.</code><code class="sig-name descname">displayMyAccount</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app.routes.displayMyAccount" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fetches the info of the logged in user and allow him or her to modify it</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="app.routes.emphomepage">
+<code class="sig-prename descclassname">app.routes.</code><code class="sig-name descname">emphomepage</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app.routes.emphomepage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Employee Home Page. Displays the Schedule of logged in employee</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="app.routes.getWeeklySchedule">
+<code class="sig-prename descclassname">app.routes.</code><code class="sig-name descname">getWeeklySchedule</code><span class="sig-paren">(</span><em class="sig-param">startdate</em>, <em class="sig-param">enddate</em><span class="sig-paren">)</span><a class="headerlink" href="#app.routes.getWeeklySchedule" title="Permalink to this definition">¶</a></dt>
+<dd><p>fetches the schedules of the logged in user between the two specefied days</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="app.routes.login">
+<code class="sig-prename descclassname">app.routes.</code><code class="sig-name descname">login</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app.routes.login" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allowes the user to login with username and password, register their organization or reset their password.
+Depending on their role as manager or employee then they are redirected to emphomepage or managerhomepage.
+If they are logged in for the first time, they are redirected to resetpassword page.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="app.routes.logout">
+<code class="sig-prename descclassname">app.routes.</code><code class="sig-name descname">logout</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app.routes.logout" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loggs out user and redirects them back to login page</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="app.routes.managerview">
+<code class="sig-prename descclassname">app.routes.</code><code class="sig-name descname">managerview</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app.routes.managerview" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lets the manager setup the schedule and add Shifts to employees</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="app.routes.register">
+<code class="sig-prename descclassname">app.routes.</code><code class="sig-name descname">register</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app.routes.register" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allows people to register their company and a manager along with</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="app.routes.reset">
+<code class="sig-prename descclassname">app.routes.</code><code class="sig-name descname">reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app.routes.reset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allows the user to reset their password. Once when they want to reset their password
+and once when they are forced to</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-app">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-app" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Hernandez, Luu, Khadiri, Xue, Wallace
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
