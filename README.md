@@ -9,6 +9,12 @@
                                         > https://shift-er.herokuapp.com/ 
 # c.	README should include icon to show whether tests are passing/failing.
 # d.	README should state file location of test cases and how to run them.
+					> CMPE131FALL_Team1>Shifterapp>tests
+                                        > To run the test cases:
+                                        > 1) Open command prompt
+                                        > 2) Enter "pip install pytest"
+                                        > 3) Navigate to the the base directory of our app (CMPE131_2019Fall_Team1)
+                                        > 4) Enter "pytest"
 # e.	README should show location of HTML file to view the sphinx documentation.
                                          >CMPE131FALL_Team1>Shifterapp>_build
 
