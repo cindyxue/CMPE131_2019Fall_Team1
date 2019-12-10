@@ -51,13 +51,17 @@ Email: CMPE131Shifter@gmail.com
 
 Password: Password131
 
-## Feature 6: My Account Page (current only CSS page)
+## Feature 6: My Account Page
 
-My accound page displays basic info of a user. It's currently hard coded.
+My accound page displays basic info of a user. User can edit it's info. 
 
 ## Feature 7: Calender
+The Calender now shows the schedule of the person logged in. Essentially being the employee homepage. 
 
-## Feature 8: Register Employee Page
+## Feature 8: EditSchedule
+The Manager can schedule the employees through this page. There is also a table showing the schedule on the right side. 
 
+## Feature 9: Register Employee Page
+This allows the manager to add an Employee under his own organization and select their role. 
 
 ...
