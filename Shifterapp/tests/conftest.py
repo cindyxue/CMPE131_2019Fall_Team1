@@ -36,6 +36,6 @@ def db(app_context):
     db.create_all()
 
     yield db
-
+    db.session.close()
     db.drop_all()
     os.unlink(TESTDB_PATH)
