@@ -12,9 +12,9 @@
 					> CMPE131FALL_Team1>Shifterapp>tests
                                         > To run the test cases:
                                         > 1) Open command prompt
-                                        > 2) Enter "pip install pytest"
+                                        > 2) Enter "pip install pytest" into command prompt
                                         > 3) Navigate to the the base directory of our app (CMPE131_2019Fall_Team1)
-                                        > 4) Enter "pytest"
+                                        > 4) Enter "pytest" into command prompt
 # e.	README should show location of HTML file to view the sphinx documentation.
                                          >CMPE131FALL_Team1>Shifterapp>_build
 
