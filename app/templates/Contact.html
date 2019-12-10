@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+    <link href = "../static/base.css?v1.4" rel = "stylesheet" type = "text/css">
+    <header>
+        {% if title %}
+        <title>{{title}}</title>
+        {% else %}
+        <title>Shifter</title>
+        {% endif %}
+
+        <nav>
+            <h1><a href = "{{url_for('login')}}" class = 'ShifterHeader'>Shifter</a></h1>
+            <ul>
+                {% if title != "Shifter Scheduling Application" and title != "Register Organization" and title != "About Shifter" and title != "Contact Us" and title != 'Reset Your Password' %}
+                <li><a href="{{url_for('chooseToDo')}}">Home</a></li>
+                <li><a href="{{url_for('displayMyAccount')}}">Edit Profile</a></li>
+                {% endif %}
+                <li><a href="about">About</a></li>
+                <li><a href="{{url_for('contact')}}">Contact</a></li>
+
+    <link href = "../static/Contact.css?v=8.0" rel = "stylesheet" type = "text/css">
+    </header>
+    <body>
+        {% if success %}
+            <p class = 'Thx'>Thank you for your message. We'll get back to you shortly.</p>
+
+        {% else %}
+
+
+
+            <div class="container">
+
+            <form action = "" method = "POST">
+                {{ formContact.hidden_tag() }}
+
+
+
+                <header><H1 class = 'contact'><u>Contact Shifter</u></H1></header>
+                <!--<h3 class = 'contact'>Contact Us!</h3> --!>
+
+
+                <p class ='info'>
+                    Customer support is our top priority.
+                    Contact us if you have any questions.
+                    We are here to help.
+                    Feel free to send us a quick question or extended details about your scheduling needs
+
+                </p>
+
+
+                <p class = 'info'></p>
+
+                <p>
+                    {{ formContact.name.label}}:
+                    {{ formContact.name(class_="namebox", placeholder="Enter your name...") }}<br>
+                    {% for error in formContact.name.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}
+                </p>
+
+                <p>
+                    {{ formContact.email.label }}:
+                    {{ formContact.email(class_="emailbox", placeholder="Enter your email...") }}<br>
+                    {% for error in formContact.email.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}
+                </p>
+                <p>
+                    {{ formContact.phone_number.label }}:
+                    {{ formContact.phone_number(placeholder="Enter your phone number...") }}<br>
+                    {% for error in formContact.phone_number.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}
+                </p>
+                 <p>
+                    {{ formContact.subject.label }}:
+                    {{ formContact.subject(class_="subjectbox", placeholder="Enter subject...") }}<br>
+                    {% for error in formContact.subject.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}
+                </p>
+                <p>
+
+                     {{ formContact.message.label }}:
+                    {{ formContact.message(class_="messagebox", placeholder="Write something..", style="height:200px") }}<br>
+                    {% for error in formContact.message.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}
+<!-- Ctrl+Shift+i on the website to change the css/html right away see changes --!>
+
+                </p>
+
+                <p>{{ formContact.submit(class_ = "submitinfo")}}</p>
+                <p class = 'info'>
+                     If you would like to speak directly with an individual, please give us a call at 1-800-555-5555 during our hours of operation: Monday–Friday, 7am–6pm Pacific time.
+                <p>
+            </form>
+        {% endif %}
+
+
+
+        </div>
+    </body>
+ </ul>
+        </nav>
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul class = flash>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+
+    {% endif %}
+    {% endwith %}
+   </html>

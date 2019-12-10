@@ -1,0 +1,118 @@
+
+body {
+    transition: 0.5s ease;
+    background-image: url('login1.jpg');
+    background-size:cover;
+    margin:0;
+    background-color: rgba(90, 90, 90, 0.116);
+    background-repeat: no-repeat;
+    
+}
+div{
+    transition: all 0.1s ease-in;
+    background:rgb(131, 112, 112);
+    border-radius: 20px;
+    width :500px;
+    height:10%;
+    padding:50px 35px;
+    margin-left:10%;
+    margin-right:10%;
+    margin-top:100px;
+}
+
+.username, .password{
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size:25px;
+    border-radius: 15px;
+    padding:3% 1% 3% 1%;
+    width:84%;
+    margin-bottom:4%;
+    margin-left:8%;
+    margin-right:8%;
+    
+}
+.Resetbutton{
+    background-color:rgb(61, 3, 3);
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size:25px;
+    padding:4%;
+    border-radius: 15px;
+    width :54%;
+    margin-left :23%;
+    margin-right:23%;
+    margin-top:0;
+    color:gold;
+    margin-bottom:-2%;
+}
+
+.Login{
+    background-color:rgb(61, 3, 3);
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size:25px;
+    padding:4%;
+    border-radius: 15px;
+    width :54%;
+    margin-left :23%;
+    margin-right:23%;
+    color:gold;
+    margin-bottom:5%;
+
+}
+
+.RememberMe{
+    Color: #fff8fd;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 25px;
+    margin-top:0;
+    margin-left:33%;
+}
+.RememberMeButton{
+    width:20px;
+    height:20px;
+    margin-top:0;
+    margin-bottom: 5%;
+
+}
+form a.link {
+    color: #af4763;
+
+}
+form p {
+    color: maroon;
+    text-align: center;
+    height: 500px;
+    width: 600px;
+}
+
+.btn:hover {
+    cursor: pointer;
+    text-decoration-line: underline;
+
+}
+.RegisterLabel{
+    margin-left:8%;
+    color:white;
+    display: inline;
+    font-size:20px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bolder;
+
+}
+.Register{
+    margin-top: 5%;
+    margin-left:3%;
+    font-size:20px;
+    padding:5px 20px;
+    color:maroon;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bolder;
+}
+
+
+.Resetbutton:hover, .Login:hover, .Register:hover, .link:hover{
+    cursor: pointer;
+    text-decoration-line: underline;
+}

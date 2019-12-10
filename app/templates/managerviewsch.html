@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+
+{% block content %}
+<link href = "../static/managerviewsch.css" rel = "stylesheet" type = "text/css">
+    <div id="grid-container">
+        <div id="column-left">
+            <form method = 'POST' action = '' class = addform> 
+        <div class = 'employee'>    
+            <p>{{scheduleform.employees.label}}</p>
+            <p>{{scheduleform.employees}}</p>
+        </div>
+        <div class = 'dates'>
+            <p>{{scheduleform.startdate.label}}</p>
+            <p>{{scheduleform.startdate(value = datechosen)}}</p>
+        </div>
+            <p>{{scheduleform.starttime.label}}</p>
+            <p>{{scheduleform.starttime}}</p>
+            <p>{{scheduleform.endtime.label}}</p>
+            <p>{{scheduleform.endtime}}</p>
+            <p>{{scheduleform.Submit}}</p>
+        </form>
+
+        </div>
+            <div id="column-right">
+                <form method = 'POST' action = ''>
+                <div class = 'dates'>
+                <p>{{tableForm.datebox(value = datechosen)}}</p>
+                <p>{{tableForm.goTo}}</p>
+            </div>
+                <table>
+                    <th>Employee Name</th>
+                    <th>Start Time</th>
+                    <th>End Time</th>
+                {% for i in tabledict %}
+                <tr>
+                    <td>{{i}}</td>
+                    <td>{{tabledict[i][0]}}</td>
+                    <td>{{tabledict[i][1]}}</td>
+                </tr>
+                {% endfor %}
+                </table>
+                
+            </form>
+            </div>
+    </div>
+{% endblock %}

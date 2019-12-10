@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <link href = "../static/base.css?v1.4" rel = "stylesheet" type = "text/css">
+    <header>
+        {% if title %}
+        <title>{{title}}</title>
+        {% else %}
+        <title>Shifter</title>
+        {% endif %}
+        
+        <nav>
+            <h1><a href = "{{url_for('login')}}" class = 'ShifterHeader'>Shifter</a></h1>
+            <ul>
+                {% if title != "Shifter Scheduling Application" and title != "Register Organization" and title != "About Shifter" and title != "Contact Us" and title != 'Reset Your Password' %}
+                <li><a href="{{url_for('chooseToDo')}}">Home</a></li>
+                <li><a href="{{url_for('displayMyAccount')}}">Edit Profile</a></li>
+                {% endif %}
+                <li><a href="about">About</a></li>
+                <li><a href="{{url_for('contact')}}">Contact</a></li>
+             <ul>
+                {% if title != "Shifter Scheduling Application" and title != "Register Organization" and title != "About Shifter" and title != 'Reset Your Password' %}
+                <li class = 'logout'><form action = "", method = 'POST'>
+                    {{formLogout.Logout(class_ = 'Logoutbutton')}}</form>
+                </li>
+                {% endif %}
+
+            </ul>
+        </nav>
+    </header>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul class = flash>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+
+    {% endif %}
+    {% endwith %}
+
+{% block content %}
+{% endblock %}
+   </html>

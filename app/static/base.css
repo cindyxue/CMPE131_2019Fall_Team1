@@ -1,0 +1,78 @@
+
+header{
+    background-color:rgba(0, 0, 0, 0.212);
+    padding:30px;
+    border-radius: 0 5px 5px 0;
+    margin-bottom:1px;
+    color:black;
+    font-style: italic;
+    
+
+}
+
+ul a{
+    color:gold;
+    font-size:18px;
+    text-decoration: none;
+    display:inline;
+}
+.ShifterHeader, nav h1{
+    text-decoration: none;
+    color:black;
+    font-family:'Times New Roman', Times, serif;
+    display:inline;
+    font-size: 60px;
+}
+.ShifterHeader:hover{
+    cursor: pointer;
+}
+nav ul{
+    display:inline;
+    margin:0;
+    
+    
+}
+nav ul li {
+    list-style-type: none;
+    display:inline-block;
+    background:rgb(61, 3, 3);
+    border-radius: 10px;
+    border-color: white;
+    padding:10px 15px;
+    font-style: normal;
+
+}
+ul a:hover{
+    text-decoration: underline;
+    font-weight:800;
+}
+.logout{
+    padding:0;
+    margin-left:0.5%;
+}
+.logout:hover{
+    text-decoration: underline;
+    font-weight: 800;
+}
+
+.Logoutbutton{
+    font-family:'Times New Roman', Times, serif;
+    text-align:center;
+    font-size:1.2em;
+    padding: 25%;
+    border-color:gray;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color:rgb(17, 49, 2);
+    color:gold;
+
+
+}
+hr{
+    border:none;
+}
+.flash{
+    font-size:25px;
+    margin-bottom: -40px;
+}

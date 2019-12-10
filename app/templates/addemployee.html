@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+
+{% block content %}
+    <link href = "../static/addemployee.css?v1.1" rel = "stylesheet" type = "text/css">
+    <body>
+        <div class="container">
+            <form action = "" method = "POST">
+                {{ formEmployee.hidden_tag() }}
+
+                <p>
+                    {{ formEmployee.first_name.label}}:
+                    {{ formEmployee.first_name(class_="firstnamebox") }}<br>
+                    {% for error in formEmployee.first_name.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}
+                </p>
+                <p>
+                    {{ formEmployee.last_name.label }}:
+                    {{ formEmployee.last_name(class_="lastnamebox") }}<br>
+                    {% for error in formEmployee.last_name.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}
+                </p>
+                <p>
+                    {{ formEmployee.email.label }}:
+                    {{ formEmployee.email(class_="emailbox") }}<br>
+                    {% for error in formEmployee.email.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}
+                </p>
+                <p>
+                    {{ formEmployee.phone_number.label }}:
+                    {{ formEmployee.phone_number() }}<br>
+                    {% for error in formEmployee.phone_number.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}
+                </p>
+                <p>
+                    {{formEmployee.manager.label}}
+                    {{formEmployee.manager(class_ = 'role')}}
+                    {% for error in formEmployee.manager.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}
+                </p>
+                <p>{{ formEmployee.submit(class_ = "submitinfo")}}</p>
+                <p class = "note">*Users will login with their email. A user's default password will be their <em>Phone Number</em>.</p>
+            </form>
+        </div>
+    </body>
+{% endblock %}

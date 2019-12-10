@@ -1,0 +1,63 @@
+/*
+https://www.w3schools.com/css/css_grid_container.asp
+https://developers.google.com/chart/interactive/docs/gallery/timeline
+*/
+body{
+  margin:0;
+}
+#grid-container {
+    display: grid;
+    grid-template-columns: 29.8% 70%;
+    grid-template-rows: 100%;
+    grid-gap: 2px;
+    background-color: rgba(24, 24, 24, 0.226);
+    padding: 3px;
+  }
+  
+#grid-container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  background: rgb(255, 255, 255);
+  padding: 20px 20px;
+  font-size: 14px;
+}
+
+.scroll-wrapper {
+  overflow-x: scroll;
+  overflow-y: auto;
+  height: 400px;
+  width: 400px;
+}
+.addform{
+  padding:5px;
+}
+.employee p , .dates p{
+  display:inline;
+}
+.employee{
+  margin-bottom: 10px;
+}
+p{
+  font-size: 20px;
+
+}
+p input[type=text]{
+  font-size: 15px;
+}
+table th, td , tr{
+  border: 2.5px solid rgba(0, 0, 0, 0.733);
+  width:300px;
+  height:70px;
+  background-color:rgba(211, 211, 211, 0.438);
+  font-size:25px;
+}
+table th{
+  background-color:rgb(61, 3, 3);
+  color:gold;
+}
+table{
+  margin-top:20px;
+  border-collapse: collapse;
+  margin-left:20%;
+  margin-bottom:25px;
+  margin-right:20%;

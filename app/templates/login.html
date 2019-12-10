@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+
+{% block content %}
+    <link href = "../static/login.css" rel = "stylesheet" type = "text/css"> 
+    
+    <body>
+        <div class = forms>
+            <form action='' method='POST' class = "login" >
+                {{ formLogin.hidden_tag() }}
+
+                {{formLogin.Username(placeholder= "Email", class_="username")}}<br>
+                {{formLogin.Password(placeholder = "Password", class_="password")}}<br>
+                {{formLogin.Login(class_ = "Login")}}
+                {{formLogin.RememberMe.label(class_ = "RememberMe")}}
+                {{formLogin.RememberMe(class_ = "RememberMeButton")}}
+        
+                {{formLogin.ResetPassword(class_="Resetbutton", value = "Reset Password")}}<br>
+                <p class = 'RegisterLabel'>New Comapny?</p>
+                {{formLogin.Register(class_="Register", value = "Register Your Organization")}} 
+            </form>
+        </div>
+    </body>
+{% endblock %}
