@@ -1,5 +1,7 @@
-from app import Shifter 
-from app import db
+# from app import Shifter 
+# from app import db
+from . import db
+from flask import current_app as Shifter
 from app.forms import LoginForm, EmployeeForm, LogoutForm, EditViewForm, RegisterForm, ResetPasswordForm, ContactForm, ChangeWeekForm, managerhomepageForm, scheduleTableForm
 from app.models import Organization, Employee, Schedule
 from flask import render_template, flash, redirect, url_for
@@ -17,7 +19,7 @@ mail = Mail()
 
 @Shifter.route('/', methods = ['GET', 'POST'])
 def login():
-    """Allowes the user to login with username and password, register their organization or reset their password.
+    """Alloes the user to login with username and password, register their organization or reset their password.
     Depending on their role as manager or employee then they are redirected to emphomepage or managerhomepage.
     If they are logged in for the first time, they are redirected to resetpassword page.
     """
@@ -30,7 +32,7 @@ def login():
     elif formLogin.ResetPassword.data and formLogin.is_submitted():
         return redirect(url_for('reset'))
 
-    elif formLogin.validate_on_submit():
+    elif formLogin.Login.data and formLogin.validate_on_submit():
         user = Employee.query.filter_by(email=formLogin.Username.data).first()
         if user is None or not user.check_password(formLogin.Password.data):
             flash('Invalid username or password')
