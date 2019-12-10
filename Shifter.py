@@ -1,2 +1,2 @@
-from app import Shifter
+from app import create_app
 
