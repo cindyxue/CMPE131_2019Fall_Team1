@@ -45,6 +45,8 @@ def create_app(test_config=None):
         db.create_all()
     
     return Shifter
-Shifter = create_app()
+
 if __name__ == '__main__':
+    Shifter = create_app()
+
     Shifter.run()
